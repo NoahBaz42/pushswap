@@ -1,38 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/22 19:00:21 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/06/30 21:38:43 by noah-baz         ###   ########.fr       */
+/*   Created: 2026/06/30 19:44:11 by noah-baz          #+#    #+#             */
+/*   Updated: 2026/06/30 21:34:13 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h" 
-#include "libft/libft.h"
+#include "../push_swap.h" 
 
 
-// args, atol and split.
-// ft_swap to swap
-//push_swap visualizer
-//bitmasking
-
-
-int main(int argc, char **argv)
+void flag_checker(int argc, char **argv)
 {
-    int v;
-    int i;
-
-    v = 1;
-    while( v < argc)
-    {
-        i = 0;
-        if (argv[v][i] && *argv[i + 1] == ' ')
-			ft_split(*argv, ' ');
-        else
-			//atol
-        
-    }
+    
 }

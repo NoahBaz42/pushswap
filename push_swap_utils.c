@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/22 19:00:21 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/06/30 21:38:43 by noah-baz         ###   ########.fr       */
+/*   Created: 2026/06/30 19:26:22 by noah-baz          #+#    #+#             */
+/*   Updated: 2026/06/30 21:14:10 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h" 
-#include "libft/libft.h"
 
 
-// args, atol and split.
-// ft_swap to swap
-//push_swap visualizer
-//bitmasking
-
-
-int main(int argc, char **argv)
+void give_error(void)
 {
-    int v;
-    int i;
+    write(2, "Error\n", 6);
+    exit(1);
+}
 
-    v = 1;
-    while( v < argc)
+void free_array(char **array)
+{
+    int i;
+    
+    i = 0;
+    while(array[i])
     {
-        i = 0;
-        if (argv[v][i] && *argv[i + 1] == ' ')
-			ft_split(*argv, ' ');
-        else
-			//atol
-        
+        free(array[i]);
+        i++;
     }
+    free(array);
+    return ;
+}
+
+void free_list(t_list list)
+{
+    if(!list)
+        return;
+    while(list->head)
+    
 }
