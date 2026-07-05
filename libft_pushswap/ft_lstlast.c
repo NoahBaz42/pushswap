@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:22 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/05/29 19:37:03 by charlie          ###   ########.fr       */
+/*   Updated: 2026/07/05 21:51:07 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
 
-t_list	*ft_lstlast(t_list *lst)
+t_node	*ft_lstlast(t_node *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -29,9 +29,9 @@ t_list	*ft_lstlast(t_list *lst)
 // 	free(content);
 // }
 
-// static void ft_print_lst(t_list *first)
+// static void ft_print_lst(t_node *first)
 // {
-// 	t_list	*temp;
+// 	t_node	*temp;
 // 	int		num;
 // 	int		i;
 
@@ -50,9 +50,9 @@ t_list	*ft_lstlast(t_list *lst)
 // {
 // 	int *x;
 // 	int	i;
-// 	t_list *node;
-// 	t_list *new_node;
-// 	t_list	*temp;
+// 	t_node *node;
+// 	t_node *new_node;
+// 	t_node	*temp;
 
 // 	i = 1;
 // 	if (argc < 2)

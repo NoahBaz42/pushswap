@@ -6,13 +6,13 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:15 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/06/02 17:01:11 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/07/05 21:50:38 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_node **lst, t_node *new)
 {
 	if (!lst || !new)
 		return ;
@@ -26,9 +26,9 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 // 	free(content);
 // }
 
-// static void ft_print_lst(t_list *first)
+// static void ft_print_lst(t_node *first)
 // {
-// 	t_list	*temp;
+// 	t_node	*temp;
 // 	int		num;
 // 	int		i;
 
@@ -49,8 +49,8 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 // {
 // 	int x;
 // 	int	i;
-// 	t_list *lst;
-// 	t_list *node;
+// 	t_node *lst;
+// 	t_node *node;
 
 // 	i = 2;
 // 	if (argc < 2)

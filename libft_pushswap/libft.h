@@ -6,7 +6,7 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 22:03:38 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/06/02 17:05:46 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/07/05 21:51:56 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,16 @@
 # include <stddef.h>
 # include <bsd/string.h>
 
-typedef struct s_list
+typedef struct s_node
 {
 	void			*content;
-	struct s_list	*next;
-}					t_list;
+	struct s_node	*next;
+}					t_node;
+
+typedef struct s_list
+{
+	struct s_node	*home;
+}			t_list;
 
 // srcs_1 definitions:
 int					ft_atoi(const char *nptr);
@@ -70,15 +75,15 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 // srcs_3 definitions:
-t_list				*ft_lstnew(void *content);
-void				ft_lstadd_front(t_list **lst, t_list *new);
-int					ft_lstsize(t_list *lst);
-t_list				*ft_lstlast(t_list *lst);
-void				ft_lstadd_back(t_list **lst, t_list *new);
-void				ft_lstdelone(t_list *lst, void (*del)(void *));
-void				ft_lstclear(t_list **lst, void (*del)(void *));
-void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+t_node				*ft_lstnew(void *content);
+void				ft_lstadd_front(t_node **lst, t_node *new);
+int					ft_lstsize(t_node *lst);
+t_node				*ft_lstlast(t_node *lst);
+void				ft_lstadd_back(t_node **lst, t_node *new);
+void				ft_lstdelone(t_node *lst, void (*del)(void *));
+void				ft_lstclear(t_node **lst, void (*del)(void *));
+void				ft_lstiter(t_node *lst, void (*f)(void *));
+t_node				*ft_lstmap(t_node *lst, void *(*f)(void *),
 						void (*del)(void *));
 
 #endif

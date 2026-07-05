@@ -6,7 +6,7 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:18 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/06/06 07:45:25 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/07/05 21:50:07 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 // 	printf("deleting node content at memory address %p\n", node->content);
 // }
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_node **lst, void (*del)(void *))
 {
-	t_list	*head;
-	t_list	*node;
+	t_node	*head;
+	t_node	*node;
 
 	if (!lst || !*lst || !del)
 		return ;
@@ -41,9 +41,9 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 // {
 // 	int *x;
 // 	int	i;
-// 	t_list *node;
-// 	t_list *new_node;
-// 	t_list	*temp;
+// 	t_node *node;
+// 	t_node *new_node;
+// 	t_node	*temp;
 
 // 	i = 1;
 // 	if (argc < 2)

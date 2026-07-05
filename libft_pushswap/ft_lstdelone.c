@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:13 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/05/29 19:27:41 by charlie          ###   ########.fr       */
+/*   Updated: 2026/07/05 21:50:47 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_node *lst, void (*del)(void *))
 {
 	if (!lst || !del)
 		return ;
@@ -28,9 +28,9 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 // {
 // 	int *x;
 // 	int	i;
-// 	t_list *node;
-// 	t_list *new_node;
-// 	t_list	*temp;
+// 	t_node *node;
+// 	t_node *new_node;
+// 	t_node	*temp;
 
 // 	i = 1;
 // 	if (argc < 2)

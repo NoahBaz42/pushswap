@@ -6,17 +6,17 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:27 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/06/02 05:07:34 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/07/05 21:51:28 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_node	*ft_lstnew(void *content)
 {
-	t_list	*new;
+	t_node	*new;
 
-	new = malloc(sizeof(t_list));
+	new = malloc(sizeof(t_node));
 	if (!new)
 		return (NULL);
 	new->content = content;
@@ -32,7 +32,7 @@ t_list	*ft_lstnew(void *content)
 // int	main(int argc, char **argv)
 // {
 // 	char	*content;
-// 	t_list	*ptr;
+// 	t_node	*ptr;
 
 // 	if (argc < 2)
 // 		return(printf("incorrect # of arguments\n"), 1);

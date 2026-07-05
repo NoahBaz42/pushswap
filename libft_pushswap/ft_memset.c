@@ -6,7 +6,7 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 19:13:37 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/06/02 10:09:25 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/07/05 21:54:07 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,6 @@ void	*ft_memset(void *s, int c, size_t n)
 
 	i = 0;
 	str = (unsigned char *)s;
-	while (i < n)
-	{
-		str[i] = c;
-		i++;
-	}
-	return (str);
-}
-
-void	*ft_membreak(void *s, int c, size_t n)
-{
-	size_t			i;
-	unsigned int	*str;
-
-	i = 0;
-	str = (unsigned int *)s;
 	while (i < n)
 	{
 		str[i] = c;

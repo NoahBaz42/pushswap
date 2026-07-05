@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:25 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/05/29 19:26:22 by charlie          ###   ########.fr       */
+/*   Updated: 2026/07/05 21:51:19 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_node	*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*nlst;
-	t_list	*new;
+	t_node	*nlst;
+	t_node	*new;
 
 	if (!lst || !f || !del)
 		return (NULL);
@@ -55,9 +55,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 // {
 // 	int		i;
 // 	int 	*x;
-// 	t_list	*lst;
-// 	t_list	*new_lst;
-// 	t_list	*node;
+// 	t_node	*lst;
+// 	t_node	*new_lst;
+// 	t_node	*node;
 
 // 	i = 1;
 // 	if (argc < 2)

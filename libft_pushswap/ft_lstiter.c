@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:20 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/05/29 18:58:48 by charlie          ###   ########.fr       */
+/*   Updated: 2026/07/05 21:50:57 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_node *lst, void (*f)(void *))
 {
-	t_list	*temp;
+	t_node	*temp;
 
 	if (!lst || !f)
 		return ;
@@ -41,9 +41,9 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 // {
 // 	int *x;
 // 	int	i;
-// 	t_list *node;
-// 	t_list *new_node;
-// 	t_list	*temp;
+// 	t_node *node;
+// 	t_node *new_node;
+// 	t_node	*temp;
 
 // 	i = 1;
 // 	if (argc < 2)
