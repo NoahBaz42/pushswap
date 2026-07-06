@@ -1,6 +1,7 @@
 NAME = push_swap
 
-SRCS = parsing.c \
+SRCS = operations_1.c \
+		operations_2.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -39,4 +40,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re diff

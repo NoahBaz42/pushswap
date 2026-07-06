@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_2.c                                     :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/05 22:00:56 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 05:07:12 by bpassos-         ###   ########.fr       */
+/*   Created: 2026/04/23 19:15:12 by bpassos-          #+#    #+#             */
+/*   Updated: 2026/07/06 04:55:11 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_pushswap/libft.h"
-#include "pushswap.h"
+#include "../libft.h"
 
-void    ft_rrstack(t_node *stack)
+int	ft_isprint(int c)
 {
-    ft_lstadd_back(ft_lstlast(stack->content), stack->content);
-    ft_lstdelone(stack, ft_del_it);
+	if (c >= 32 && c <= 126)
+	{
+		return (1);
+	}
+	return (0);
 }
-void    ft_rrr(t_node *stack_a, t_node *stack_b)
-{
-    ft_rrstack(stack_a);
-    ft_rrstack(stack_b);
-}
+
+// int	main (void)
+// {
+// 	int i = 0;
+// 	while (i <= 100)
+// 	{
+//		printf("----------------------\n");
+// 		printf("the character %c, %d, is %d\n", i, i, ft_isprint(i));
+// 		printf("the character %c, %d, is %d\n", i, i, isprint(i));
+// 		i++;
+// 	}
+// 	return (0);
+// }

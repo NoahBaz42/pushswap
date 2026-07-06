@@ -45,9 +45,11 @@ SRC = 	ft_atoi.c \
 		ft_lstmap.c
 
 OBJ = $(SRC:.c=.o)
+SRCS_DIR = srcs_*/*
+OBJS_DIR = objs/
 
-SOURCES = $(SRC)
-OBJECTS = $(OBJ)
+SOURCES = $(addprefix $(SRCS_DIR), $(SRC))
+OBJECTS = $(addprefix $(OBJS_DIR), $(OBJ))
 CC = clang
 CFLAGS = -Wall -Wextra -Werror -g
 CFLAGS_SAN = -fsanitize=address
@@ -59,7 +61,7 @@ $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o  $@
+	$(CC) $(CFLAGS) -c -L$(OBJS_DIR) $< -o  $@
 
 diff:
 	$(info the status of the repository and the volume of per-file changes:)
@@ -74,10 +76,4 @@ fclean: clean
 
 re: fclean all
 
-push: fclean
-	git add .
-	git commit -m ""
-	git push
-
-
-.PHONY: all clean fclean re diff push
+.PHONY: all clean fclean re diff
