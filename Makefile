@@ -1,34 +1,28 @@
-NAME = push_swap
+NAME = push_swap.a
 
-SRCS = operations_1.c \
-		operations_2.c \
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
+
+INCLUDES = -I. -I$(LIBFT_DIR)
+
+SRCS = parsing.c \
+       push_swap_utils.c \
 
 OBJS = $(SRCS:.c=.o)
 
-SOURCES = $(SRCS)
-OBJECTS = $(OBJS)
-CC = clang
-CFLAGS = -Wall -Wextra -Werror -g
+%.o: %.c push_swap.h
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-LIBFT_DIR = ./libft_pushswap
-INCLUDES =-I. -I$(LIBFT_DIR)
-LIBFT = $(LIBFT_DIR)/libft.a
-
-all:  $(NAME) $(LIBFT)
+$(NAME): $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
 
 $(LIBFT):
-	cd $(LIBFT_DIR) && make
+	make -C $(LIBFT_DIR)
 
-$(NAME): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -L$(LIBFT_DIR) -lft -o $(NAME)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-diff:
-	$(info the status of the repository and the volume of per-file changes:)
-	@git status
-	@git diff --stat
+all: $(NAME)
 
 clean:
 	rm -f $(OBJS)
@@ -40,4 +34,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re diff
+.PHONY: all clean fclean re

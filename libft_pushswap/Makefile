@@ -1,5 +1,8 @@
 NAME = libft.a
 
+SRCS_DIR = srcs_*/*
+OBJS_DIR = objs/
+
 SRC = 	ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
@@ -42,14 +45,13 @@ SRC = 	ft_atoi.c \
 		ft_lstdelone.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
-		ft_lstmap.c
+		ft_lstmap.c 
 
 OBJ = $(SRC:.c=.o)
-SRCS_DIR = srcs_*/*
-OBJS_DIR = objs/
 
-SOURCES = $(addprefix $(SRCS_DIR), $(SRC))
-OBJECTS = $(addprefix $(OBJS_DIR), $(OBJ))
+SOURCES = $(addprefix $(SRCS_DIR),$(SRC))
+OBJECTS = $(addprefix $(OBJS_DIR),$(OBJ))
+INC = .
 CC = clang
 CFLAGS = -Wall -Wextra -Werror -g
 CFLAGS_SAN = -fsanitize=address
@@ -57,23 +59,27 @@ CFLAGS_BSD = -lbsd
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
+$(NAME): $(OBJECTS) $(OBJS_DIR)
 	ar rcs $(NAME) $(OBJECTS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c -L$(OBJS_DIR) $< -o  $@
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c
+	$(CC) $(CFLAGS) -c -I$(INC) $< -o  $@
 
-diff:
-	$(info the status of the repository and the volume of per-file changes:)
-	@git status
-	@git diff --stat
+$(OBJS_DIR):
+	mkdir $@
 
 clean:
 	rm -rf $(OBJECTS)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -rf $(OBJS_DIR)
 
 re: fclean all
+
+diff:
+	$(info the status of the repository and the volume of per-file changes:)
+	@git status
+	@git diff --stat
 
 .PHONY: all clean fclean re diff
