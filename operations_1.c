@@ -6,7 +6,7 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:01:00 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 05:05:38 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/07/06 06:16:17 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void    ft_sstack(t_node *stack)
     if (ft_lstsize(stack) == 1)
         return ;
     if (!stack)
-        write(2, "Error", 5);
+        ft_error();
     temp = stack->content;
     stack->content = stack->next->content;
     stack->next->content = stack->content;
@@ -33,7 +33,7 @@ void    ft_ss(t_node *stack_a, t_node *stack_b)
 void    ft_pstack(t_node *top, t_node *add_top)
 {
     if (!top || !add_top)
-        write(2, "Error", 5);
+        ft_error();
     if (add_top->content == NULL)
         return ;
     ft_lstadd_front(top->content, add_top->content);
@@ -42,12 +42,16 @@ void    ft_rstack(t_node *stack)
 {
     t_node  *last;
 
+    if (!stack)
+        ft_error();
     last = ft_lstlast(stack);
     ft_lstadd_front(stack->content, ft_lstlast(stack->content));
     ft_lstdelone(last, ft_del_it);
 }
 void    ft_rr(t_node *stack_a, t_node *stack_b)
 {
+    if (!stack_a || !stack_b)
+        ft_error();
     ft_rstack(stack_a);
     ft_rstack(stack_b);
 }

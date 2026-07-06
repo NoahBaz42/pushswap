@@ -6,7 +6,7 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:38 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/06 05:35:43 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/07/06 06:13:51 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ void    ft_rrr(t_node *stack_a, t_node *stack_b);
 
 //utils:
 void	ft_del_it(void *content);
+int     ft_disorder(t_node *stack);
+void    ft_error(void);
 
 #endif
