@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   tiny_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 21:55:50 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 04:55:12 by bpassos-         ###   ########.fr       */
+/*   Created: 2026/07/13 02:29:57 by bpassos-          #+#    #+#             */
+/*   Updated: 2026/07/13 02:37:44 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "pushswap.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_node void	find_highest(t_node *a)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-		ft_putchar_fd(s[i++], fd);
+	while (a->content < a->next->content)
+	{
+		a->
+	}
 }
 
-// int	main(int argc, char **argv)
-// {
-// 	char	*s;
-// 	int		fd;
-
-// 	if (argc < 3)
-// 		return (printf("incorrect # of arguments\n"));
-// 	s = argv[1];
-// 	fd = atoi(argv[2]);
-// 	ft_putendl_fd(s, fd);
-// }
+void	tiny_sort(t_node *stack_a)
+{
+	t_node	*highest_node;
+	
+}
