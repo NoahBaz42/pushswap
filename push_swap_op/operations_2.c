@@ -6,12 +6,11 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:00:56 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 05:07:12 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/07/16 08:26:31 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_pushswap/libft.h"
-#include "pushswap.h"
+#include "../push_swap.h"
 
 void    ft_rrstack(t_node *stack)
 {

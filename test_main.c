@@ -6,11 +6,12 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:51:12 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 05:54:41 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/07/16 09:33:03 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "push_swap.h"
+#include <stdio.h>
 
 static void ft_print_lst(t_node *first)
 {
@@ -51,6 +52,9 @@ int main (int argc, char **argv)
 		node = node->next;
 		i++;
 	}
+	ft_print_lst(lst);
+	printf("\nSorted list:\n");
+	ft_tiny_sort (lst);
 	ft_print_lst(lst);
 	return (0);
 }
