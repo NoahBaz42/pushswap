@@ -6,7 +6,7 @@
 /*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:38 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/09 09:19:55 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/07/27 23:09:50 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 #include "libft_pushswap/libft.h"
+#include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdbool.h>
@@ -22,20 +23,21 @@
 //--------Structs-----------//
 //--------------------------//
 
-typedef struct operations
+typedef struct s_ops
 {
-    char    *sa;
-    char    *sb;
-    char    *ss;
-    char    *pa;
-    char    *pb;
-    char    *ra;
-    char    *rb;
-    char    *rr;
-    char    *rra;
-    char    *rrb;
-    char    *rrr;
-}               op;
+    int sa;
+    int sb;
+    int ss;
+    int pa;
+    int pb;
+    int ra;
+    int rb;
+    int rr;
+    int rra;
+    int rrb;
+    int rrr;
+    int total_ops;
+}              t_ops;
 
 typedef enum e_flags
 {
@@ -44,13 +46,13 @@ typedef enum e_flags
 	DIFF_MEDIUM,
 	DIFF_COMPLEX
     
-}	t_diff;
+}	e_diff;
 
 typedef struct s_flags
 {
 	bool    has_bench;
 	bool	has_diff;
-	t_diff difficulty;
+	e_diff difficulty;
 }	t_flags;
 
 
@@ -70,22 +72,27 @@ void    ft_rrr(t_node *stack_a, t_node *stack_b);
 //--------Parsing-----------//
 //--------------------------//
 
-void	ft_args_check(char **argv);
-char **ft_separate_and_validate(char **argv);
-void	ft_valid_array(char *array);
-int		ft_dup_check(char **array, int size);
-int		arr_count(char **array);
+void	ft_valid_args(char **argv, size_t   i);
+void	ft_valid_flag(char **argv);
+t_list	*ft_parsing(char **argv);
 
 //--------------------------//
 //-------Parsing_utils------//
 //--------------------------//
 
+size_t	ft_count_args(const char *arg);
+size_t	ft_count_new_args(char **argv, size_t	i);
 int		ft_isoperator(char c);
 int		ft_isspace(char c);
 long int	ft_atol(char *array);
-char	**ft_split_whitespace(char const *s);
-int	ft_strcmp(const char *s1, const char *s2);
 
+//--------------------------//
+//-------Parsing_split------//
+//--------------------------//
+
+void	ft_free_them(char **ar_ar, int size);
+size_t ft_split_arg(char **array, char *arg, size_t size);
+char **ft_split_all(char **argv, size_t arg_index, size_t count);
 
 //--------------------------//
 //----------Flags-----------//
@@ -104,13 +111,14 @@ int   ft_count_flags(t_flags *flags);
 
 void    ft_give_error(void);
 void    ft_free_array(char **array);
-//void    free_list(t_node *node);
+void    free_stack(t_list **stack);
 
 //--------------------------//
-//----------Lists-----------//
+//---------Stack_a----------//
 //--------------------------//
 
-t_node	**ft_array_to_list(char **array);
-//void	ft_del_it(void *content);
+t_list	*ft_array_to_stack(char **array);
+void	ft_is_it_duplicate(t_list *stack_a);
+
 
 #endif

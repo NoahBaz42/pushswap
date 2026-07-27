@@ -3,29 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:45:15 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/07/06 17:51:24 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/27 17:30:36 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h" 
 
+//----------[counts args, without spaces]---------------------------------//
 
-int		ft_isoperator(char c)
+size_t	ft_count_args(const char *arg)
 {
-	if (c == '-' || (c = '+'))
-		return(1);
+	size_t	i;
+	size_t	words;
+
+	i = 0;
+	words = 0;
+	while (arg[i])
+	{
+		while (ft_isspace(arg[i]) == 1)
+			i++;
+		if (arg[i] && ft_isspace(arg[i]) == 0)
+			words++;
+		while (arg[i] && ft_isspace(arg[i]) == 0)
+			i++;
+	}
+	return (words);
+}
+
+//----------[with ft_count_args, checks all of the array]-----------------//
+
+size_t	ft_count_new_args(char **argv, size_t	i)
+{
+	size_t	count;
+
+	count = 0;
+	while (argv[i])
+	{
+		count += ft_count_args(argv[i]);
+		i++;
+	}
+	return (count);
+}
+
+//----------[+ or -]-----------------//
+
+int	ft_isoperator(char c)
+{
+	if (c == '-' || (c == '+'))
+		return (1);
 	return (0);
 }
 
-int		ft_isspace(char c)
+//-----[white space checker]---------//
+
+int	ft_isspace(char c)
 {
 	if (c == ' ' || (c >= 9 && c <= 13))
-		return(1);
+		return (1);
 	return (0);
 }
+
+//------[ascii to long int]----------//
 
 long int	ft_atol(char *array)
 {
@@ -50,16 +91,4 @@ long int	ft_atol(char *array)
 		i++;
 	}
 	return (result * sign);
-}
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-	{
-		i++;
-	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

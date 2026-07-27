@@ -3,93 +3,76 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_split.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 08:21:47 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/07/06 18:31:34 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/07/15 05:32:56 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h" 
 
-static size_t	ft_arg_count(const char *s)
-{
-	size_t	words;
-	size_t	i;
+/*------------------------------------*/
+/*----split adapted for pushswap------*/
+/*------------------------------------*/
 
-	i = 0;
-	words = 0;
-	while (s[i])
-	{
-		while (ft_isspace(s[i]) == 1)
-			i++;
-		if (s[i] && ft_isspace(s[i]) == 0)
-			words++;
-		while (s[i] && ft_isspace(s[i]) == 0)
-			i++;
-	}
-	return (words);
-}
-
-static void	ft_free_them(char **ar_ar, int size)
+void	ft_free_them(char **array, int size)
 {
-	if (!ar_ar)
+	if (!array)
 		return ;
 	while (size > 0)
 	{
 		size--;
-		free(ar_ar[size]);
+		free(array[size]);
 	}
-	free(ar_ar);
+	free(array);
 }
 
-static void	the_lett_aloc(const char *s, char **ar_ar, int size)
+size_t	ft_split_arg(char **array, char *arg, size_t size)
 {
+	size_t	i;
 	size_t	start;
 	size_t	len;
-	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (arg[i])
 	{
-		len = 0;
-		while (ft_isspace(s[i]) == 1)
+		while (ft_isspace(arg[i]))
 			i++;
-		if (s[i] && ft_isspace(s[i]) == 0)
+		if (arg[i])
 		{
 			start = i;
-			while (s[i] && ft_isspace(s[i]) == 1)
+			len = 0;
+			while (arg[i] && !ft_isspace(arg[i]))
 			{
 				len++;
 				i++;
 			}
-			ar_ar[size] = ft_substr(s, start, len);
-			if (!ar_ar[size])
-				return (ft_free_them(ar_ar, size));
+			array[size] = ft_substr(arg, start, len);
+			if (!array[size])
+				ft_free_them(array, size);
 			size++;
 		}
 	}
-	ar_ar[size] = NULL;
+	return (size);
 }
 
-char	**ft_split_whitespace(char const *s)
-{
-	char	**ar_ar;
-	size_t	words;
+/*-------[ main function: ft_split_all ]----------*/
 
-	if (!s)
-		return (NULL);
-	words = ft_arg_count(s);
-	ar_ar = malloc(sizeof(char *) * (words + 1));
-	if (!ar_ar)
-		return (NULL);
-	if (words == 0)
+char	**ft_split_all(char **argv, size_t arg_index, size_t count)
+{
+	char	**array;
+	size_t	size;
+
+	size = 0;
+	array = malloc(sizeof(char *) * (count + 1));
+	if (!array)
+		ft_give_error();
+	while (argv[arg_index])
 	{
-		ar_ar[0] = NULL;
-		return (ar_ar);
+		size = ft_split_arg(array, argv[arg_index], size);
+		arg_index++;
 	}
-	the_lett_aloc(s, ar_ar, 0);
-	if (!ar_ar)
-		return (NULL);
-	return (ar_ar);
+	array[size] = NULL;
+	return (array);
 }
