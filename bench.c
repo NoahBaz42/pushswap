@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 14:41:02 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/27 23:11:34 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/04 11:59:58 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 //----------[EDITED: Deleted the function call in return: added size]-----//
 //----------[EDITED: size used to check 1 number case]--------------------//
 //----------[EDITED: ft_disorder returns a float, needed casting]---------//
+
+#include "push_swap.h"
 
 float ft_disorder(t_node *stack)
 {
@@ -44,11 +46,11 @@ float ft_disorder(t_node *stack)
 e_diff resolve_strategy(float disorder)
 {
     if (disorder < 0.2)
-        return (SIMPLE);
+        return (DIFF_SIMPLE);
     else if (disorder < 0.5)
-        return (MEDIUM);
+        return (DIFF_MEDIUM);
     else
-        return (COMPLEX);
+        return (DIFF_COMPLEX);
 }
 
 //----------[Prints the benchmark]--------------------//
@@ -60,11 +62,11 @@ e_diff resolve_strategy(float disorder)
 
 void print_bench(t_ops *bench, t_flags *flags, float disorder)
 {
-    const char *names = {"Adaptive", "Simple", "Medium", "Complex"};
-    const char *complex = {"__", "O(n2)", "O(n√n)", "O(n log n)"};
+    const char *names[4] = {"Adaptive", "Simple", "Medium", "Complex"};
+    const char *complex[4] = {"__", "O(n2)", "O(n√n)", "O(n log n)"};
     e_diff      used;
 
-    if (flags->difficulty == ADAPTIVE)
+    if (flags->difficulty == DIFF_ADAPTIVE)
         used = resolve_strategy(disorder);
     else
         used = flags->difficulty;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flag_diff.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 08:50:36 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/27 17:24:51 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/04 06:24:47 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 static void	ft_activate_diff(t_flags *flags, e_diff diff)
 {
-	flags->difficulty = diff;
 	if (flags->has_diff == true)
 		ft_give_error();
+	flags->difficulty = diff;
 	flags->has_diff = true;
 }
 

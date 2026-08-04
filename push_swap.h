@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:38 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/27 23:09:50 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/04 14:27:44 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 #include "libft_pushswap/libft.h"
+#include "ft_printf/ft_printf.h"
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -118,7 +119,6 @@ void    free_stack(t_list **stack);
 //--------------------------//
 
 t_list	*ft_array_to_stack(char **array);
-void	ft_is_it_duplicate(t_list *stack_a);
-
+bool	ft_is_it_duplicate(t_list *stack_a);
 
 #endif

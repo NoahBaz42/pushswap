@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:20:16 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/07/27 17:31:19 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/04 11:45:44 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,17 @@ t_list	*ft_parsing(char **argv)
 	if (!array)
 		ft_give_error();
 	stack_a = ft_array_to_stack(array);
-	ft_is_it_duplicate(stack_a);
+	if(!stack_a)
+	{
+		ft_free_them(array, (int)count);
+		ft_give_error();
+	}
+	if (ft_is_it_duplicate(stack_a))
+	{
+		ft_free_them(array, (int)count);
+		free_stack(&stack_a);
+		ft_give_error();
+	}
+	ft_free_them(array, (int)count);
 	return (stack_a);
 }
