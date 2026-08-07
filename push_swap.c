@@ -6,8 +6,16 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:27:51 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/16 08:28:24 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/08/06 02:56:30 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/**
+ *	TODO:
+ *		- Revisit compiler flags (-MMD, -MP)
+ *		- Revisit special Makefile features (-include, vpath, |)
+ *
+ *
+ */
