@@ -1,38 +1,67 @@
 NAME = push_swap
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -MMD -MP
+CC = cc -g
+CFLAGS = -Wall -Wextra -Werror -I.
+CDEPS =  -MMD -MP
 
-LIBFT_DIR = ./libft_pushswap
+LIBFT_DIR = libft_pushswap
 LIBFT = $(LIBFT_DIR)/libft.a
 
-INCLUDES = -I. -I$(LIBFT_DIR)
+# CONSIDER:
+#	- go over naming conventions
+# 	- restructure directories
+#	- revisit makefile rules
+#	  (recommended: see https://codeberg.org/maloryware/push_swap/src/branch/main/Makefile)
 
-SRCS = test_main.c operations_1.c operations_2.c tiny_sort.c utils.c
+MIN = 0
+MAX = 999
+COUNT = 20
+DEFAULT_ARGS = $(shell shuf -i $(MIN)-$(MAX) -n $(COUNT))
 
-vpath %.c push_swap_algorithms push_swap_op
 
-OBJ = $(SRCS:.c=.o)
+ARGS = $(DEFAULT_ARGS)
+
+SRCS = test_main.c \
+		operations_1.c \
+		operations_2.c \
+		tiny_sort.c \
+		utils_1.c \
+		utils_2.c \
+		index.c \
+		simple_alg.c \
+		stack_5.c \
+		complex_alg.c \
+		medium_alg.c \
+
+vpath %.c push_swap_algorithms push_swap_op utils
+
 OBJS_DIR = objs/
-OBJS = $(addprefix($(OBJS_DIR),$(OBJ)))
+OBJ = $(SRCS:.c=.o)
+OBJS = $(addprefix $(OBJS_DIR),$(OBJ))
+
+INCLUDES = -I.
 
 all: $(NAME)
-
-$(NAME): $(LIBFT) $(OBJS) $(OBJS_DIR)
-	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
-
-$(OBJS_DIR)%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
--include $(OBJECTS:.o=.d)
+$(NAME): $(OBJS) $(LIBFT) | $(OBJS_DIR)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+$(OBJS_DIR)%.o: %.c | $(OBJS_DIR)
+	$(CC) $(CFLAGS) $(CDEPS) -c $(INCLUDES) $< -o $@
+
+-include $(OBJS:.o=.d)
 
 $(OBJS_DIR):
 	mkdir $@
 
-all: $(NAME)
+run: $(NAME)
+	./$(NAME) $(ARGS)
+
+gdb: $(NAME)
+	@gdb --tui --args ./$(NAME) $(ARGS)
 
 clean:
 	rm -rf $(OBJS_DIR)
@@ -44,4 +73,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re run gdb
