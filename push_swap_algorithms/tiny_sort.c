@@ -3,32 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   tiny_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 02:29:57 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/16 09:35:31 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/08/06 22:51:41 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static t_node *ft_find_highest(t_node *a)
+t_node *ft_find_max(t_node *a)
 {
-	while (a->content < a->next->content)
+	t_node	*max;
+	t_node	*next;
+	
+	max = a;
+	next = a;
+	while (next && next->next)
 	{
-		a->content = a->next->content;
+		if ((max->content) < (next->next->content))
+			max = next->next;
+		next = next->next;
 	}
-	return (a);
+	return (max);
 }
 
-void	ft_tiny_sort(t_node *stack_a)
+void	ft_tiny_sort(t_node **a)
 {
 	t_node	*highest_node;
-	highest_node = ft_find_highest(stack_a);
-	if (stack_a == highest_node)
-		ft_rstack(stack_a);
-	else if (stack_a->next == highest_node)
-		ft_rrstack(stack_a);
-	if(stack_a->content > stack_a->next->content)
-	 ft_sstack(stack_a);
+
+	highest_node = ft_find_max(*a);
+	if ((*a) == highest_node)
+		ft_rstack(a);
+	else if ((*a)->next == highest_node)
+		ft_rrstack(a);
+	if((*a)->content > (*a)->next->content)
+		ft_sstack(a);
 }
+// int	main(int argc,char **argv)
+// {
+// 	t_node	*top;
+	
+// 	int	i;
+
+// 	i = 1;
+// 	top = NULL;
+// 	if (argc < 2)
+// 		return (printf("incorrect # of arguments\n"), 1);
+// 	printf("Unsorted:\n");
+// 	while (i < argc)
+// 	{
+// 		ft_lstadd_back(&top, ft_lstnew(atoi( argv[i])));
+// 		i++;
+// 	}
+// 	printf("Sorted:\n");
+// 	ft_simple(&top);
+// 	while (top)
+// 	{
+// 		printf("%d\n", top->content);
+// 		top = top->next;
+// 	}
+// }
