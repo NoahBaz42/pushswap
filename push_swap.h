@@ -3,39 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:38 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/16 11:21:19 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/08/07 02:46:21 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "libft_pushswap/libft.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdbool.h>
+# include "libft_pushswap/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdbool.h>
+
+# include <stdio.h>
+
+# define FOUND 1
+# define NOT_FOUND 0
 
 //--------------------------//
 //--------Structs-----------//
 //--------------------------//
 
-typedef struct operations
+typedef enum e_ops
 {
-    int sa;
-    int sb;
-    int ss;
-    int pa;
-    int pb;
-    int ra;
-    int rb;
-    int rr;
-    int rra;
-    int rrb;
-    int rrr;
-}   op;
+	PA,
+	PB,
+	SA,
+	SB,
+	SS,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR
+}	t_op;
 
 typedef enum e_flags
 {
@@ -43,7 +48,7 @@ typedef enum e_flags
 	DIFF_SIMPLE,
 	DIFF_MEDIUM,
 	DIFF_COMPLEX
-    
+	
 }	t_diff;
 
 typedef struct s_flags
@@ -58,13 +63,13 @@ typedef struct s_flags
 //--------Operations--------//
 //--------------------------//
 
-void    ft_sstack(t_node *stack);
+void    ft_sstack(t_node **stack);
 void    ft_ss(t_node *stack_a, t_node *stack_b);
-void    ft_pstack(t_node *stack_1, t_node *stack_2);
-void    ft_rstack(t_node *stack);
-void    ft_rr(t_node *stack_a, t_node *stack_b);
-void    ft_rrstack(t_node *stack);
-void    ft_rrr(t_node *stack_a, t_node *stack_b);
+void    ft_pstack(t_node **top, t_node **add_top);
+void    ft_rstack(t_node **stack);
+void    ft_rr(t_node **stack_a, t_node **stack_b);
+void	ft_rrstack(t_node **stack);
+void    ft_rrr(t_node **stack_a, t_node **stack_b);
 
 //--------------------------//
 //--------Parsing-----------//
@@ -111,24 +116,26 @@ void    ft_free_array(char **array);
 //--------------------------//
 
 t_node	**ft_array_to_list(char **array);
-void	ft_del_it(void *content);
+void	ft_del_it(int content);
 
 //--------------------------//
 //--------algorithms--------//
 //--------------------------//
-void	ft_tiny_sort(t_node *stack_a);
-void    ft_pushall_b(t_node *b, t_node *a);
+void	ft_tiny_sort(t_node **a);
+void    ft_pushall_a(t_node **b, t_node **a);
 
 //--------------------------//
-//--------operations--------//
+//-----------Utils----------//
 //--------------------------//
-void    ft_sstack(t_node *stack);
-void    ft_ss(t_node *stack_a, t_node *stack_b);
-void    ft_pstack(t_node *top, t_node *add_top);
-void    ft_rstack(t_node *stack);
-void    ft_rr(t_node *stack_a, t_node *stack_b);
-void    ft_rrstack(t_node *stack);
-void    ft_rrr(t_node *stack_a, t_node *stack_b);
-
+int 	ft_is_sorted(t_node *stack);
+void	ft_push(t_node **top, t_node *new);
+t_node	*ft_pop(t_node **top);
+void 	index_stack(t_node *a);
+t_node *ft_find_min(t_node *a);
+void	ft_simple(t_node **a);
+int 	ft_small_path_min(t_node *a);
+int		ft_sqrt(int nb);
+void	set_stack_costs(t_node **a);
+t_node *ft_find_max(t_node *a);
 
 #endif
