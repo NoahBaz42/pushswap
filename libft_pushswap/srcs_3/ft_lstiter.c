@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:20 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 04:55:11 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/08/07 08:56:57 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	ft_lstiter(t_node *lst, void (*f)(void *))
 	temp = lst;
 	while (temp)
 	{
-		f(temp->content);
 		temp = temp->next;
 	}
 }

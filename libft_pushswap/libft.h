@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 22:03:38 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/09 07:28:57 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/07 07:31:07 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,20 @@
 # include <strings.h>
 # include <ctype.h>
 # include <stddef.h>
+#include <stdbool.h>
 # include <bsd/string.h>
 
 typedef struct s_node
 {
-	void			*content;
-	struct s_node	*next;
-	struct s_node	*prev;
-}					t_node;
+	int			content;
+	ssize_t		index;
+	bool		indexed;
+	ssize_t		size;
+	ssize_t		chunk_min;
+	ssize_t		cost;
+	struct s_node		*next;
+	struct s_node		*prev;
+}			t_node;
 
 typedef struct s_list
 {
@@ -77,7 +83,7 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 // srcs_3 definitions:
-t_node				*ft_lstnew(void *content);
+t_node				*ft_lstnew(int content);
 void				ft_lstadd_front(t_node *lst, t_node *new);
 int					ft_lstsize(t_node *lst);
 t_node				*ft_lstlast(t_node *lst);

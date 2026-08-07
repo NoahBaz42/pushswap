@@ -6,7 +6,7 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:38 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/04 14:27:44 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/08/07 09:31:20 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <limits.h>
 
 //--------------------------//
 //--------Structs-----------//
@@ -91,9 +92,8 @@ long int	ft_atol(char *array);
 //-------Parsing_split------//
 //--------------------------//
 
-void	ft_free_them(char **ar_ar, int size);
-size_t ft_split_arg(char **array, char *arg, size_t size);
-char **ft_split_all(char **argv, size_t arg_index, size_t count);
+size_t	ft_split_arg(char **array, char *arg, size_t size);
+char	**ft_split_all(char **argv, size_t arg_index, size_t count);
 
 //--------------------------//
 //----------Flags-----------//
@@ -104,21 +104,33 @@ void 	ft_flag_diff(t_flags *flags, char *arg);
 bool	ft_is_diff_flags(char *flag);
 void	ft_flag_bench(t_flags *flags, char **argv);
 bool	ft_is_bench_flags(char *flag);
-int   ft_count_flags(t_flags *flags);
+int		ft_count_flags(t_flags *flags);
 
 //--------------------------//
 //----------Error-----------//
 //--------------------------//
 
 void    ft_give_error(void);
-void    ft_free_array(char **array);
-void    free_stack(t_list **stack);
+void	ft_free_array(char **array, int size);
+void	ft_exit_array(char **array, int size);
+void    ft_free_stack(t_list **stack);
+void	ft_exit_stack(t_list **stack);
 
 //--------------------------//
 //---------Stack_a----------//
 //--------------------------//
 
 t_list	*ft_array_to_stack(char **array);
-bool	ft_is_it_duplicate(t_list *stack_a);
+bool	ft_integer_check(t_list *stack_a);
+
+//--------------------------//
+//---------Output-----------//
+//--------------------------//
+
+float	ft_disorder(t_node *stack);
+e_diff	ft_resolve_strategy(float disorder);
+void	ft_print_bench(t_ops *bench, t_flags *flags, float disorder);
+void	ft_output(t_node *stack, t_ops *bench, t_flags *flags);
+
 
 #endif

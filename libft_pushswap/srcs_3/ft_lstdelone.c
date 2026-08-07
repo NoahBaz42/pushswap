@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:13 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 04:55:11 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/08/07 08:56:03 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,10 @@ void	ft_lstdelone(t_node *lst, void (*del)(void *))
 {
 	if (!lst || !del)
 		return ;
-	del(lst->content);
 	free(lst);
 }
 
-// static void	del_it(void *content)
-// {
-// 	free(content);
-// }
+
 // int main (int argc, char **argv)
 // {
 // 	int *x;

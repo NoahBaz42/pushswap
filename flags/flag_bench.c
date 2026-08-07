@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   flag_bench.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 08:52:33 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/27 17:07:43 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/07 07:26:21 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 //------[Checks for the flag (--bench) on the 1st and 2nd args]-----------//
 //------[gives error if there´s more then 1 bench flag]-------------------//

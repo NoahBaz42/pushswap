@@ -3,24 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:27 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 04:55:11 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/08/07 05:40:00 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-t_node	*ft_lstnew(void *content)
+t_node	*ft_lstnew(int content)
 {
 	t_node	*new;
 
-	new = malloc(sizeof(t_node));
+	new = ft_calloc(1, sizeof(t_node));
 	if (!new)
 		return (NULL);
 	new->content = content;
-	new->next = NULL;
+	new->cost = -1;
+	new->index = -1;
+	new->size = -1;
+	new->chunk_min = 1;
 	return (new);
 }
 

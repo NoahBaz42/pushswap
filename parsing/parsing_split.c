@@ -6,27 +6,15 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 08:21:47 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/04 10:30:35 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/08/07 09:29:26 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*------------------------------------*/
 /*----split adapted for pushswap------*/
 /*------------------------------------*/
-
-void	ft_free_them(char **array, int size)
-{
-	if (!array)
-		return ;
-	while (size > 0)
-	{
-		size--;
-		free(array[size]);
-	}
-	free(array);
-}
 
 
 size_t	ft_split_arg(char **array, char *arg, size_t size)
@@ -51,7 +39,7 @@ size_t	ft_split_arg(char **array, char *arg, size_t size)
 			}
 			array[size] = ft_substr(arg, start, len);
 			if (!array[size])
-				return (ft_free_them(array, size), -1);
+				return (ft_free_array(array, size), -1);
 			size++;
 		}
 	}
@@ -63,7 +51,7 @@ size_t	ft_split_arg(char **array, char *arg, size_t size)
 char	**ft_split_all(char **argv, size_t arg_index, size_t count)
 {
 	char	**array;
-	size_t	size;
+	ssize_t	size;
 
 	size = 0;
 	array = malloc(sizeof(char *) * (count + 1));

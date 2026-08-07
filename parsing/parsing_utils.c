@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:45:15 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/07/27 17:30:36 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/07 07:26:47 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h" 
+#include "../push_swap.h" 
 
 //----------[counts args, without spaces]---------------------------------//
 
@@ -34,6 +34,8 @@ size_t	ft_count_args(const char *arg)
 }
 
 //----------[with ft_count_args, checks all of the array]-----------------//
+/*[------------------!!!NEEDS REVISION!!!!------------------------- ]*/
+/*[ ps: DOES NOT give a valid error: must free BEFORE exiting.. ]*/
 
 size_t	ft_count_new_args(char **argv, size_t	i)
 {
@@ -47,6 +49,8 @@ size_t	ft_count_new_args(char **argv, size_t	i)
 	}
 	return (count);
 }
+/*[------------------!!!NEEDS REVISION!!!!------------------------- ]*/
+/*[ ps: DOES NOT give a valid error: must free BEFORE exiting.. ]*/
 
 //----------[+ or -]-----------------//
 

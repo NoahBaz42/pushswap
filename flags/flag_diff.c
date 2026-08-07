@@ -6,11 +6,11 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 08:50:36 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/04 06:24:47 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/08/07 07:26:25 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 //----------[activates diff, error if duplicate]--------------------------//
 

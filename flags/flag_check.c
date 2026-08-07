@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   flag_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 19:44:11 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/07/27 17:19:56 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/07 07:26:16 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 //----------[counts how many flags are active]----------------------------//
 
@@ -49,7 +49,7 @@ static bool	ft_right_flags(t_flags *flags, char **argv)
 
 //----------[checks 1st arg for bench or difficulty]----------------------------//
 //----------(ft_flag_bench already checks both arg[1] and arg[2])---------------//
-//----------[it works, but im not sure about the error dealing]-----------------//
+//----------(ft_right_flags checks for unvalid flags in 1st 2 args)-------------//
 
 void	ft_flag_check(t_flags *flags, char **argv)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:25 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/09 07:30:40 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/07 08:58:20 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_node	*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *))
 	nlst = NULL;
 	while (lst)
 	{
-		new = ft_lstnew(f(lst->content));
+		new = ft_lstnew(lst->content);
 		if (!new)
 		{
 			ft_lstclear(new, del);

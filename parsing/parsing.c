@@ -6,11 +6,12 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:20:16 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/04 11:45:44 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/08/07 07:26:51 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h" 
+
 
 /*------[ checks for valid numbers ]--------*/
 
@@ -47,18 +48,6 @@ void	ft_valid_args(char **argv, size_t i)
 	}
 }
 
-/*------[ checks first 2 args for valid flags ]--------*/
-
-void	ft_valid_flag(char **argv)
-{
-	if (argv[1] && ft_strnstr(argv[1], "--", 2))
-		if ((!ft_is_diff_flags(argv[1])) && (!ft_is_bench_flags(argv[1])))
-			ft_give_error();
-	if (argv[2] && ft_strnstr(argv[2], "--", 2))
-		if ((!ft_is_diff_flags(argv[2])) && (!ft_is_bench_flags(argv[2])))
-			ft_give_error();
-}
-
 /*------[ main function: ft_parsing ]--------*/
 
 t_list	*ft_parsing(char **argv)
@@ -72,7 +61,6 @@ t_list	*ft_parsing(char **argv)
 	flags = (t_flags){0};
 	ft_flag_check(&flags, argv);
 	i = ft_count_flags(&flags) + 1;
-	ft_valid_flag(argv);
 	ft_valid_args(argv, i);
 	count = ft_count_new_args(argv, i);
 	array = ft_split_all(argv, i, count);
@@ -80,16 +68,12 @@ t_list	*ft_parsing(char **argv)
 		ft_give_error();
 	stack_a = ft_array_to_stack(array);
 	if(!stack_a)
+		ft_exit_array(array, (int)count);
+	if (ft_integer_check(stack_a))
 	{
-		ft_free_them(array, (int)count);
-		ft_give_error();
+		ft_free_array(array, (int)count);
+		ft_exit_stack(&stack_a);
 	}
-	if (ft_is_it_duplicate(stack_a))
-	{
-		ft_free_them(array, (int)count);
-		free_stack(&stack_a);
-		ft_give_error();
-	}
-	ft_free_them(array, (int)count);
+	ft_free_array(array, (int)count);
 	return (stack_a);
 }
