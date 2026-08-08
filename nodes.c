@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 21:55:50 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/08 23:15:28 by charlie          ###   ########.fr       */
+/*   Created: 2026/04/29 21:55:45 by bpassos-          #+#    #+#             */
+/*   Updated: 2026/07/16 08:07:27 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
-
-	i = 0;
 	if (!s)
 		return ;
-	while (s[i])
-		ft_putchar_fd(s[i++], fd);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
 
 // int	main(int argc, char **argv)
@@ -31,6 +28,6 @@ void	ft_putstr_fd(char *s, int fd)
 // 	if (argc < 3)
 // 		return (printf("incorrect # of arguments\n"));
 // 	s = argv[1];
-// 	fd = atoi(argv[2]);
+// 	fd = open(argv[2], O_RDWR | O_CREAT | O_APPEND);
 // 	ft_putendl_fd(s, fd);
 // }
