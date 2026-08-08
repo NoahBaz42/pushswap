@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 23:17:25 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/08 01:30:23 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/08 05:34:46 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,24 @@
 
 //TODO: rewrite this code remember start at min
 
-// bool rotate_sort(t_node *original)
+// bool check_sort_rot(t_node *stk_a)
 // {
-// 	ssize_t	i;
-// 	ssize_t	size;
-// 	t_node *test;
-// 	int half;
+// 	size_t		i;
+// 	t_node	*min;
+// 	size_t	size;
 
 // 	i = 0;
-// 	test = stk_dup(original);
-// 	size = ft_lstsize(original);
-// 	half = get_target_half(ft_find_min(original));
-// 	if (rotate_sort(test) == SORTED)
-// 		test = original;
-// 	while (stk_is_sorted(test) == NOT_SORTED && i < size)
+// 	min = ft_find_min(stk_a);
+// 	size = ft_lstsize(stk_a);
+// 	while (i < size)
 // 	{
-// 		if(half == TOP_HALF)
-// 			ft_rstack(&test);
-// 		else
-// 			ft_rrstack(&test);
-// 		i++;
+// 		if(min > min->next)
+// 		{
+// 			return(0)
+// 		}
+		
 // 	}
-// 	if (stk_is_sorted(test) == SORTED)
-// 		return(SORTED);
-// 	return(NOT_SORTED);
+	
 // }
 // int	main(int argc,char **argv)
 // {
