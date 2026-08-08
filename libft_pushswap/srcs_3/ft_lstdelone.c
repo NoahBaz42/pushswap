@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:13 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/05 01:17:55 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/08/07 06:12:16 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_lstdelone(t_node *lst, void (*del)(int))
 	del(lst->content);
 	free(lst);
 }
+
 void	ft_free_node(t_node *lst)
 {
 	if (!lst)

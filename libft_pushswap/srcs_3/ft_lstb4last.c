@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstb4last.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:22 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/03 01:52:33 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/08/07 06:23:08 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_node	*ft_lstb4last(t_node *lst)
 	{
 		lst = lst->next;
 	}
-	printf("next>%d\n", (lst->content));
 	return (lst);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:18 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/05 01:18:12 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/08/07 06:13:11 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_lstclear(t_node **lst, void (*del)(int))
 	}
 	lst = NULL;
 }
+
 void	ft_free_stack(t_node **lst)
 {
 	t_node	*head;
@@ -50,7 +51,7 @@ void	ft_free_stack(t_node **lst)
 		ft_free_node(node);
 		node = head;
 	}
-	lst = NULL;
+	*lst = NULL;
 }
 
 // int main (int argc, char **argv)
