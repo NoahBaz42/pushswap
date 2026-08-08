@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 NAME = push_swap
 
 CC = cc -g
@@ -44,33 +43,10 @@ OBJS = $(addprefix $(OBJS_DIR),$(OBJ))
 INCLUDES = -I.
 
 all: $(NAME)
-=======
-NAME = push_swap.a
-
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-
-LIBFT_DIR = ./libft
-LIBFT = $(LIBFT_DIR)/libft.a
-
-INCLUDES = -I. -I$(LIBFT_DIR)
-
-SRCS = parsing.c \
-       push_swap_utils.c \
-
-OBJS = $(SRCS:.c=.o)
-
-%.o: %.c push_swap.h
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-$(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
->>>>>>> noah_parsing
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-<<<<<<< HEAD
 $(NAME): $(OBJS) $(LIBFT) | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
@@ -90,12 +66,6 @@ gdb: $(NAME)
 
 clean:
 	rm -rf $(OBJS_DIR)
-=======
-all: $(NAME)
-
-clean:
-	rm -f $(OBJS)
->>>>>>> noah_parsing
 	make -C $(LIBFT_DIR) clean
 
 fclean: clean
@@ -104,8 +74,4 @@ fclean: clean
 
 re: fclean all
 
-<<<<<<< HEAD
 .PHONY: all clean fclean re run gdb
-=======
-.PHONY: all clean fclean re
->>>>>>> noah_parsing

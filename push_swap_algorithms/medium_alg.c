@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:24:42 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/08 04:26:54 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/08 23:21:33 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,18 +146,18 @@ void	chunk_sort(t_stack *a, t_stack *b)
 		push_target_node(b, a, ft_find_max(*b));
 }
 
-// void ft_print_lst(t_node *top)
-// {
-// 	t_node	*stack;
+void ft_print_lst(t_node *top)
+{
+	t_node	*stack;
 
-// 	stack = top;
-// 		while (stack)
-// 	{
-// 		printf("% 5d: %3ld @ %1ld\n", stack->content, stack->index, stack->cost);
-// 		stack = stack->next;
-// 	}
-// }
-// -------cost-------//
+	stack = top;
+		while (stack)
+	{
+		printf("% 5d: %3ld @ %1ld\n", stack->content, stack->index, stack->cost);
+		stack = stack->next;
+	}
+}
+//-------cost-------//
 // int	main(int argc,char **argv)
 // {
 // 	t_node	*top;
@@ -190,28 +190,28 @@ void	chunk_sort(t_stack *a, t_stack *b)
 // 	return (0);
 // }
 //-------chunk_sort------//
-// int	main(int argc,char **argv)
-// {
-// 	int	i;
-// 	t_node	*stk_a;
-// 	t_node	*stk_b;
+int	main(int argc,char **argv)
+{
+	int	i;
+	t_node	*stk_a;
+	t_node	*stk_b;
 
-// 	i = 1;
-// 	stk_a = NULL;
-// 	stk_b = NULL;
-// 	if (argc < 2)
-// 		return (printf("incorrect # of arguments\n"), 1);
-// 	while (i < argc)
-// 	{
-// 		ft_lstadd_back(&stk_a, ft_lstnew(atoi( argv[i])));
-// 		i++;
-// 	}
-// 	index_stack(stk_a);
-// 	printf("Original list:\n");
-// 	ft_print_lst(stk_a);
-// 	printf("\n------------\n");
-// 	chunk_sort(&stk_a, &stk_b);
-// 	printf("Sorted stack list:\n");
-// 	ft_print_lst(stk_a);
-// 	return (0);
-// }
+	i = 1;
+	stk_a = NULL;
+	stk_b = NULL;
+	if (argc < 2)
+		return (printf("incorrect # of arguments\n"), 1);
+	while (i < argc)
+	{
+		ft_lstadd_back(&stk_a, ft_lstnew(atoi( argv[i])));
+		i++;
+	}
+	index_stack(stk_a);
+	printf("Original list:\n");
+	ft_print_lst(stk_a);
+	printf("\n------------\n");
+	chunk_sort(&stk_a, &stk_b);
+	printf("Sorted stack list:\n");
+	ft_print_lst(stk_a);
+	return (0);
+}
