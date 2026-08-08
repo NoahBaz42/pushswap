@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 02:29:57 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/06 22:51:41 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/07 06:02:22 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_node *ft_find_max(t_node *a)
 	return (max);
 }
 
-void	ft_tiny_sort(t_node **a)
+void	ft_tiny_sort(t_stack *a)
 {
 	t_node	*highest_node;
 

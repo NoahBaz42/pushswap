@@ -32,6 +32,7 @@ SRCS = test_main.c \
 		stack_5.c \
 		complex_alg.c \
 		medium_alg.c \
+		optimization.c \
 
 vpath %.c push_swap_algorithms push_swap_op utils
 

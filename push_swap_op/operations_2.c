@@ -6,14 +6,14 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:00:56 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/06 06:56:41 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/07 06:02:22 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "libft_pushswap/libft.h"
 
-void    ft_rrstack(t_node **stack)
+void    ft_rrstack(t_stack *stack)
 {
     t_node *b4last;
     t_node *new_top;
@@ -31,14 +31,14 @@ void    ft_rrstack(t_node **stack)
     (*stack) = new_top;
 }
 
-void    ft_rrr(t_node **a, t_node **b)
+void    ft_rrr(t_stack *a, t_stack *b)
 {
     if (a && *a)
         ft_rrstack(a);
     if (b && *b)
         ft_rrstack(b);
 }
-void    ft_pushall_a(t_node **b, t_node **a)
+void    ft_pushall_a(t_stack *b, t_stack *a)
 {
     while (*b)
     {

@@ -43,7 +43,7 @@ void    ft_give_error(void)
 	printf("Error\n");
 	exit (1);
 }
-int ft_is_sorted(t_node *stack)
+int stk_is_sorted(t_node *stack)
 {
 	t_node  *temp;
 
@@ -51,28 +51,33 @@ int ft_is_sorted(t_node *stack)
 	while (temp && temp->next)
 	{
 		if (temp->content > temp->next->content)
-			return (0);
+			return (NOT_SORTED);
 		temp = temp->next;
 	}
-	return (1);
+	return (SORTED);
 }
 
-void	ft_push(t_node **top, t_node *new)
+void	ft_push(t_stack *top, t_node *new)
 {
 	if (!top)
 		return ;
 	if (!*top)
 	{
 		*top = new;
+		(*top)->prev = NULL;
 		return ;
 	}
 	new->next = *top;
+	new->prev = NULL;
 	*top = new;
+	(*top)->prev = new;
 }
-t_node	*ft_pop(t_node **top)
+t_node	*ft_pop(t_stack *top)
 {
 	t_node	*popped;
 
+	if(!top)
+		return (NULL);
 	popped = *top;
 	*top = (*top)->next;
 	popped->next = NULL;

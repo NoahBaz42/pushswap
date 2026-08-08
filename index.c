@@ -6,14 +6,12 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 21:09:30 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/07 01:53:18 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/07 05:30:27 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_pushswap/libft.h"
 #include "push_swap.h"
-#include <limits.h>
-#include <sys/types.h>
 
 static int	ft_get_min(t_node *a)
 {
@@ -37,13 +35,13 @@ static int	ft_get_min(t_node *a)
 
 static int	ft_get_next_min(t_node *a, int ref)
 {
-	int			min;
+	long		min;
 	static int	index = 1;
 
-	min = INT_MAX;
+	min = LONG_MAX;
 	while (a)
 	{
-		if (min > a->content && a->content != ref && a->content > ref)
+		if (min > a->content && a->content > ref)
 		{
 			min = a->content;
 			a->indexed = true;
@@ -57,11 +55,18 @@ static int	ft_get_next_min(t_node *a, int ref)
 
 void index_stack(t_node *a)
 {
-	size_t					size;
-	size_t					i;
-	int						ref;
+	size_t		size;
+	size_t		i;
+	int			ref;
+	static bool	executed;
 
 	i = 0;
+	if (executed)
+	{
+		printf("ERR: index called twice!\n");
+		ft_give_error();
+	}
+	executed = true;
 	size = ft_lstsize(a);
 	ref = ft_get_min(a);
 	while (i < size)

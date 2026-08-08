@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_5.c                                          :+:      :+:    :+:   */
+/*   optimization.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/30 23:16:50 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/07 06:22:55 by charlie          ###   ########.fr       */
+/*   Created: 2026/07/30 23:17:25 by bpassos-          #+#    #+#             */
+/*   Updated: 2026/08/08 01:30:23 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include "libft_pushswap/libft.h"
+#include <stddef.h>
+#include <sys/types.h>
 
-void	ft_stack_is_5(t_stack *a)
-{
-	t_node	*b;
-	t_node	*min;
-	int		i;
+//TODO: rewrite this code remember start at min
 
-	b = NULL;
-	i = 0;
-	min = ft_find_min(*a);
-	while (i < 2)
-	{
-		while (*a != min)
-		{
-			if (get_target_half(*a) == BOTTOM_HALF)
-				ft_rrstack(a);
-			else
-				ft_rstack(a);
-			min = ft_find_min(*a);
-		}
-		ft_pstack(&*a,&b);
-		i++;
-	}
-	if(ft_lstsize(*a) == 3)
-	{
-		ft_tiny_sort(&*a);
-		ft_pushall_a(&b, a);
-	}
-	else 
-		ft_give_error();
-}
+// bool rotate_sort(t_node *original)
+// {
+// 	ssize_t	i;
+// 	ssize_t	size;
+// 	t_node *test;
+// 	int half;
+
+// 	i = 0;
+// 	test = stk_dup(original);
+// 	size = ft_lstsize(original);
+// 	half = get_target_half(ft_find_min(original));
+// 	if (rotate_sort(test) == SORTED)
+// 		test = original;
+// 	while (stk_is_sorted(test) == NOT_SORTED && i < size)
+// 	{
+// 		if(half == TOP_HALF)
+// 			ft_rstack(&test);
+// 		else
+// 			ft_rrstack(&test);
+// 		i++;
+// 	}
+// 	if (stk_is_sorted(test) == SORTED)
+// 		return(SORTED);
+// 	return(NOT_SORTED);
+// }
 // int	main(int argc,char **argv)
 // {
 // 	t_node	*top;
@@ -57,11 +57,11 @@ void	ft_stack_is_5(t_stack *a)
 // 		ft_lstadd_back(&top, ft_lstnew(atoi( argv[i])));
 // 		i++;
 // 	}
-// 	ft_stack_is_5(&top);
-// 	printf("Sorted:\n");
+// 	rotate_sort(top);
 // 	while (top)
 // 	{
 // 		printf("%d\n", top->content);
 // 		top = top->next;
 // 	}
+// printf("Sorted:%s\n", stk_is_sorted(top) ? "TRUE" : "FALSE");
 // }

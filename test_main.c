@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_main.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:51:12 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/03 18:30:06 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/08/07 06:02:22 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-// static void ft_print_lst(t_node **first)
+// static void ft_print_lst(t_stack *first)
 // {
 // 	t_node	*temp;
 // 	int		num;

@@ -6,13 +6,13 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:01:00 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/06 18:34:58 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/07 06:02:22 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    ft_sstack(t_node **stack)
+void    ft_sstack(t_stack *stack)
 {
     int  temp;
 
@@ -32,21 +32,21 @@ void    ft_ss(t_node *a, t_node *b)
     ft_sstack(&a);
     ft_sstack(&b);
 }
-void    ft_pstack(t_node **top, t_node **add_top)
+void    ft_pstack(t_stack *src, t_stack *dest)
 {
     t_node  *tmp;
   
-    if (!top || !add_top)
+    if (!src || !dest)
 	{
-		ft_free_stack(top);
-		ft_free_stack(add_top);
+		ft_free_stack(src);
+		ft_free_stack(dest);
         ft_give_error();
 	}
-    tmp = ft_pop(top);
-    ft_push(add_top, tmp);
+    tmp = ft_pop(src);
+    ft_push(dest, tmp);
     
 }
-void    ft_rstack(t_node **stack)
+void    ft_rstack(t_stack *stack)
 {
 	t_node	*new_start;
 	t_node *last;
@@ -62,7 +62,7 @@ void    ft_rstack(t_node **stack)
 	*stack = new_start;
 }
 
-void    ft_rr(t_node **a, t_node **b)
+void    ft_rr(t_stack *a, t_stack *b)
 {
     ft_rstack(a);
     ft_rstack(b);
