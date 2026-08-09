@@ -3,15 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:15 by bpassos-          #+#    #+#             */
 /*   Updated: 2026/08/07 06:09:57 by charlie          ###   ########.fr       */
+=======
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/29 21:56:15 by bpassos-          #+#    #+#             */
+/*   Updated: 2026/07/09 07:29:27 by noah-baz         ###   ########.fr       */
+>>>>>>> noah_parsing
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
+<<<<<<< HEAD
 void	ft_lstadd_front(t_node **lst, t_node *new)
 {
 	if (!new || !lst)
@@ -20,6 +28,15 @@ void	ft_lstadd_front(t_node **lst, t_node *new)
 		new->next = *lst;
 	*lst = new;
 	new->prev = NULL;
+=======
+void	ft_lstadd_front(t_node *lst, t_node *new)
+{
+	if (!new)
+		return ;
+	if (lst)
+		new->next = lst;
+	lst = new;
+>>>>>>> noah_parsing
 }
 
 // static void	del_it(void *content)

@@ -6,11 +6,19 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:55:52 by bpassos-          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/07/16 08:07:38 by bpassos-         ###   ########.fr       */
+=======
+/*   Updated: 2026/07/06 04:55:12 by bpassos-         ###   ########.fr       */
+>>>>>>> noah_parsing
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
+<<<<<<< HEAD
+=======
+#include <stddef.h>
+>>>>>>> noah_parsing
 
 static void	ft_freesplit(char **s)
 {

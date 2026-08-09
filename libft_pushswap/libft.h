@@ -3,17 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 22:03:38 by bpassos-          #+#    #+#             */
 /*   Updated: 2026/08/07 06:09:57 by charlie          ###   ########.fr       */
+=======
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/13 22:03:38 by bpassos-          #+#    #+#             */
+/*   Updated: 2026/08/07 07:31:07 by nbaz-sil         ###   ########.fr       */
+>>>>>>> noah_parsing
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+<<<<<<< HEAD
 #include <sys/types.h>
+=======
+>>>>>>> noah_parsing
 # define CASE_DIFF 32
 
 # include <stdlib.h>
@@ -25,12 +35,19 @@
 # include <strings.h>
 # include <ctype.h>
 # include <stddef.h>
+<<<<<<< HEAD
 # include <bsd/string.h>
 # include <stdbool.h>
 
 typedef struct s_node	t_node;
 
 struct s_node
+=======
+#include <stdbool.h>
+# include <bsd/string.h>
+
+typedef struct s_node
+>>>>>>> noah_parsing
 {
 	int			content;
 	ssize_t		index;
@@ -38,6 +55,7 @@ struct s_node
 	ssize_t		size;
 	ssize_t		chunk_min;
 	ssize_t		cost;
+<<<<<<< HEAD
 	t_node		*next;
 	t_node		*prev;
 };
@@ -46,6 +64,16 @@ typedef struct s_list
 {
 	t_node	*root;
 }	t_list;
+=======
+	struct s_node		*next;
+	struct s_node		*prev;
+}			t_node;
+
+typedef struct s_list
+{
+	struct s_node	*home;
+}			t_list;
+>>>>>>> noah_parsing
 
 // srcs_1 definitions:
 int					ft_atoi(const char *nptr);
@@ -86,6 +114,7 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 // srcs_3 definitions:
+<<<<<<< HEAD
 // t_list				*ft_lstnew(t_node *root);
 t_node				*ft_lstnew(int content);
 void				ft_lstadd_front(t_node **lst, t_node *new);
@@ -103,3 +132,17 @@ void				ft_free_stack(t_node **lst);
 void				ft_free_node(t_node *lst);
 
 #endif
+=======
+t_node				*ft_lstnew(int content);
+void				ft_lstadd_front(t_node *lst, t_node *new);
+int					ft_lstsize(t_node *lst);
+t_node				*ft_lstlast(t_node *lst);
+void				ft_lstadd_back(t_node *lst, t_node *new);
+void				ft_lstdelone(t_node *lst, void (*del)(void *));
+void				ft_lstclear(t_node *lst, void (*del)(void *));
+void				ft_lstiter(t_node *lst, void (*f)(void *));
+t_node				*ft_lstmap(t_node *lst, void *(*f)(void *),
+						void (*del)(void *));
+
+#endif
+>>>>>>> noah_parsing

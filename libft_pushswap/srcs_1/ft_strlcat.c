@@ -6,10 +6,31 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 19:13:43 by bpassos-          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/07/16 08:09:11 by bpassos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+=======
+/*   Updated: 2026/07/06 04:55:11 by bpassos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+//
+// appends `src` to `dst`, null terminating the result
+//
+// the final full buffer size (`size`) is taken so as to
+// ensure that 
+// [strlen(`src`) + strlen(`dest`) + 1 < `size`]
+//
+// if [`size` < strlen(`src`) + strlen(`dest`)], 
+// only appends enough characters of `src` to guarantee
+// [strlen(`src`) + strlen(`dest`) < `size`]
+// **and the string will not be nul-terminated**
+//
+// 0xA1337F
+
+>>>>>>> noah_parsing
 #include "../libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)

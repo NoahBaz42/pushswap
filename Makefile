@@ -4,8 +4,12 @@ CC = cc -g
 CFLAGS = -Wall -Wextra -Werror -I.
 CDEPS =  -MMD -MP
 
-LIBFT_DIR = libft_pushswap
-LIBFT = $(LIBFT_DIR)/libft.a
+INCLUDES = -I. -I$(LIBFT_DIR) -I$(PRINTF_DIR)
+
+LIBFT_DIR = ./libft_pushswap
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
+PRINTF_DIR = ./ft_printf
+PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
 
 # CONSIDER:
 #	- go over naming conventions
@@ -40,12 +44,10 @@ OBJS_DIR = objs/
 OBJ = $(SRCS:.c=.o)
 OBJS = $(addprefix $(OBJS_DIR),$(OBJ))
 
-INCLUDES = -I.
+$(LIBFT_LIB):
+	make -C $(LIBFT_DIR)
 
 all: $(NAME)
-
-$(LIBFT):
-	make -C $(LIBFT_DIR)
 
 $(NAME): $(OBJS) $(LIBFT) | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
@@ -64,13 +66,18 @@ run: $(NAME)
 gdb: $(NAME)
 	@gdb --tui --args ./$(NAME) $(ARGS)
 
+$(PRINTF_LIB):
+	make -C $(PRINTF_DIR)
+
 clean:
 	rm -rf $(OBJS_DIR)
 	make -C $(LIBFT_DIR) clean
+	make -C $(PRINTF_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
 	make -C $(LIBFT_DIR) fclean
+	make -C $(PRINTF_DIR) fclean
 
 re: fclean all
 

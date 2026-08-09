@@ -3,15 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:10 by bpassos-          #+#    #+#             */
 /*   Updated: 2026/08/07 06:09:57 by charlie          ###   ########.fr       */
+=======
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/29 21:56:10 by bpassos-          #+#    #+#             */
+/*   Updated: 2026/07/09 07:28:36 by noah-baz         ###   ########.fr       */
+>>>>>>> noah_parsing
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
+<<<<<<< HEAD
 void	ft_lstadd_back(t_node **lst, t_node *new)
 {
 	t_node	*last;
@@ -32,6 +40,24 @@ void	ft_lstadd_back(t_node **lst, t_node *new)
 // {
 // 	free(content);
 // }
+=======
+void	ft_lstadd_back(t_node *lst, t_node *new)
+{
+	if (!new)
+		return ;
+	if (!lst)
+	{
+		lst = new;
+		return ;
+	}
+	ft_lstlast(lst)->next = new;
+}
+
+/* static void	del_it(void *content)
+{
+	free(content);
+} */
+>>>>>>> noah_parsing
 
 // static void ft_print_lst(t_node *first)
 // {
@@ -81,6 +107,10 @@ void	ft_lstadd_back(t_node **lst, t_node *new)
 // 		temp = temp->next;
 // 	}
 // 	ft_print_lst(temp);
+<<<<<<< HEAD
 //	ft_lstclear(&temp, del_it);
+=======
+// 	ft_lstclear(&temp, del_it);
+>>>>>>> noah_parsing
 // 	return (0);
 // }

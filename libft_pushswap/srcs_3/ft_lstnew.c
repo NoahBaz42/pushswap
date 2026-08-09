@@ -3,15 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:27 by bpassos-          #+#    #+#             */
 /*   Updated: 2026/08/07 02:22:13 by charlie          ###   ########.fr       */
+=======
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/29 21:56:27 by bpassos-          #+#    #+#             */
+/*   Updated: 2026/08/07 05:40:00 by nbaz-sil         ###   ########.fr       */
+>>>>>>> noah_parsing
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
+<<<<<<< HEAD
 // t_node	*ft_lstnew(int content)
 // {
 // 	t_node	*new;
@@ -24,6 +32,8 @@
 // 	return (new);
 // }
 
+=======
+>>>>>>> noah_parsing
 t_node	*ft_lstnew(int content)
 {
 	t_node	*new;

@@ -6,11 +6,19 @@
 /*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:55:39 by bpassos-          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/07/16 08:07:20 by bpassos-         ###   ########.fr       */
+=======
+/*   Updated: 2026/07/06 04:55:12 by bpassos-         ###   ########.fr       */
+>>>>>>> noah_parsing
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
+<<<<<<< HEAD
+=======
+#include <limits.h>
+>>>>>>> noah_parsing
 
 static int	ft_allocate(int n)
 {
