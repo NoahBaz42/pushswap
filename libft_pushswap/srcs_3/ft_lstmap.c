@@ -3,27 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-<<<<<<< HEAD
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:25 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/03 01:50:02 by bpassos-         ###   ########.fr       */
-=======
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 21:56:25 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/07 08:58:20 by nbaz-sil         ###   ########.fr       */
->>>>>>> noah_parsing
+/*   Updated: 2026/08/09 02:31:58 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-<<<<<<< HEAD
 t_node	*ft_lstmap(t_node *lst, int(*f)(int), void (*del)(int))
-=======
-t_node	*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *))
->>>>>>> noah_parsing
 {
 	t_node	*nlst;
 	t_node	*new;
@@ -33,7 +22,6 @@ t_node	*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *))
 	nlst = NULL;
 	while (lst)
 	{
-<<<<<<< HEAD
 		new = ft_lstnew(f(lst->content));
 		if (!new)
 		{
@@ -41,15 +29,6 @@ t_node	*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *))
 			return (NULL);
 		}
 		ft_lstadd_back(&nlst, new);
-=======
-		new = ft_lstnew(lst->content);
-		if (!new)
-		{
-			ft_lstclear(new, del);
-			return (NULL);
-		}
-		ft_lstadd_back(nlst, new);
->>>>>>> noah_parsing
 		lst = lst->next;
 	}
 	return (nlst);

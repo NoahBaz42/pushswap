@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:55:45 by bpassos-          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/07/16 08:07:27 by bpassos-         ###   ########.fr       */
-=======
-/*   Updated: 2026/07/06 04:55:12 by bpassos-         ###   ########.fr       */
->>>>>>> noah_parsing
+/*   Updated: 2026/08/09 02:35:29 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-<<<<<<< HEAD
-=======
-#include <fcntl.h>
->>>>>>> noah_parsing
 
 void	ft_putendl_fd(char *s, int fd)
 {

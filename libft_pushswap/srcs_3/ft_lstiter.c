@@ -3,28 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-<<<<<<< HEAD
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:20 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/03 01:48:33 by bpassos-         ###   ########.fr       */
-=======
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 21:56:20 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/07 08:56:57 by nbaz-sil         ###   ########.fr       */
->>>>>>> noah_parsing
+/*   Updated: 2026/08/09 02:31:43 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-<<<<<<< HEAD
 
 void	ft_lstiter(t_node *lst, void (*f)(int))
-=======
-void	ft_lstiter(t_node *lst, void (*f)(void *))
->>>>>>> noah_parsing
 {
 	t_node	*temp;
 
@@ -33,10 +22,7 @@ void	ft_lstiter(t_node *lst, void (*f)(void *))
 	temp = lst;
 	while (temp)
 	{
-<<<<<<< HEAD
 		f(temp->content);
-=======
->>>>>>> noah_parsing
 		temp = temp->next;
 	}
 }

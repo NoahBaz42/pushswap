@@ -3,17 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-<<<<<<< HEAD
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:18 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/07 06:13:11 by charlie          ###   ########.fr       */
-=======
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 21:56:18 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/09 07:29:11 by noah-baz         ###   ########.fr       */
->>>>>>> noah_parsing
+/*   Updated: 2026/08/09 02:31:22 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,34 +14,20 @@
 
 // static void	del_it(void *lst)
 // {
-<<<<<<< HEAD
 // 	t_node	*node;
-=======
-// 	t_list	*node;
->>>>>>> noah_parsing
 
 // 	node = lst;
 // 	printf("deleting node content at memory address %p\n", node->content);
 // }
 
-<<<<<<< HEAD
 void	ft_lstclear(t_node **lst, void (*del)(int))
-=======
-void	ft_lstclear(t_node *lst, void (*del)(void *))
->>>>>>> noah_parsing
 {
 	t_node	*head;
 	t_node	*node;
 
-<<<<<<< HEAD
 	if (!lst || !*lst || !del)
 		return ;
 	node = *lst;
-=======
-	if (!lst || !del)
-		return ;
-	node = lst;
->>>>>>> noah_parsing
 	while (node)
 	{
 		head = node->next;
@@ -58,7 +37,6 @@ void	ft_lstclear(t_node *lst, void (*del)(void *))
 	lst = NULL;
 }
 
-<<<<<<< HEAD
 void	ft_free_stack(t_node **lst)
 {
 	t_node	*head;
@@ -76,8 +54,6 @@ void	ft_free_stack(t_node **lst)
 	*lst = NULL;
 }
 
-=======
->>>>>>> noah_parsing
 // int main (int argc, char **argv)
 // {
 // 	int *x;

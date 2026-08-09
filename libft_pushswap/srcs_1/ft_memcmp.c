@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 14:04:21 by bpassos-          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/07/16 08:08:26 by bpassos-         ###   ########.fr       */
-=======
-/*   Updated: 2026/07/06 04:55:11 by bpassos-         ###   ########.fr       */
->>>>>>> noah_parsing
+/*   Updated: 2026/08/09 02:27:21 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-<<<<<<< HEAD
-=======
-#include <sys/types.h>
->>>>>>> noah_parsing
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

@@ -3,23 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-<<<<<<< HEAD
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:13 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/07 06:12:16 by charlie          ###   ########.fr       */
-=======
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 21:56:13 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/07 08:56:03 by nbaz-sil         ###   ########.fr       */
->>>>>>> noah_parsing
+/*   Updated: 2026/08/09 02:31:30 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-<<<<<<< HEAD
 void	ft_lstdelone(t_node *lst, void (*del)(int))
 {
 	if (!lst || !del)
@@ -39,16 +31,6 @@ void	ft_free_node(t_node *lst)
 // {
 // 	free(content);
 // }
-=======
-void	ft_lstdelone(t_node *lst, void (*del)(void *))
-{
-	if (!lst || !del)
-		return ;
-	free(lst);
-}
-
-
->>>>>>> noah_parsing
 // int main (int argc, char **argv)
 // {
 // 	int *x;

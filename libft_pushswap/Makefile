@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> noah_parsing
 NAME = libft.a
 OBJS_DIR = objs/
 SRC = 	ft_atoi.c \
@@ -46,23 +42,15 @@ SRC = 	ft_atoi.c \
 		ft_lstdelone.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
-<<<<<<< HEAD
 		ft_lstmap.c \
 		ft_lstb4last.c \
-=======
-		ft_lstmap.c
->>>>>>> noah_parsing
 
 vpath %.c srcs_1 srcs_2 srcs_3
 
 OBJ = $(SRC:.c=.o)
 OBJECTS = $(addprefix $(OBJS_DIR),$(OBJ))
 INC = .
-<<<<<<< HEAD
 CC = cc
-=======
-CC = clang
->>>>>>> noah_parsing
 CFLAGS = -Wall -Wextra -Werror -g -MMD -MP
 CFLAGS_SAN = -fsanitize=address
 CFLAGS_BSD = -lbsd

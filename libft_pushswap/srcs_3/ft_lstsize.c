@@ -3,27 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-<<<<<<< HEAD
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:30 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/06 19:05:47 by charlie          ###   ########.fr       */
-=======
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 21:56:30 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/07/06 04:55:11 by bpassos-         ###   ########.fr       */
->>>>>>> noah_parsing
+/*   Updated: 2026/08/09 02:32:16 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-<<<<<<< HEAD
 size_t	ft_lstsize(t_node *lst)
-=======
-int	ft_lstsize(t_node *lst)
->>>>>>> noah_parsing
 {
 	int	size;
 

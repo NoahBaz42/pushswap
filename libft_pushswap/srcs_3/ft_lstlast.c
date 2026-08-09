@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:22 by bpassos-          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/07/31 04:31:40 by bpassos-         ###   ########.fr       */
-=======
-/*   Updated: 2026/07/06 04:55:11 by bpassos-         ###   ########.fr       */
->>>>>>> noah_parsing
+/*   Updated: 2026/08/09 02:31:47 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-<<<<<<< HEAD
-=======
-#include <stddef.h>
->>>>>>> noah_parsing
 
 t_node	*ft_lstlast(t_node *lst)
 {
