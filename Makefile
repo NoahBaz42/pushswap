@@ -6,9 +6,9 @@ CDEPS =  -MMD -MP
 
 INCLUDES = -I. -I$(LIBFT_DIR) -I$(PRINTF_DIR)
 
-LIBFT_DIR = ./libft_pushswap
-LIBFT_LIB = $(LIBFT_DIR)/libft.a
-PRINTF_DIR = ./ft_printf
+LIBFT_DIR = libft_pushswap
+LIBFT = $(LIBFT_DIR)/libft.a
+PRINTF_DIR = ft_printf
 PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
 
 # CONSIDER:
