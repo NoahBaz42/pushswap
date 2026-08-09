@@ -6,15 +6,14 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 19:26:09 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/08 04:44:33 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/09 16:12:31 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../pushswap.h"
 
-void	ft_simple(t_stack *a)
+void	ft_simple(t_stack *a, t_node *b,t_op_count	*op_count)
 {
-	t_node *b;
 	t_node *min;
 	int		half;
 
@@ -26,13 +25,13 @@ void	ft_simple(t_stack *a)
 		while ((*a)->content != min->content)
 		{
 			if (half == TOP_HALF)
-				ft_rstack(a);
+				op_ra_stack(a, op_count);
 			else
-				ft_rrstack(a);
+				op_rra_stack(a, op_count);
 		}
-		ft_pstack(a, &b);
+		op_pb_stack(a, &b, op_count);
 	}
-	ft_pushall_a(&b, a);
+	ft_pushall_a(&b, a, op_count);
 }
 // void ft_print_lst(t_node *top)
 // {

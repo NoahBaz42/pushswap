@@ -20,7 +20,7 @@
     "output": "objs/test_main.o"
   },
   {
-    "file": "push_swap_op/operations_1.c",
+    "file": "pushswap_op/operations_1.c",
     "arguments": [
       "/usr/local/bin/cc",
       "-g",
@@ -32,7 +32,7 @@
       "-MP",
       "-c",
       "-I.",
-      "push_swap_op/operations_1.c",
+      "pushswap_op/operations_1.c",
       "-o",
       "objs/operations_1.o"
     ],
@@ -40,7 +40,7 @@
     "output": "objs/operations_1.o"
   },
   {
-    "file": "push_swap_op/operations_2.c",
+    "file": "pushswap_op/operations_2.c",
     "arguments": [
       "/usr/local/bin/cc",
       "-g",
@@ -52,7 +52,7 @@
       "-MP",
       "-c",
       "-I.",
-      "push_swap_op/operations_2.c",
+      "pushswap_op/operations_2.c",
       "-o",
       "objs/operations_2.o"
     ],
@@ -60,7 +60,7 @@
     "output": "objs/operations_2.o"
   },
   {
-    "file": "push_swap_algorithms/tiny_sort.c",
+    "file": "pushswap_algorithms/stack_is_3.c",
     "arguments": [
       "/usr/local/bin/cc",
       "-g",
@@ -72,12 +72,12 @@
       "-MP",
       "-c",
       "-I.",
-      "push_swap_algorithms/tiny_sort.c",
+      "pushswap_algorithms/stack_is_3.c",
       "-o",
-      "objs/tiny_sort.o"
+      "objs/stack_is_3.o"
     ],
     "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
-    "output": "objs/tiny_sort.o"
+    "output": "objs/stack_is_3.o"
   },
   {
     "file": "utils/utils_1.c",
@@ -140,7 +140,7 @@
     "output": "objs/index.o"
   },
   {
-    "file": "push_swap_algorithms/simple_alg.c",
+    "file": "pushswap_algorithms/simple_alg.c",
     "arguments": [
       "/usr/local/bin/cc",
       "-g",
@@ -152,7 +152,7 @@
       "-MP",
       "-c",
       "-I.",
-      "push_swap_algorithms/simple_alg.c",
+      "pushswap_algorithms/simple_alg.c",
       "-o",
       "objs/simple_alg.o"
     ],
@@ -160,7 +160,7 @@
     "output": "objs/simple_alg.o"
   },
   {
-    "file": "push_swap_algorithms/stack_5.c",
+    "file": "pushswap_algorithms/stack_is_5.c",
     "arguments": [
       "/usr/local/bin/cc",
       "-g",
@@ -172,15 +172,15 @@
       "-MP",
       "-c",
       "-I.",
-      "push_swap_algorithms/stack_5.c",
+      "pushswap_algorithms/stack_is_5.c",
       "-o",
-      "objs/stack_5.o"
+      "objs/stack_is_5.o"
     ],
     "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
-    "output": "objs/stack_5.o"
+    "output": "objs/stack_is_5.o"
   },
   {
-    "file": "push_swap_algorithms/complex_alg.c",
+    "file": "pushswap_algorithms/complex_alg.c",
     "arguments": [
       "/usr/local/bin/cc",
       "-g",
@@ -192,7 +192,7 @@
       "-MP",
       "-c",
       "-I.",
-      "push_swap_algorithms/complex_alg.c",
+      "pushswap_algorithms/complex_alg.c",
       "-o",
       "objs/complex_alg.o"
     ],
@@ -200,7 +200,7 @@
     "output": "objs/complex_alg.o"
   },
   {
-    "file": "push_swap_algorithms/medium_alg.c",
+    "file": "pushswap_algorithms/medium_alg.c",
     "arguments": [
       "/usr/local/bin/cc",
       "-g",
@@ -212,7 +212,7 @@
       "-MP",
       "-c",
       "-I.",
-      "push_swap_algorithms/medium_alg.c",
+      "pushswap_algorithms/medium_alg.c",
       "-o",
       "objs/medium_alg.o"
     ],

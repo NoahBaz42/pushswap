@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_exit.c                                   :+:      :+:    :+:   */
+/*   pushswap_exit.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 03:45:57 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/07 07:10:44 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h" 
+#include "pushswap.h" 
 
-void ft_give_error(void)
+void    give_error(void)
 {
-    write(2, "Error\n", 6);
-    exit(1);
+	ft_printf(2,"Error\n");
+	exit (1);
 }
 
 void	ft_free_array(char **array, int size)
@@ -28,34 +28,16 @@ void	ft_free_array(char **array, int size)
 		free(array[size]);
 	}
 	free(array);
-	ft_give_error();
 }
-void	ft_exit_array(char **array, int size)
+void	exit_array(char **array, int size)
 {
 	ft_free_array(array, size);
-	ft_give_error();
+	give_error();
 }
 //----[with help of temp, we free every node and then the stack]----------//
 
-void ft_free_stack(t_list **stack)
-{
-    t_node  *temp;
-    t_node  *current;
-
-    if (!stack || !*stack)
-        return ;
-    current = (*stack)->home;
-    while (current)
-    {
-        temp = current;
-        current = current->next;
-        free(temp);
-    }
-    free(*stack);
-    *stack = NULL;
-}
-void	ft_exit_stack(t_list **stack)
+void	exit_stack(t_stack *stack)
 {
 	ft_free_stack(stack);
-	ft_give_error();
+	give_error();
 }

@@ -6,12 +6,12 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 21:09:30 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/07 05:30:27 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_pushswap/libft.h"
-#include "push_swap.h"
+#include "pushswap.h"
 
 static int	ft_get_min(t_node *a)
 {
@@ -64,7 +64,7 @@ void index_stack(t_node *a)
 	if (executed)
 	{
 		printf("ERR: index called twice!\n");
-		ft_give_error();
+		give_error();
 	}
 	executed = true;
 	size = ft_lstsize(a);

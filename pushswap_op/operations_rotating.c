@@ -1,48 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_2.c                                     :+:      :+:    :+:   */
+/*   operations_rotating.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:00:56 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/07 06:02:22 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/09 16:04:59 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "libft_pushswap/libft.h"
+#include "../pushswap.h"
 
-void    ft_rrstack(t_stack *stack)
+void    op_rr(t_stack *a, t_stack *b, t_op_count	*op_count)
 {
-    t_node *b4last;
-    t_node *new_top;
-    
-    if (!stack || !*stack)
-    {
-        printf("rrs\n");
-        ft_free_stack(stack);
-        ft_give_error();
-    }
-    b4last = ft_lstb4last(*stack);
-    new_top = ft_lstlast(*stack);
-    new_top->next = *stack;
-    b4last->next = NULL;
-    (*stack) = new_top;
+    op_ra_stack(a, op_count);
+    op_rb_stack(b, op_count);
 }
 
-void    ft_rrr(t_stack *a, t_stack *b)
+void    op_rrr(t_stack *a, t_stack *b, t_op_count	*op_count)
 {
     if (a && *a)
-        ft_rrstack(a);
+        op_rra_stack(a, op_count);
     if (b && *b)
-        ft_rrstack(b);
+        op_rrb_stack(b, op_count);
 }
-void    ft_pushall_a(t_stack *b, t_stack *a)
+void    op_pushall_a(t_stack *b, t_stack *a, t_op_count	*op_count)
 {
     while (*b)
     {
-        ft_pstack(b, a);
+        op_pa_stack(b, a, op_count);
     }
 }
 
@@ -74,7 +61,9 @@ void    ft_pushall_a(t_stack *b, t_stack *a)
 // 		b = b->next;
 // 	}
 // }
-//-----------pstack----------//
+
+
+//-----------rr----------//
 // int	main(int argc,char **argv)
 // {
 // 	t_node	*top;
@@ -89,12 +78,17 @@ void    ft_pushall_a(t_stack *b, t_stack *a)
 // 		return (printf("incorrect # of arguments\n"), 1);
 // 	while (i < argc)
 // 	{
-// 		ft_lstadd_back(&b, ft_lstnew(atoi( argv[i])));
+// 		ft_lstadd_back(&top, ft_lstnew(atoi( argv[i])));
 // 		i++;
 // 	}
 //     i = 1;
+//     while (i < argc)
+// 	{
+// 		ft_lstadd_back(&b, ft_lstnew(atoi( argv[i])));
+// 		i++;
+// 	}
 // 	printf("Sorted:\n");
-// 	ft_pushall_b(&b, &top);
+// 	ft_rr(&top, &b);
 //     printf("a:\n");
 // 	while (top)
 // 	{

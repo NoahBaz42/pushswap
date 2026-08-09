@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:45:15 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/07 07:26:47 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h" 
+#include "../pushswap.h" 
 
 //----------[counts args, without spaces]---------------------------------//
 
-size_t	ft_count_args(const char *arg)
+size_t	count_args(const char *arg)
 {
 	size_t	i;
 	size_t	words;
@@ -23,28 +23,28 @@ size_t	ft_count_args(const char *arg)
 	words = 0;
 	while (arg[i])
 	{
-		while (ft_isspace(arg[i]) == 1)
+		while (isspace(arg[i]) == 1)
 			i++;
-		if (arg[i] && ft_isspace(arg[i]) == 0)
+		if (arg[i] && isspace(arg[i]) == 0)
 			words++;
-		while (arg[i] && ft_isspace(arg[i]) == 0)
+		while (arg[i] && isspace(arg[i]) == 0)
 			i++;
 	}
 	return (words);
 }
 
-//----------[with ft_count_args, checks all of the array]-----------------//
+//----------[with count_args, checks all of the array]-----------------//
 /*[------------------!!!NEEDS REVISION!!!!------------------------- ]*/
 /*[ ps: DOES NOT give a valid error: must free BEFORE exiting.. ]*/
 
-size_t	ft_count_new_args(char **argv, size_t	i)
+size_t	count_new_args(char **argv, size_t	i)
 {
 	size_t	count;
 
 	count = 0;
 	while (argv[i])
 	{
-		count += ft_count_args(argv[i]);
+		count += count_args(argv[i]);
 		i++;
 	}
 	return (count);

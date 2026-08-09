@@ -10,39 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../pushswap.h"
 
-float ft_disorder(t_node *stack)
-{
-	t_node  *temp;
-	t_node  *temp2;
-	float     disorder;
-	float      total;
-
-	temp = stack;
-	disorder = 0;
-	total = 0;
-	while (temp)
-	{
-		temp2 = temp->next;
-		while(temp2)
-		{
-			total++;
-			if (temp->content > temp2->content)
-				disorder++;
-			temp2 = temp2->next;
-		}
-		temp = temp->next;
-	}
-	if(total == 0)
-		return (0);
-	return ((disorder/total) * 100);
-}
-void    ft_give_error(void)
-{
-	printf("Error\n");
-	exit (1);
-}
 int stk_is_sorted(t_node *stack)
 {
 	t_node  *temp;

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   flag_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 19:44:11 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/07 07:26:16 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../pushswap.h"
 
 //----------[counts how many flags are active]----------------------------//
 
-int	ft_count_flags(t_flags *flags)
+int	count_flags(t_flags *flags)
 {
 	int	count;
 
@@ -26,38 +26,38 @@ int	ft_count_flags(t_flags *flags)
 	return (count);
 }
 
-//----------[based on ft_count_flags, checks for valid flags]-------------//
+//----------[based on count_flags, checks for valid flags]-------------//
 //----------[true if valid flags, false otherwise]------------------------//
 
-static bool	ft_right_flags(t_flags *flags, char **argv)
+static bool	right_flags(t_flags *flags, char **argv)
 {
-	if (ft_count_flags(flags) == 0)
+	if (count_flags(flags) == 0)
 		return (true);
-	if (ft_count_flags(flags) == 1)
+	if (count_flags(flags) == 1)
 	{
-		if (ft_is_bench_flags(argv[1]) || ft_is_diff_flags(argv[1]))
+		if (is_bench_flags(argv[1]) || is_diff_flags(argv[1]))
 			return (true);
 	}
-	if (ft_count_flags(flags) == 2)
+	if (count_flags(flags) == 2)
 	{
-		if ((argv[2] && ft_is_bench_flags(argv[1]) && ft_is_diff_flags(argv[2]))
-			|| (ft_is_bench_flags(argv[2]) && ft_is_diff_flags(argv[1])))
+		if ((argv[2] && is_bench_flags(argv[1]) && is_diff_flags(argv[2]))
+			|| (is_bench_flags(argv[2]) && is_diff_flags(argv[1])))
 			return (true);
 	}
 	return (false);
 }
 
 //----------[checks 1st arg for bench or difficulty]----------------------------//
-//----------(ft_flag_bench already checks both arg[1] and arg[2])---------------//
-//----------(ft_right_flags checks for unvalid flags in 1st 2 args)-------------//
+//----------(flag_bench already checks both arg[1] and arg[2])---------------//
+//----------(right_flags checks for unvalid flags in 1st 2 args)-------------//
 
-void	ft_flag_check(t_flags *flags, char **argv)
+void	flag_check(t_flags *flags, char **argv)
 {
 	if (argv[1])
-		ft_flag_bench(flags, argv);
-	ft_flag_diff(flags, argv[1]);
+		flag_bench(flags, argv);
+	flag_diff(flags, argv[1]);
 	if (argv[2])
-		ft_flag_diff(flags, argv[2]);
-	if (argv[1] && !ft_right_flags(flags, argv))
-		ft_give_error();
+		flag_diff(flags, argv[2]);
+	if (argv[1] && !right_flags(flags, argv))
+		give_error();
 }

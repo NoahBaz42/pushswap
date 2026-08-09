@@ -6,12 +6,12 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:51:12 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 01:06:16 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/09 10:43:08 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_pushswap/libft.h"
-#include "push_swap.h"
+#include "pushswap.h"
 #include <stdint.h>
 #include <stdio.h>
 
@@ -55,7 +55,7 @@
 // 	}
 // 	ft_print_lst(&lst);
 // 	printf("\nSorted list:\n");
-// 	ft_tiny_sort (&lst);
+// 	stack_is_3 (&lst);
 // 	ft_print_lst(&lst);
 // 	return (0);
 // }
@@ -78,7 +78,7 @@
 // 		i++;
 // 	}
 // 	printf("Sorted:\n");
-// 	ft_tiny_sort(&top);
+// 	stack_is_3(&top);
 // 	while (top)
 // 	{
 // 		printf("%d\n", top->content);

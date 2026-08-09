@@ -3,34 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:20:16 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/07 07:26:51 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h" 
+#include "../pushswap.h" 
+#include <strings.h>
 
 
 /*------[ checks for valid numbers ]--------*/
 
-static int	ft_is_valid_number(char *arg, int j)
+static int	is_valid_number(char *arg, int j)
 {
 	if (ft_isoperator(arg[j]))
 		j++;
-	if (!ft_isdigit(arg[j]))
-		ft_give_error();
-	while (ft_isdigit(arg[j]))
+	if (!isdigit(arg[j]))
+		give_error();
+	while (isdigit(arg[j]))
 		j++;
-	if (arg[j] && !ft_isspace(arg[j]))
-		ft_give_error();
+	if (arg[j] && !isspace(arg[j]))
+		give_error();
 	return (j);
 }
 
 /*------[ checks for valid arguments ]--------*/
 
-void	ft_valid_args(char **argv, size_t i)
+void	valid_args(char **argv, size_t i)
 {
 	int	j;
 
@@ -39,41 +40,59 @@ void	ft_valid_args(char **argv, size_t i)
 		j = 0;
 		while (argv[i][j])
 		{
-			if (ft_isspace(argv[i][j]))
+			if (isspace(argv[i][j]))
 				j++;
 			else
-				j = ft_is_valid_number(argv[i], j);
+				j = is_valid_number(argv[i], j);
 		}
 		i++;
 	}
 }
 
-/*------[ main function: ft_parsing ]--------*/
+/*------[ main function: parsing ]--------*/
 
-t_list	*ft_parsing(char **argv)
+t_node	*parsing(char **argv)
 {
 	size_t	i;
 	size_t	count;
 	char	**array;
 	t_flags	flags;
-	t_list	*stack_a;
+	t_node	*stack_a;
 
 	flags = (t_flags){0};
-	ft_flag_check(&flags, argv);
-	i = ft_count_flags(&flags) + 1;
-	ft_valid_args(argv, i);
-	count = ft_count_new_args(argv, i);
+	flag_check(&flags, argv);
+	i = count_flags(&flags) + 1;
+	valid_args(argv, i);
+	count = count_new_args(argv, i);
 	array = ft_split_all(argv, i, count);
 	if (!array)
-		ft_give_error();
-	stack_a = ft_array_to_stack(array);
+		give_error();
+	stack_a = array_to_stk(array);
 	if(!stack_a)
-		ft_exit_array(array, (int)count);
-	if (ft_integer_check(stack_a))
+		exit_array(array, (int)count);
+	if (int_check(stack_a) == INVALID)
 	{
-		ft_free_array(array, (int)count);
-		ft_exit_stack(&stack_a);
+		ft_free_array(array, count);
+		exit_stack(&stack_a);
 	}
-	ft_free_array(array, (int)count);
+	ft_free_array(array, count);
 	return (stack_a);
+}
+int	main(int argc,char **argv)
+{
+	t_node	*stk_a;
+	t_node	*stk_b;
+
+	stk_a = NULL;
+	stk_b = NULL;
+	if (argc < 2)
+		return (printf("incorrect # of arguments\n"), 1);
+	stk_a = parsing(argv);
+	index_stack(stk_a);
+	chunk_sort(&stk_a, &stk_b);
+	printf("Stack_a:\n");
+	ft_print_lst(stk_a);
+	ft_free_stack(&stk_a);
+	ft_free_stack(&stk_b);
+	return (0);
 }

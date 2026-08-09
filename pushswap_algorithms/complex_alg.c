@@ -6,19 +6,18 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:24:39 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/08 23:26:20 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/09 16:11:47 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "libft_pushswap/libft.h"
+#include "../pushswap.h"
 
 static bool	bit_is_zero(int index, int bit)
 {
 	return (!(index & bit));
 }
 
-void	radix_sort(t_stack *a, t_stack *b)
+void	radix_sort(t_stack *a, t_stack *b, t_op_count	*op_count)
 {
 	int		bit;
 	int		n;
@@ -33,12 +32,12 @@ void	radix_sort(t_stack *a, t_stack *b)
 		{
 			node = *a;
 			if (bit_is_zero(node->index, bit))
-				ft_pstack(a, b);
+				op_pb_stack(a, b, op_count);
 			else
-				ft_rstack(a);
+				op_ra_stack(a, op_count);
 			n--;
 		}
-		ft_pushall_a(b, a);
+		ft_pushall_a(b, a, op_count);
 		bit *= 2;
 	}
 	ft_free_stack(b);

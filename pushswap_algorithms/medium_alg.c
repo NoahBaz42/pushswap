@@ -6,13 +6,11 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:24:42 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/08 23:21:33 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/09 16:10:45 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "libft_pushswap/libft.h"
-#include <sys/types.h>
+#include "../pushswap.h"
 
 /**
  * TODO:
@@ -29,7 +27,7 @@ int	ft_abs(ssize_t num)
 	return(num);
 }
 
-void set_stack_costs(t_stack *a)
+static void set_stack_costs(t_stack *a)
 {
 	ssize_t	idx;
 	ssize_t	mid;
@@ -112,8 +110,8 @@ static t_node *find_cheapest_node(t_stack *a, ssize_t chunk_size)
 	return (iterate_node(node, target_index));
 }
 
-void	push_target_node(t_stack *src, t_stack *dest,
-						t_node *target)
+static void	push_target_node(t_stack *src, t_stack *dest,
+						t_node *target,t_op_count	*op_count)
 {
 	int		target_half;
 	t_node	*head;
@@ -123,16 +121,16 @@ void	push_target_node(t_stack *src, t_stack *dest,
 	while (target != head && target)
 	{
 		if (target_half == TOP_HALF)
-			ft_rstack(src);
+			op_ra_stack(src, op_count);
 		else
-			ft_rrstack(src);
+			op_rra_stack(src, op_count);
 		head = *src;
 	}
-	ft_pstack(src, dest);
+	op_pb_stack(src, dest, op_count);
 
 }
 
-void	chunk_sort(t_stack *a, t_stack *b)
+void	chunk_sort(t_stack *a, t_stack *b, t_op_count	*op_count)
 {
 	ssize_t	chunk_size;
 
@@ -140,10 +138,10 @@ void	chunk_sort(t_stack *a, t_stack *b)
 	while (*a)
 	{
 		set_stack_costs(a);
-		push_target_node(a, b, find_cheapest_node(a, chunk_size));
+		push_target_node(a, b, find_cheapest_node(a, chunk_size), op_count);
 	}
 	while (*b)
-		push_target_node(b, a, ft_find_max(*b));
+		push_target_node(b, a, ft_find_max(*b), op_count);
 }
 
 void ft_print_lst(t_node *top)
@@ -153,7 +151,7 @@ void ft_print_lst(t_node *top)
 	stack = top;
 		while (stack)
 	{
-		printf("% 5d: %3ld @ %1ld\n", stack->content, stack->index, stack->cost);
+		printf("% 5ld: %3ld @ %1ld\n", stack->content, stack->index, stack->cost);
 		stack = stack->next;
 	}
 }
@@ -190,28 +188,28 @@ void ft_print_lst(t_node *top)
 // 	return (0);
 // }
 //-------chunk_sort------//
-int	main(int argc,char **argv)
-{
-	int	i;
-	t_node	*stk_a;
-	t_node	*stk_b;
+// int	main(int argc,char **argv)
+// {
+// 	int	i;
+// 	t_node	*stk_a;
+// 	t_node	*stk_b;
 
-	i = 1;
-	stk_a = NULL;
-	stk_b = NULL;
-	if (argc < 2)
-		return (printf("incorrect # of arguments\n"), 1);
-	while (i < argc)
-	{
-		ft_lstadd_back(&stk_a, ft_lstnew(atoi( argv[i])));
-		i++;
-	}
-	index_stack(stk_a);
-	printf("Original list:\n");
-	ft_print_lst(stk_a);
-	printf("\n------------\n");
-	chunk_sort(&stk_a, &stk_b);
-	printf("Sorted stack list:\n");
-	ft_print_lst(stk_a);
-	return (0);
-}
+// 	i = 1;
+// 	stk_a = NULL;
+// 	stk_b = NULL;
+// 	if (argc < 2)
+// 		return (printf("incorrect # of arguments\n"), 1);
+// 	while (i < argc)
+// 	{
+// 		ft_lstadd_back(&stk_a, ft_lstnew(atoi( argv[i])));
+// 		i++;
+// 	}
+// 	index_stack(stk_a);
+// 	printf("Original list:\n");
+// 	ft_print_lst(stk_a);
+// 	printf("\n------------\n");
+// 	chunk_sort(&stk_a, &stk_b);
+// 	printf("Sorted stack list:\n");
+// 	ft_print_lst(stk_a);
+// 	return (0);
+// }

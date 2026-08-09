@@ -6,11 +6,11 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 01:20:12 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/07 19:16:09 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../pushswap.h"
 
 t_node *ft_find_min(t_node *a)
 {

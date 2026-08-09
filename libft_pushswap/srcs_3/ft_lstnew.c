@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:27 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 02:32:08 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/09 07:43:12 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 // 	return (new);
 // }
 
-t_node	*ft_lstnew(int content)
+t_node	*ft_lstnew(long content)
 {
 	t_node	*new;
 

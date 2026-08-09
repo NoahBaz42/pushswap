@@ -6,12 +6,11 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 23:17:25 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/08 05:34:46 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "libft_pushswap/libft.h"
+#include "../pushswap.h"
 #include <stddef.h>
 #include <sys/types.h>
 

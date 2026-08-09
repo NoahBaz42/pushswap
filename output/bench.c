@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 14:41:02 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/07 09:30:03 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/08/09 15:27:51 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 //----------[EDITED: size used to check 1 number case]--------------------//
 //----------[EDITED: ft_disorder returns a float, needed casting]---------//
 
-#include "../push_swap.h"
+#include "../pushswap.h"
 
 float ft_disorder(t_node *stack)
 {
@@ -43,44 +43,42 @@ float ft_disorder(t_node *stack)
 //----------[defines difficulty based on disorder level]--------------------//
 
 
-e_diff ft_resolve_strategy(float disorder)
+void ft_resolve_strategy(t_flags *flag, float disorder)
 {
     if (disorder < 0.2)
-        return (DIFF_SIMPLE);
+        flag->difficulty = DIFF_SIMPLE;
     else if (disorder < 0.5)
-        return (DIFF_MEDIUM);
+        flag->difficulty = DIFF_MEDIUM;
     else
-        return (DIFF_COMPLEX);
+        flag->difficulty = DIFF_COMPLEX;
+
 }
 
 //----------[Prints the benchmark]--------------------//
-//----------[e_diff used for adaptive difficulty]-----//
+//----------[t_diff used for adaptive difficulty]-----//
 //----------[adaptive: we check disorder level 1st]---//
 //----------[adaptive: we set the diff qualified]-----//
 //----------[prints all the modes and its values]-----//
 //----------[returns nothing. only prints]------------//
 
-void ft_print_bench(t_ops *bench, t_flags *flags, float disorder)
+void output_bench(t_stack *stk_a, t_op_count *op_count, t_flags *flags)
 {
     const char *names[4] = {"Adaptive", "Simple", "Medium", "Complex"};
     const char *complex[4] = {"__", "O(n2)", "O(n√n)", "O(n log n)"};
-    e_diff      used;
+    t_diff      used;
 
-    if (flags->has_diff == false || flags->difficulty == DIFF_ADAPTIVE)
-        used = ft_resolve_strategy(disorder);
-    else
-        used = flags->difficulty;
-    ft_printf(2, "[bench] disorder: %.2f%%\n", disorder * 100);
+    used = flags->difficulty;
+    ft_printf(2, "[bench] disorder: %.2f%%\n", ft_disorder(*stk_a) * 100);
     ft_printf(2, "[bench] strategy: %s / %s\n",
              names[flags->difficulty], complex[used]);
-    ft_printf(2, "[bench] total_ops: %d\n", bench->total_ops);
+    ft_printf(2, "[bench] total_ops: %d\n", op_count->total);
     ft_printf(2, "[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
-             bench->sa, bench->sb, bench->ss, bench->pa, bench->pb);
+             op_count->sa, op_count->sb, op_count->ss, op_count->pa, op_count->pb);
     ft_printf(2, "[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
-             bench->ra, bench->rb, bench->rr, bench->rra, bench->rrb, bench->rrr);
+             op_count->ra, op_count->rb, op_count->rr, op_count->rra, op_count->rrb, op_count->rrr);
 }
 
-int	ft_operations_output(t_ops *bench)
+int	ft_operations_output(t_op_count *bench)
 {
 	int	smallest_op;
 
@@ -108,7 +106,7 @@ int	ft_operations_output(t_ops *bench)
 	return (smallest_op);
 }
 
-/* void	ft_output(t_node *stack, t_ops *bench, t_flags *flags)
+/* void	ft_output(t_node *stack, t_op_count *bench, t_flags *flags)
 {
 	const char *ops[11] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr"};
 	
@@ -116,7 +114,7 @@ int	ft_operations_output(t_ops *bench)
 	{
 		float	disorder;
 		disorder = ft_disorder(stack);
-		ft_print_bench(bench, flags, disorder);
+		output_bench(bench, flags, disorder);
 		return ;
 	}
 	while (bench->total_ops > 0)

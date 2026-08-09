@@ -1,21 +1,21 @@
-NAME = push_swap
+NAME = pushswap
 
 CC = cc -g
 CFLAGS = -Wall -Wextra -Werror -I.
 CDEPS =  -MMD -MP
 
-INCLUDES = -I. -I$(LIBFT_DIR) -I$(PRINTF_DIR)
+INCLUDES = -I.
 
 LIBFT_DIR = libft_pushswap
 LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF_DIR = ft_printf
-PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
+PRINTF = $(PRINTF_DIR)/libftprintf.a
 
 # CONSIDER:
 #	- go over naming conventions
 # 	- restructure directories
 #	- revisit makefile rules
-#	  (recommended: see https://codeberg.org/maloryware/push_swap/src/branch/main/Makefile)
+#	  (recommended: see https://codeberg.org/maloryware/pushswap/src/branch/main/Makefile)
 
 MIN = 0
 MAX = 999
@@ -28,29 +28,41 @@ ARGS = $(DEFAULT_ARGS)
 SRCS = test_main.c \
 		operations_1.c \
 		operations_2.c \
-		tiny_sort.c \
+		stack_is_3.c \
 		utils_1.c \
 		utils_2.c \
 		index.c \
 		simple_alg.c \
-		stack_5.c \
+		stack_is_5.c \
 		complex_alg.c \
 		medium_alg.c \
 		optimization.c \
+		pushswap_exit.c \
+		stack_a.c \
+		parsing.c \
+		parsing_split.c \
+		parsing_utils.c \
+		flag_bench.c \
+		flag_check.c \
+		flag_diff.c \
+		pushswap.c \
 
-vpath %.c push_swap_algorithms push_swap_op utils
+vpath %.c pushswap_algorithms pushswap_op utils flags parsing
 
 OBJS_DIR = objs/
 OBJ = $(SRCS:.c=.o)
 OBJS = $(addprefix $(OBJS_DIR),$(OBJ))
 
-$(LIBFT_LIB):
-	make -C $(LIBFT_DIR)
-
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT) | $(OBJS_DIR)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+
+$(PRINTF):
+	make -C $(PRINTF_DIR)
+
+$(NAME): $(OBJS) $(LIBFT) $(PRINTF) | $(OBJS_DIR)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
 $(OBJS_DIR)%.o: %.c | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(CDEPS) -c $(INCLUDES) $< -o $@
@@ -66,8 +78,6 @@ run: $(NAME)
 gdb: $(NAME)
 	@gdb --tui --args ./$(NAME) $(ARGS)
 
-$(PRINTF_LIB):
-	make -C $(PRINTF_DIR)
 
 clean:
 	rm -rf $(OBJS_DIR)

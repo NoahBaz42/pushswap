@@ -1,44 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tiny_sort.c                                        :+:      :+:    :+:   */
+/*   stack_is_5.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 02:29:57 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/07 06:02:22 by charlie          ###   ########.fr       */
+/*   Created: 2026/07/30 23:16:50 by bpassos-          #+#    #+#             */
+/*   Updated: 2026/08/09 16:07:29 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../pushswap.h"
 
-t_node *ft_find_max(t_node *a)
+void	stack_is_5(t_stack *a, t_op_count	*op_count)
 {
-	t_node	*max;
-	t_node	*next;
-	
-	max = a;
-	next = a;
-	while (next && next->next)
+	t_node	*b;
+	t_node	*min;
+	int		i;
+
+	b = NULL;
+	i = 0;
+	min = ft_find_min(*a);
+	while (i < 2)
 	{
-		if ((max->content) < (next->next->content))
-			max = next->next;
-		next = next->next;
+		while (*a != min)
+		{
+			if (get_target_half(*a) == BOTTOM_HALF)
+				op_rra_stack(a, op_count);
+			else
+				op_ra_stack(a, op_count);
+			min = ft_find_min(*a);
+		}
+		op_pb_stack(&*a,&b, op_count);
+		i++;
 	}
-	return (max);
-}
-
-void	ft_tiny_sort(t_stack *a)
-{
-	t_node	*highest_node;
-
-	highest_node = ft_find_max(*a);
-	if ((*a) == highest_node)
-		ft_rstack(a);
-	else if ((*a)->next == highest_node)
-		ft_rrstack(a);
-	if((*a)->content > (*a)->next->content)
-		ft_sstack(a);
+	if(ft_lstsize(*a) == 3)
+	{
+		stack_is_3(&*a, op_count);
+		ft_pushall_a(&b, a, op_count);
+	}
+	else 
+		give_error();
 }
 // int	main(int argc,char **argv)
 // {
@@ -50,14 +52,13 @@ void	ft_tiny_sort(t_stack *a)
 // 	top = NULL;
 // 	if (argc < 2)
 // 		return (printf("incorrect # of arguments\n"), 1);
-// 	printf("Unsorted:\n");
 // 	while (i < argc)
 // 	{
 // 		ft_lstadd_back(&top, ft_lstnew(atoi( argv[i])));
 // 		i++;
 // 	}
+// 	stack_is_5(&top);
 // 	printf("Sorted:\n");
-// 	ft_simple(&top);
 // 	while (top)
 // 	{
 // 		printf("%d\n", top->content);
