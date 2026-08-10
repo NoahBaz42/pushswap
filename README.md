@@ -90,3 +90,20 @@ example:
 >```
 >./pushswap --bench --adaptive 67 42 69 420 911 123 321
 >```
+
+
+# Algorithm 
+
+each one of the difficulty selectors chooses a type of algorithm.
+
+## Simple algorithm 0(n2)
+
+The Simple algorithm uses a min max sorting strategy. it does so by...
+
+## Medium algorithm O(n√n)
+
+The Medium algorithm uses a chunk-based sorting mechanism, which separates them into chunks to do the sorting 
+
+## Complex algorithm O(n log n)
+
+The complex algorithm uses a Radix sorting strategy. It does so by...
