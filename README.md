@@ -107,6 +107,8 @@ This strategy is a good choice for bigger datasets because it scales much better
 
 # Resources
 
+* [push_swap subject](https://cdn.intra.42.fr/pdf/pdf/207061/en.subject.pdf)
+
 * [w3wchools](https://www.w3schools.com/c/index.php)
 
 * [geeksforgeeks](https://www.geeksforgeeks.org/c/c-programming-language/)
