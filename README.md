@@ -116,3 +116,10 @@ This strategy is a good choice for bigger datasets because it scales much better
 * 42 peers
 
 * AI was used to debug the makefile 
+
+## Contributions
+
+| Login | Contributions |
+|-------|--------------|
+| nbaz-sil | Parsing, flags, benchmark output |
+| bpassos- | Operations, Algorithms, bonus |
