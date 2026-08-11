@@ -6,19 +6,11 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:24:42 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 07:54:37 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 22:55:13 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-
-/**
- * TODO:
- *  - NOW --- Figure out the target node
- * 	- review cost calculation
- * 
- * 
- */
 
 int	ft_abs(ssize_t num)
 {
@@ -49,36 +41,14 @@ static void set_stack_costs(t_stack *a)
 	}
 }
 
-static void get_cheapest(t_node *node, ssize_t *target_index, ssize_t *min_cost)
+static t_node	*node_fetch(t_stack *stk, int index)
 {
-	if (*min_cost == -1 || *min_cost > node->cost)
-	{
-		*target_index = node->index;
-		*min_cost = node->cost;
-	}
-}
+	t_node	*node;
 
-static bool	set_cheapest(t_node *target_node, ssize_t *target_index, ssize_t i)
-{
-	ssize_t min_cost;
-
-	min_cost = -1;
-	if (target_node->index == i)
-	{
-		get_cheapest(target_node, target_index, &min_cost);
-		return (FOUND);
-	}
-	return (NOT_FOUND);
-}
-
-static t_node *iterate_node(t_node *target_node, ssize_t target_index)
-{
-	t_node *node;
-
-	node = target_node;
+	node = *stk;
 	while (node)
 	{
-		if (node->index == target_index)
+		if (node->index == index)
 			return (node);
 		node = node->next;
 	}
@@ -87,28 +57,26 @@ static t_node *iterate_node(t_node *target_node, ssize_t target_index)
 
 static t_node *find_cheapest_node(t_stack *a, ssize_t chunk_size)
 {
-	ssize_t		target_index;
+	ssize_t		i;
 	t_node		*node;
-	t_node		*head;
-	long		ret;
-	long		i;
-	
+	t_node		*target;
+	ssize_t		chunk;
+
 	i = ft_find_min(*a)->index;
-	chunk_size += i;
-	target_index = -1;
-	head = *a;
-	node = head;
-	ret = set_cheapest(node, &target_index, i);
-	while (i < chunk_size && node && (i < (ft_find_max(*a)->index)))
+	target = NULL;
+	chunk = chunk_size;
+	while (i >= chunk)
+		chunk += chunk_size;
+	while (i < chunk)
 	{
-		if (ret == FOUND)
-			node = head;
-		else
-			node = node->next;
-		i += ret;
+		node = node_fetch(a, i);
+		if (node && (!target || node->cost < target->cost))
+			target = node;
+		i++;	
 	}
-	node = head;
-	return (iterate_node(node, target_index));
+	if (!target)
+		return (NULL);
+	return (node_fetch(a, target->index));
 }
 
 static void	rot_target_node(t_stack *src, char name,
@@ -132,7 +100,7 @@ static void	rot_target_node(t_stack *src, char name,
 
 void	chunk_sort(t_stack *a, t_stack *b, t_op_count	*op_count)
 {
-	ssize_t	chunk_size;
+	size_t	chunk_size;
 
 	chunk_size = ft_sqrt(ft_lstsize(*a));
 	while (*a)
@@ -159,61 +127,3 @@ void ft_print_lst(t_node *top)
 		stack = stack->next;
 	}
 }
-//-------cost-------//
-// int	main(int argc,char **argv)
-// {
-// 	t_node	*top;
-// 	t_node	*head;
-// 	t_node	*cheapest;
-	
-// 	int	i;
-
-// 	i = 1;
-// 	top = NULL;
-// 	if (argc < 2)
-// 		return (printf("incorrect # of arguments\n"), 1);
-// 	while (i < argc)
-// 	{
-// 		ft_lstadd_back(&top, ft_lstnew(atoi( argv[i])));
-// 		i++;
-// 	}
-// 	ft_index(top);
-// 	stk_set_costs(&top);
-// 	head = top;
-// 	while (top)
-// 	{
-// 		printf("% 5d: %3lu @ %1lu\n", top->content, top->index, top->cost);
-// 		top = top->next;
-// 	}
-// 	top = head;
-// 	cheapest = find_cheapest_node(&top, ft_sqrt(ft_lstsize(top)));
-// 	printf ("\n###Cheapest node = %d###\n",
-// 		cheapest->content);
-// 	return (0);
-// }
-//-------chunk_sort------//
-// int	main(int argc,char **argv)
-// {
-// 	int	i;
-// 	t_node	*stk_a;
-// 	t_node	*stk_b;
-
-// 	i = 1;
-// 	stk_a = NULL;
-// 	stk_b = NULL;
-// 	if (argc < 2)
-// 		return (printf("incorrect # of arguments\n"), 1);
-// 	while (i < argc)
-// 	{
-// 		ft_lstadd_back(&stk_a, ft_lstnew(atoi( argv[i])));
-// 		i++;
-// 	}
-// 	index_stack(stk_a);
-// 	printf("Original list:\n");
-// 	ft_print_lst(stk_a);
-// 	printf("\n------------\n");
-// 	chunk_sort(&stk_a, &stk_b);
-// 	printf("Sorted stack list:\n");
-// 	ft_print_lst(stk_a);
-// 	return (0);
-// }
