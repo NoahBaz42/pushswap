@@ -6,19 +6,34 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:00:56 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 08:46:50 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 18:45:10 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-void    op_rr(t_stack *a, t_stack *b, t_op_count *op_count)
+void    rrotate_stack(t_stack *stk, t_op_count *op_count, char stk_name)
 {
-    if(a && *a)
-        rotate_stack(a, op_count, 'a');
-    if(b && *b)
-        rotate_stack(b, op_count, 'b');
+    t_node     *new_top;
     
+    if (!stk || !*stk)
+    {
+        printf("rrs\n");
+        ft_free_stack(stk);
+        give_error();
+    }
+    new_top = ft_lstlast(*stk);
+    new_top->prev->next = NULL;
+    new_top->prev = NULL;
+    new_top->next = *stk;
+    new_top->next->prev = new_top;
+    (*stk) = new_top;
+    if (stk_name == 'a')
+	    op_count->rra++;
+    else
+        op_count->rrb++;
+    op_count->total++;
+    ft_printf(1,"rr%c\n", stk_name);
 }
 
 void    op_rrr(t_stack *a, t_stack *b, t_op_count *op_count)
@@ -27,13 +42,6 @@ void    op_rrr(t_stack *a, t_stack *b, t_op_count *op_count)
         rrotate_stack(a, op_count, 'a');
     if (b && *b)
         rrotate_stack(b, op_count, 'b');
-}
-void    op_pushall_a(t_stack *b, t_stack *a, t_op_count	*op_count)
-{
-    while (*b && b)
-    {
-        push_stack(b, a, op_count, 'a');
-    }
 }
 
 //-----------rrstack----------//

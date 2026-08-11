@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 14:37:15 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/11 07:07:55 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 18:44:42 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ void    push_stack(t_stack *src, t_stack *dest, t_op_count	*op_count, char stk_n
 		op_count->pb++;
 	op_count->total++;
     ft_printf(1,"p%c\n", stk_name);
+}
+void    op_pushall_a(t_stack *b, t_stack *a, t_op_count	*op_count)
+{
+    while (*b && b)
+    {
+        push_stack(b, a, op_count, 'a');
+    }
 }
 
 //-----------pstack----------//

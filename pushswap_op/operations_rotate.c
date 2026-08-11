@@ -6,12 +6,11 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 14:42:23 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/11 06:20:12 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 18:45:33 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-
 
 void    rotate_stack(t_stack *stk, t_op_count *op_count, char stk_name)
 {
@@ -36,29 +35,13 @@ void    rotate_stack(t_stack *stk, t_op_count *op_count, char stk_name)
     op_count->total++;
     ft_printf(1,"r%c\n", stk_name);
 }
-
-void    rrotate_stack(t_stack *stk, t_op_count *op_count, char stk_name)
+void    op_rr(t_stack *a, t_stack *b, t_op_count *op_count)
 {
-    t_node     *new_top;
+    if(a && *a)
+        rotate_stack(a, op_count, 'a');
+    if(b && *b)
+        rotate_stack(b, op_count, 'b');
     
-    if (!stk || !*stk)
-    {
-        printf("rrs\n");
-        ft_free_stack(stk);
-        give_error();
-    }
-    new_top = ft_lstlast(*stk);
-    new_top->prev->next = NULL;
-    new_top->prev = NULL;
-    new_top->next = *stk;
-    new_top->next->prev = new_top;
-    (*stk) = new_top;
-    if (stk_name == 'a')
-	    op_count->rra++;
-    else
-        op_count->rrb++;
-    op_count->total++;
-    ft_printf(1,"rr%c\n", stk_name);
 }
 
 
