@@ -1,16 +1,16 @@
 NAME = push_swap
+BONUS = checker
 
 CC = cc -g
-CFLAGS = -Wall -Wextra -Werror -I.
+CFLAGS = -Wall -Wextra -Werror -I
 CDEPS =  -MMD -MP
 
-INCLUDES = -I.
+INCLUDES = -I. -Ichecker
 
 LIBFT_DIR = libft_pushswap
 LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF_DIR = ft_printf
 PRINTF = $(PRINTF_DIR)/libftprintf.a
-BONUS = bonus
 
 LIBS = -L$(LIBFT_DIR) -lft
 LIBS += -L$(PRINTF_DIR) -lftprintf
@@ -53,9 +53,12 @@ SRCS = test_main.c \
 		flag_diff.c \
 		pushswap.c \
 		bench.c \
-		free_parsing.c
+		free_parsing.c \
+		checker.c \
+		get_next_line.c \
+		get_next_line_utils.c
 
-vpath %.c pushswap_algorithms pushswap_op utils flags parsing output
+vpath %.c pushswap_algorithms pushswap_op utils flags parsing output bonus
 
 OBJS_DIR = objs/
 OBJ = $(SRCS:.c=.o)
@@ -96,22 +99,25 @@ valgrind vg: $(NAME)
 valgrindplus vgp: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --keep-stacktraces=alloc-and-free ./$(NAME) $(ARGS)
 
-bonus: $(NAME)
-	make -C $(BONUS)
+bonus: $(BONUS)
 
+$(BONUS): $(OBJS) $(LIBFT) $(PRINTF) | $(OBJS_DIR)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(BONUS)
 
 clean:
 	rm -rf $(OBJS_DIR)
 	make -C $(LIBFT_DIR) clean
 	make -C $(PRINTF_DIR) clean
-	make -C $(BONUS) clean
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BONUS)
 	make -C $(LIBFT_DIR) fclean
 	make -C $(PRINTF_DIR) fclean
-	make -C $(BONUS) fclean
+
+# download:
+# 	@curl -o compile_commands.json
 
 re: fclean all
 
-.PHONY: all clean fclean re run gdb bonus
+.PHONY: all clean fclean re run gdb valgrind vg valgrindplus vgp bonus

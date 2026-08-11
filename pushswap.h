@@ -215,4 +215,6 @@ void		pushswap(char **argv);
 void	free_flags(t_flags *flags);
 void	free_op_count(t_op_count *op_count);
 
+void	checker(char **argv);
+
 #endif
