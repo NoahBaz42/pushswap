@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 21:09:30 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 04:10:03 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	ft_get_next_min(t_node *a, int ref)
 	return (min);
 }
 
-void index_stack(t_node *a)
+void index_stack(t_stack *a)
 {
 	size_t		size;
 	size_t		i;
@@ -67,11 +67,11 @@ void index_stack(t_node *a)
 		give_error();
 	}
 	executed = true;
-	size = ft_lstsize(a);
-	ref = ft_get_min(a);
+	size = ft_lstsize(*a);
+	ref = ft_get_min(*a);
 	while (i < size)
 	{
-		ref = ft_get_next_min(a, ref);
+		ref = ft_get_next_min(*a, ref);
 		i++;
 	}
 }

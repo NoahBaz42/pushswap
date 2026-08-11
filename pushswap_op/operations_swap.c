@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 14:31:47 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/09 16:05:57 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 05:50:03 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,52 +18,34 @@
 
 /*-------[ operations: sa ]----------*/
 
-void    op_sa_stack(t_stack *stk_a, t_op_count	*op_count)
+void    swap_stack(t_stack *stk, t_op_count	*op_count, char stk_name)
 {
     int			temp;
 
-    if (ft_lstsize(*stk_a) == 1)
+    if (ft_lstsize(*stk) == 1)
         return ;
-    if (!*stk_a)
+    if (!*stk)
 	{
-		ft_free_stack(stk_a);
+		ft_free_stack(stk);
         give_error();
 	}
-    temp = (*stk_a)->content;
-    (*stk_a)->content = (*stk_a)->next->content;
-    (*stk_a)->next->content = temp;
-	op_count->sa++;
+    temp = (*stk)->content;
+    (*stk)->content = (*stk)->next->content;
+    (*stk)->next->content = temp;
+    if(stk_name == 'a')
+	    op_count->sa++;
+    else
+    op_count->sb++;
 	op_count->total++;
-    ft_printf(1,"sa\n");
+    ft_printf(1,"s%c\n", stk_name);
 }
 
-/*-------[ operations: sb ]----------*/
-
-void    op_sb_stack(t_stack *stk_b, t_op_count	*op_count)
+void    op_ss(t_stack *a, t_stack *b, t_op_count *op_count, char stk_name)
 {
-    int			temp;
-
-    if (ft_lstsize(*stk_b) == 1)
-        return ;
-    if (!*stk_b)
-	{
-		ft_free_stack(stk_b);
-        give_error();
-	}
-    temp = (*stk_b)->content;
-    (*stk_b)->content = (*stk_b)->next->content;
-    (*stk_b)->next->content = temp;
-	op_count->sb++;
-	op_count->total++;
-    ft_printf(1,"sb\n");
-}
-
-/*-------[ operations: ss ]----------*/
-
-void    op_ss(t_node *a, t_node *b, t_op_count	*op_count)
-{
-    op_sa_stack(&a, op_count);
-    op_sb_stack(&b, op_count);
+    if(a && *a)
+        swap_stack(a, op_count, stk_name);
+    if(b && *b)
+        swap_stack(b, op_count, stk_name);
 }
 
 

@@ -6,57 +6,34 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 14:37:15 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/10 07:45:52 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 07:07:55 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-//--------------------------//
-//----------PUSH------------//
-//--------------------------//
 
-/*-------[ operations: pa ]----------*/
-
-
-void    op_pa_stack(t_stack *stk_b, t_stack *stk_a, t_op_count	*op_count)
+void    push_stack(t_stack *src, t_stack *dest, t_op_count	*op_count, char stk_name)
 {
     t_node  	*tmp;
   
-    if (!stk_b || !stk_a)
+    if (!src || !dest)
 	{
-		ft_free_stack(stk_b);
-		ft_free_stack(stk_a);
+		ft_free_stack(dest);
+		ft_free_stack(src);
         give_error();
 	}
-    tmp = ft_pop(stk_b);
-    ft_push(stk_a, tmp);
-	op_count->pa++;
+	if (!*src)
+		return ;
+    tmp = ft_pop(src);
+    ft_push(dest, tmp);
+	if (stk_name == 'a')
+		op_count->pa++;
+	else
+		op_count->pb++;
 	op_count->total++;
-    ft_printf(1,"pa\n");
+    ft_printf(1,"p%c\n", stk_name);
 }
-
-/*-------[ operations: pb ]----------*/
-
-void    op_pb_stack(t_stack *stk_a, t_stack *stk_b, t_op_count	*op_count)
-{
-    t_node  	*tmp;
-  
-    if (!stk_a || !stk_b)
-	{
-		ft_free_stack(stk_a);
-		ft_free_stack(stk_b);
-        give_error();
-	}
-    tmp = ft_pop(stk_a);
-    ft_push(stk_b, tmp);
-	op_count->pb++;
-	op_count->total++;
-    ft_printf(1,"pb\n");
-    
-}
-
-
 
 //-----------pstack----------//
 

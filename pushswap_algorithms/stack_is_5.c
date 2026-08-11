@@ -6,43 +6,41 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 23:16:50 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/10 23:40:21 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 07:43:29 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-static void	stk_5_is_3(t_stack *a, t_node *b, t_op_count *op_count)
+static void	stk_5_is_3(t_stack *a, t_stack *b, t_op_count *op_count)
 {
 	if(ft_lstsize(*a) == 3)
 	{
-		stack_is_3(&*a, op_count);
-		op_pushall_a(&b, a, op_count);
+		stack_is_3(a, op_count);
+		op_pushall_a(b, a, op_count, 'a');
 	}
 	else 
 		give_error();
 }
 
-void	stack_is_5(t_stack *a, t_op_count	*op_count)
+void	stack_is_5(t_stack *a, t_stack *b, t_op_count	*op_count)
 {
-	t_node	*b;
 	t_node	*min;
 	int		i;
 
-	b = NULL;
 	i = 0;
 	min = ft_find_min(*a);
 	while (i < 2)
 	{
 		while (*a != min)
 		{
-			if (get_target_half(*a) == BOTTOM_HALF)
-				op_rra_stack(a, op_count);
+			if (get_target_half(*a, min) == BOTTOM_HALF)
+				rrotate_stack(a, op_count, 'a');
 			else
-				op_ra_stack(a, op_count);
+				rotate_stack(a, op_count, 'a');
 			min = ft_find_min(*a);
 		}
-		op_pb_stack(&*a,&b, op_count);
+		push_stack(a, b, op_count, 'b');
 		i++;
 	}
 	stk_5_is_3(a, b, op_count);

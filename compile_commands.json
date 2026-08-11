@@ -16,11 +16,11 @@
       "-o",
       "objs/test_main.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
     "output": "objs/test_main.o"
   },
   {
-    "file": "pushswap_op/operations_1.c",
+    "file": "pushswap_op/operations_push.c",
     "arguments": [
       "/usr/local/bin/cc",
       "-g",
@@ -32,15 +32,15 @@
       "-MP",
       "-c",
       "-I.",
-      "pushswap_op/operations_1.c",
+      "pushswap_op/operations_push.c",
       "-o",
-      "objs/operations_1.o"
+      "objs/operations_push.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
-    "output": "objs/operations_1.o"
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/operations_push.o"
   },
   {
-    "file": "pushswap_op/operations_2.c",
+    "file": "pushswap_op/operations_rotate.c",
     "arguments": [
       "/usr/local/bin/cc",
       "-g",
@@ -52,12 +52,52 @@
       "-MP",
       "-c",
       "-I.",
-      "pushswap_op/operations_2.c",
+      "pushswap_op/operations_rotate.c",
       "-o",
-      "objs/operations_2.o"
+      "objs/operations_rotate.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
-    "output": "objs/operations_2.o"
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/operations_rotate.o"
+  },
+  {
+    "file": "pushswap_op/operations_swap.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "pushswap_op/operations_swap.c",
+      "-o",
+      "objs/operations_swap.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/operations_swap.o"
+  },
+  {
+    "file": "pushswap_op/operations_rotating.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "pushswap_op/operations_rotating.c",
+      "-o",
+      "objs/operations_rotating.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/operations_rotating.o"
   },
   {
     "file": "pushswap_algorithms/stack_is_3.c",
@@ -76,7 +116,7 @@
       "-o",
       "objs/stack_is_3.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
     "output": "objs/stack_is_3.o"
   },
   {
@@ -96,7 +136,7 @@
       "-o",
       "objs/utils_1.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
     "output": "objs/utils_1.o"
   },
   {
@@ -116,7 +156,7 @@
       "-o",
       "objs/utils_2.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
     "output": "objs/utils_2.o"
   },
   {
@@ -136,7 +176,7 @@
       "-o",
       "objs/index.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
     "output": "objs/index.o"
   },
   {
@@ -156,7 +196,7 @@
       "-o",
       "objs/simple_alg.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
     "output": "objs/simple_alg.o"
   },
   {
@@ -176,7 +216,7 @@
       "-o",
       "objs/stack_is_5.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
     "output": "objs/stack_is_5.o"
   },
   {
@@ -196,7 +236,7 @@
       "-o",
       "objs/complex_alg.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
     "output": "objs/complex_alg.o"
   },
   {
@@ -216,8 +256,248 @@
       "-o",
       "objs/medium_alg.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
     "output": "objs/medium_alg.o"
+  },
+  {
+    "file": "pushswap_algorithms/optimization.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "pushswap_algorithms/optimization.c",
+      "-o",
+      "objs/optimization.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/optimization.o"
+  },
+  {
+    "file": "pushswap_exit.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "pushswap_exit.c",
+      "-o",
+      "objs/pushswap_exit.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/pushswap_exit.o"
+  },
+  {
+    "file": "stack_a.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "stack_a.c",
+      "-o",
+      "objs/stack_a.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/stack_a.o"
+  },
+  {
+    "file": "parsing/parsing.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "parsing/parsing.c",
+      "-o",
+      "objs/parsing.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/parsing.o"
+  },
+  {
+    "file": "parsing/parsing_split.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "parsing/parsing_split.c",
+      "-o",
+      "objs/parsing_split.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/parsing_split.o"
+  },
+  {
+    "file": "parsing/parsing_utils.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "parsing/parsing_utils.c",
+      "-o",
+      "objs/parsing_utils.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/parsing_utils.o"
+  },
+  {
+    "file": "flags/flag_bench.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "flags/flag_bench.c",
+      "-o",
+      "objs/flag_bench.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/flag_bench.o"
+  },
+  {
+    "file": "flags/flag_check.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "flags/flag_check.c",
+      "-o",
+      "objs/flag_check.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/flag_check.o"
+  },
+  {
+    "file": "flags/flag_diff.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "flags/flag_diff.c",
+      "-o",
+      "objs/flag_diff.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/flag_diff.o"
+  },
+  {
+    "file": "pushswap.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "pushswap.c",
+      "-o",
+      "objs/pushswap.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/pushswap.o"
+  },
+  {
+    "file": "output/bench.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "output/bench.c",
+      "-o",
+      "objs/bench.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/bench.o"
+  },
+  {
+    "file": "free_parsing.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-I.",
+      "-MMD",
+      "-MP",
+      "-c",
+      "-I.",
+      "free_parsing.c",
+      "-o",
+      "objs/free_parsing.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap",
+    "output": "objs/free_parsing.o"
   },
   {
     "file": "srcs_1/ft_atoi.c",
@@ -235,7 +515,7 @@
       "-o",
       "objs/ft_atoi.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_atoi.o"
   },
   {
@@ -254,7 +534,7 @@
       "-o",
       "objs/ft_bzero.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_bzero.o"
   },
   {
@@ -273,7 +553,7 @@
       "-o",
       "objs/ft_calloc.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_calloc.o"
   },
   {
@@ -292,7 +572,7 @@
       "-o",
       "objs/ft_isalnum.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_isalnum.o"
   },
   {
@@ -311,7 +591,7 @@
       "-o",
       "objs/ft_isalpha.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_isalpha.o"
   },
   {
@@ -330,7 +610,7 @@
       "-o",
       "objs/ft_isascii.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_isascii.o"
   },
   {
@@ -349,7 +629,7 @@
       "-o",
       "objs/ft_isdigit.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_isdigit.o"
   },
   {
@@ -368,7 +648,7 @@
       "-o",
       "objs/ft_isprint.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_isprint.o"
   },
   {
@@ -387,7 +667,7 @@
       "-o",
       "objs/ft_memchr.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_memchr.o"
   },
   {
@@ -406,7 +686,7 @@
       "-o",
       "objs/ft_memcmp.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_memcmp.o"
   },
   {
@@ -425,7 +705,7 @@
       "-o",
       "objs/ft_memcpy.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_memcpy.o"
   },
   {
@@ -444,7 +724,7 @@
       "-o",
       "objs/ft_memmove.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_memmove.o"
   },
   {
@@ -463,7 +743,7 @@
       "-o",
       "objs/ft_memset.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_memset.o"
   },
   {
@@ -482,7 +762,7 @@
       "-o",
       "objs/ft_strchr.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_strchr.o"
   },
   {
@@ -501,7 +781,7 @@
       "-o",
       "objs/ft_strdup.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_strdup.o"
   },
   {
@@ -520,7 +800,7 @@
       "-o",
       "objs/ft_strlcat.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_strlcat.o"
   },
   {
@@ -539,7 +819,7 @@
       "-o",
       "objs/ft_strlcpy.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_strlcpy.o"
   },
   {
@@ -558,7 +838,7 @@
       "-o",
       "objs/ft_strlen.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_strlen.o"
   },
   {
@@ -577,7 +857,7 @@
       "-o",
       "objs/ft_strcmp.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_strcmp.o"
   },
   {
@@ -596,7 +876,7 @@
       "-o",
       "objs/ft_strnstr.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_strnstr.o"
   },
   {
@@ -615,7 +895,7 @@
       "-o",
       "objs/ft_strrchr.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_strrchr.o"
   },
   {
@@ -634,7 +914,7 @@
       "-o",
       "objs/ft_tolower.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_tolower.o"
   },
   {
@@ -653,7 +933,7 @@
       "-o",
       "objs/ft_toupper.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_toupper.o"
   },
   {
@@ -672,7 +952,7 @@
       "-o",
       "objs/ft_itoa.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_itoa.o"
   },
   {
@@ -691,7 +971,7 @@
       "-o",
       "objs/ft_putchar_fd.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_putchar_fd.o"
   },
   {
@@ -710,7 +990,7 @@
       "-o",
       "objs/ft_putendl_fd.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_putendl_fd.o"
   },
   {
@@ -729,7 +1009,7 @@
       "-o",
       "objs/ft_putnbr_fd.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_putnbr_fd.o"
   },
   {
@@ -748,7 +1028,7 @@
       "-o",
       "objs/ft_putstr_fd.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_putstr_fd.o"
   },
   {
@@ -767,7 +1047,7 @@
       "-o",
       "objs/ft_split.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_split.o"
   },
   {
@@ -786,7 +1066,7 @@
       "-o",
       "objs/ft_striteri.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_striteri.o"
   },
   {
@@ -805,7 +1085,7 @@
       "-o",
       "objs/ft_strjoin.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_strjoin.o"
   },
   {
@@ -824,11 +1104,11 @@
       "-o",
       "objs/ft_strmapi.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_strmapi.o"
   },
   {
-    "file": "srcs_2/ft_strtrim.c",
+    "file": "srcs_1/ft_strtrim.c",
     "arguments": [
       "/usr/local/bin/cc",
       "-Wall",
@@ -839,15 +1119,15 @@
       "-MP",
       "-c",
       "-I.",
-      "srcs_2/ft_strtrim.c",
+      "srcs_1/ft_strtrim.c",
       "-o",
       "objs/ft_strtrim.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_strtrim.o"
   },
   {
-    "file": "srcs_2/ft_substr.c",
+    "file": "srcs_1/ft_substr.c",
     "arguments": [
       "/usr/local/bin/cc",
       "-Wall",
@@ -858,11 +1138,11 @@
       "-MP",
       "-c",
       "-I.",
-      "srcs_2/ft_substr.c",
+      "srcs_1/ft_substr.c",
       "-o",
       "objs/ft_substr.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_substr.o"
   },
   {
@@ -881,7 +1161,7 @@
       "-o",
       "objs/ft_lstnew.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_lstnew.o"
   },
   {
@@ -900,7 +1180,7 @@
       "-o",
       "objs/ft_lstadd_front.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_lstadd_front.o"
   },
   {
@@ -919,7 +1199,7 @@
       "-o",
       "objs/ft_lstsize.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_lstsize.o"
   },
   {
@@ -938,7 +1218,7 @@
       "-o",
       "objs/ft_lstlast.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_lstlast.o"
   },
   {
@@ -957,7 +1237,7 @@
       "-o",
       "objs/ft_lstadd_back.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_lstadd_back.o"
   },
   {
@@ -976,7 +1256,7 @@
       "-o",
       "objs/ft_lstdelone.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_lstdelone.o"
   },
   {
@@ -995,7 +1275,7 @@
       "-o",
       "objs/ft_lstclear.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_lstclear.o"
   },
   {
@@ -1014,7 +1294,7 @@
       "-o",
       "objs/ft_lstiter.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_lstiter.o"
   },
   {
@@ -1033,7 +1313,7 @@
       "-o",
       "objs/ft_lstmap.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_lstmap.o"
   },
   {
@@ -1052,7 +1332,119 @@
       "-o",
       "objs/ft_lstb4last.o"
     ],
-    "directory": "/home/charlie/Documents/42_common_core/ms1/pushswap/libft_pushswap",
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/libft_pushswap",
     "output": "objs/ft_lstb4last.o"
+  },
+  {
+    "file": "ft_printf.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g",
+      "-c",
+      "ft_printf.c",
+      "-o",
+      "ft_printf.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/ft_printf",
+    "output": "ft_printf.o"
+  },
+  {
+    "file": "ft_putchr.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g",
+      "-c",
+      "ft_putchr.c",
+      "-o",
+      "ft_putchr.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/ft_printf",
+    "output": "ft_putchr.o"
+  },
+  {
+    "file": "ft_puthex.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g",
+      "-c",
+      "ft_puthex.c",
+      "-o",
+      "ft_puthex.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/ft_printf",
+    "output": "ft_puthex.o"
+  },
+  {
+    "file": "ft_putnbr.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g",
+      "-c",
+      "ft_putnbr.c",
+      "-o",
+      "ft_putnbr.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/ft_printf",
+    "output": "ft_putnbr.o"
+  },
+  {
+    "file": "ft_putptr.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g",
+      "-c",
+      "ft_putptr.c",
+      "-o",
+      "ft_putptr.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/ft_printf",
+    "output": "ft_putptr.o"
+  },
+  {
+    "file": "ft_putstr.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g",
+      "-c",
+      "ft_putstr.c",
+      "-o",
+      "ft_putstr.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/ft_printf",
+    "output": "ft_putstr.o"
+  },
+  {
+    "file": "ft_putuns.c",
+    "arguments": [
+      "/usr/local/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-g",
+      "-c",
+      "ft_putuns.c",
+      "-o",
+      "ft_putuns.o"
+    ],
+    "directory": "/home/charlie/Documents/42_common_core/ms1/push_swap/ft_printf",
+    "output": "ft_putuns.o"
   }
 ]

@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 19:44:11 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 02:35:34 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ int	count_flags(t_flags *flags)
 static bool	right_flags(t_flags *flags, char **argv)
 {
 	if (count_flags(flags) == 0)
+	{
+		flags->difficulty = DIFF_ADAPTIVE;
 		return (true);
+	}
 	if (count_flags(flags) == 1)
 	{
 		if (is_bench_flags(argv[1]) || is_diff_flags(argv[1]))

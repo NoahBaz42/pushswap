@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 08:50:36 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/09 11:04:25 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 02:30:13 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static void	activatt_diff(t_flags *flags, t_diff diff)
 {
-	if (flags->has_diff == true)
+	if (flags->has_diff == true && count_flags(flags) == 0)
 		give_error();
 	flags->difficulty = diff;
 	flags->has_diff = true;
@@ -27,13 +27,13 @@ static void	activatt_diff(t_flags *flags, t_diff diff)
 
 void	flag_diff(t_flags *flags, char *arg)
 {
-	if (!strcmp(arg, "--simple"))
+	if (!ft_strcmp(arg, "--simple"))
 		activatt_diff(flags, DIFF_SIMPLE);
-	else if (!strcmp(arg, "--medium"))
+	else if (!ft_strcmp(arg, "--medium"))
 		activatt_diff(flags, DIFF_MEDIUM);
-	else if (!strcmp(arg, "--complex"))
+	else if (!ft_strcmp(arg, "--complex"))
 		activatt_diff(flags, DIFF_COMPLEX);
-	else
+	else if (!ft_strcmp(arg, "--adaptive"))
 		activatt_diff(flags, DIFF_ADAPTIVE);
 }
 
@@ -41,13 +41,13 @@ void	flag_diff(t_flags *flags, char *arg)
 
 bool	is_diff_flags(char *flag)
 {
-	if (!strcmp(flag, "--simple"))
+	if (!ft_strcmp(flag, "--simple"))
 		return (true);
-	else if (!strcmp(flag, "--medium"))
+	else if (!ft_strcmp(flag, "--medium"))
 		return (true);
-	else if (!strcmp(flag, "--complex"))
+	else if (!ft_strcmp(flag, "--complex"))
 		return (true);
-	else if (!strcmp(flag, "--adaptive"))
+	else if (!ft_strcmp(flag, "--adaptive"))
 		return (true);
 	return (false);
 }

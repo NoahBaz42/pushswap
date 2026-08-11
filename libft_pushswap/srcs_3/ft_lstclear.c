@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:18 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 02:31:22 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 03:58:27 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	ft_free_stack(t_node **lst)
 	if (!lst || !*lst)
 		return ;
 	node = *lst;
+	while (node->prev)
+		node = node->prev;
 	while (node)
 	{
 		head = node->next;

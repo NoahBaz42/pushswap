@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 02:29:57 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 00:18:45 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 06:07:13 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	stack_is_3(t_stack *a, t_op_count *op_count)
 
 	highest_node = ft_find_max(*a);
 	if ((*a) == highest_node)
-		op_ra_stack(a, op_count);
+		rotate_stack(a, op_count, 'a');
 	else if ((*a)->next == highest_node)
-		op_rra_stack(a, op_count);
+		rrotate_stack(a, op_count, 'a');
 	if((*a)->content > (*a)->next->content)
-		op_sa_stack(a, op_count);
+		swap_stack(a, op_count, 'a');
 }
 // int	main(int argc,char **argv)
 // {

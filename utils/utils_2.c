@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 01:20:12 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 07:42:16 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ t_node *ft_find_min(t_node *a)
 	return (min);
 }
 
-int get_target_half(t_node *a)
+int get_target_half(t_node *a, t_node *target)
 {
 	size_t	count;
-	t_node	*min;
 
 	count = 0;
-	min = ft_find_min(a);
-	while(a != min)
+	if (!target)
+		target = ft_find_min(a);
+	while(a != target)
 	{
 		count++;
 		a = a->next;

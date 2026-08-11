@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:22 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/07 06:23:08 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 04:33:25 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 t_node	*ft_lstb4last(t_node *lst)
 {
-	if (!lst || !lst->next)
+	if (!lst)
 		return (NULL);
-	while (lst->next->next)
+	while (lst->next)
 	{
 		lst = lst->next;
 	}
-	return (lst);
+	return (lst->prev);
 }
 
 // static void	del_it(void *content)

@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 23:17:25 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 01:53:38 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 07:43:09 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,46 +44,46 @@ bool	optimize(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count)
 	{
 		while (*stk_a != min)
 		{
-			if (get_target_half(min) == TOP_HALF)
-				op_ra_stack(stk_a, op_count);
+			if (get_target_half(*stk_a, min) == TOP_HALF)
+				rotate_stack(stk_a, op_count, 'a');
 			else
-				op_rra_stack(stk_a, op_count);
+				rrotate_stack(stk_a, op_count, 'a');
 			// i++;
 		}
 	}
 	if (stk_is_sorted(*stk_a))
 	{
-		op_pushall_a(stk_b, stk_a, op_count);
+		op_pushall_a(stk_b, stk_a, op_count, 'a');
 		return (SORTED);
 	}
 	return (NOT_SORTED);
 }
-int	main(int argc,char **argv)
-{
-	t_node		*stk_a;
-	t_node		*stk_b;
-	t_op_count	*op_count;
-	int	i;
+// int	main(int argc,char **argv)
+// {
+// 	t_node		*stk_a;
+// 	t_node		*stk_b;
+// 	t_op_count	*op_count;
+// 	int	i;
 
-	i = 1;
-	stk_a = NULL;
-	stk_b = NULL;
-	op_count = ft_calloc(1, sizeof(t_op_count));
-	if (argc < 1)
-		return (printf("incorrect # of arguments\n"), 1);
-	printf("Unsorted:\n");
-	while (i < argc)
-	{
-		ft_lstadd_back(&stk_a, ft_lstnew(atoi( argv[i])));
-		i++;
-	}
-	printf("Sorted:\n");
-	index_stack(stk_a);
-	optimize(&stk_a, &stk_b, op_count);
-	while (stk_a)
-	{
-		printf("%lu\n", stk_a->content);
-		stk_a = stk_a->next;
-	}
-	return (0);
-}
+// 	i = 1;
+// 	stk_a = NULL;
+// 	stk_b = NULL;
+// 	op_count = ft_calloc(1, sizeof(t_op_count));
+// 	if (argc < 1)
+// 		return (printf("incorrect # of arguments\n"), 1);
+// 	printf("Unsorted:\n");
+// 	while (i < argc)
+// 	{
+// 		ft_lstadd_back(&stk_a, ft_lstnew(atoi( argv[i])));
+// 		i++;
+// 	}
+// 	printf("Sorted:\n");
+// 	index_stack(stk_a);
+// 	optimize(&stk_a, &stk_b, op_count);
+// 	while (stk_a)
+// 	{
+// 		printf("%lu\n", stk_a->content);
+// 		stk_a = stk_a->next;
+// 	}
+// 	return (0);
+// }

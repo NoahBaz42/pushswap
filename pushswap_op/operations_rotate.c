@@ -6,108 +6,60 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 14:42:23 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/09 16:03:58 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 06:20:12 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-//--------------------------//
-//--------ROTATE------------//
-//------A---AND---B---------//
 
-/*-------[ operations: ra ]----------*/
-
-void    op_ra_stack(t_stack *stk_a, t_op_count	*op_count)
+void    rotate_stack(t_stack *stk, t_op_count *op_count, char stk_name)
 {
-	t_node		*new_start;
+    t_node		*new_start;
 	t_node 		*last;
 
-    if (!stk_a && !*stk_a)
+    if (!stk && !*stk)
 	{
-		ft_free_stack(stk_a);
+		ft_free_stack(stk);
         give_error();
 	}
-	new_start = (*stk_a)->next;
-	last = ft_lstlast(*stk_a);
-	last->next = ft_pop(stk_a);
-	*stk_a = new_start;
-	op_count->ra++;
-	op_count->total++;
-    ft_printf(1,"ra\n");
+	new_start = (*stk)->next;
+	last = ft_lstlast(*stk);
+	last->next = ft_pop(stk);
+    last->next->prev = last;
+	*stk = new_start;
+    new_start->prev = NULL;
+    if (stk_name == 'a')
+	    op_count->ra++;
+    else
+        op_count->rb++;
+    op_count->total++;
+    ft_printf(1,"r%c\n", stk_name);
 }
 
-/*-------[ operations: rb ]----------*/
-
-void    op_rb_stack(t_stack *stk_b, t_op_count	*op_count)
+void    rrotate_stack(t_stack *stk, t_op_count *op_count, char stk_name)
 {
-	t_node		*new_start;
-	t_node 		*last;
-
-    if (!stk_b && !*stk_b)
-	{
-		ft_free_stack(stk_b);
-        give_error();
-	}
-	new_start = (*stk_b)->next;
-	last = ft_lstlast(*stk_b);
-	last->next = ft_pop(stk_b);
-	*stk_b = new_start;
-	op_count->rb++;
-	op_count->total++;
-    ft_printf(1,"rb\n");
-}
-
-/*-------[ operations: rra ]----------*/
-
-
-void    op_rra_stack(t_stack *stk_a, t_op_count	*op_count)
-{
-    t_node     *b4last;
     t_node     *new_top;
     
-    if (!stk_a || !*stk_a)
+    if (!stk || !*stk)
     {
         printf("rrs\n");
-        ft_free_stack(stk_a);
+        ft_free_stack(stk);
         give_error();
     }
-    b4last = ft_lstb4last(*stk_a);
-    new_top = ft_lstlast(*stk_a);
-    new_top->next = *stk_a;
-    b4last->next = NULL;
-    (*stk_a) = new_top;
-	op_count->rra++;
-	op_count->total++;
-    ft_printf(1,"rra\n");
+    new_top = ft_lstlast(*stk);
+    new_top->prev->next = NULL;
+    new_top->prev = NULL;
+    new_top->next = *stk;
+    new_top->next->prev = new_top;
+    (*stk) = new_top;
+    if (stk_name == 'a')
+	    op_count->rra++;
+    else
+        op_count->rrb++;
+    op_count->total++;
+    ft_printf(1,"rr%c\n", stk_name);
 }
-
-/*-------[ operations: rrb ]----------*/
-
-void    op_rrb_stack(t_stack *stk_b, t_op_count	*op_count)
-{
-    t_node     *b4last;
-    t_node     *new_top;
-    
-    if (!stk_b || !*stk_b)
-    {
-        printf("rrs\n");
-        ft_free_stack(stk_b);
-        give_error();
-    }
-    b4last = ft_lstb4last(*stk_b);
-    new_top = ft_lstlast(*stk_b);
-    new_top->next = *stk_b;
-    b4last->next = NULL;
-    (*stk_b) = new_top;
-	op_count->rrb++;
-	op_count->total++;
-    ft_printf(1,"rrb\n");
-}
-
-
-
-//-----------rstack----------//
 
 
 // int	main(int argc,char **argv)

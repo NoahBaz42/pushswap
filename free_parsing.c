@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_main.c                                        :+:      :+:    :+:   */
+/*   free_parsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/06 05:51:12 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 02:07:56 by charlie          ###   ########.fr       */
+/*   Created: 2026/08/11 03:24:20 by charlie           #+#    #+#             */
+/*   Updated: 2026/08/11 03:26:48 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	main (int argc, char **argv)
+void	free_flags(t_flags *flags)
 {
-	if (argc < 2)
-		return(ft_printf(1, "Incorrect # of arguments"), 0);
-	pushswap(argv);
-	return (0);
+	if (!flags)
+		return ;
+	free(flags);
 }
-
+void	free_op_count(t_op_count *op_count)
+{
+	if (!op_count)
+		return ;
+	free(op_count);
+}

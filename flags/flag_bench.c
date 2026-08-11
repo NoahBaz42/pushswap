@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 08:52:33 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 02:23:18 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	flag_bench(t_flags *flags, char **argv)
 
 bool	is_bench_flags(char *flag)
 {
-	if (!strcmp(flag, "--bench"))
+	if (!ft_strcmp(flag, "--bench"))
 		return (true);
 	return (false);
 }

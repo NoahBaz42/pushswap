@@ -79,27 +79,23 @@ typedef struct s_flags
 
 /*----------push------------*/
 
-void    	op_pa_stack(t_stack *stk_b, t_stack *stk_a, t_op_count	*op_count);
-void		op_pb_stack(t_stack *stk_a, t_stack *stk_b, t_op_count	*op_count);
+void    	push_stack(t_stack *src, t_stack *dest, t_op_count	*op_count, char stk_name);
 
 /*----------swap------------*/
 
-void		op_sa_stack(t_stack *stk_a, t_op_count	*op_count);
-void		op_sb_stack(t_stack *stk_b, t_op_count	*op_count);
-void		op_ss(t_node *a, t_node *b, t_op_count	*op_count);
+void		swap_stack(t_stack *stk, t_op_count	*op_count, char stk_name);
+void		op_ss(t_stack *a, t_stack *b, t_op_count	*op_count, char stk_name);
 
 /*----------rotate----------*/
 
-void		op_ra_stack(t_stack *stk_a, t_op_count	*op_count);
-void		op_rb_stack(t_stack *stk_b, t_op_count	*op_count);
-void		op_rra_stack(t_stack *stk_a, t_op_count	*op_count);
-void		op_rrb_stack(t_stack *stk_b, t_op_count	*op_count);
+void		rotate_stack(t_stack *stk, t_op_count	*op_count, char stk_name);
+void		rrotate_stack(t_stack *stk, t_op_count	*op_count, char stk_name);
 
 /*----------more rotations----------*/
 
-void		op_rr(t_stack *a, t_stack *b, t_op_count	*op_count);
-void		op_rrr(t_stack *a, t_stack *b, t_op_count	*op_count);
-void		op_pushall_a(t_stack *b, t_stack *a, t_op_count	*op_count);
+void		op_rr(t_stack *src, t_stack *dest, t_op_count	*op_count, char stk_name);
+void		op_rrr(t_stack *src, t_stack *dest, t_op_count	*op_count, char stk_name);
+void		op_pushall_a(t_stack *b, t_stack *a, t_op_count	*op_count, char stk_name);
 
 
 //--------------------------//
@@ -179,10 +175,10 @@ void		ft_del_it(int content);
 //--------------------------//
 
 void		stack_is_3(t_stack *a, t_op_count	*op_count);
-void		stack_is_5(t_stack *a, t_op_count	*op_count);
+void		stack_is_5(t_stack *a, t_stack *b, t_op_count	*op_count);
 void		chunk_sort(t_stack *a, t_stack *b, t_op_count	*op_count);
 void		radix_sort(t_stack *a, t_stack *b, t_op_count *op_count);
-void		ft_simple(t_stack *a, t_node *b, t_op_count	*op_count);
+void		ft_simple(t_stack *a, t_stack *b, t_op_count	*op_count);
 
 //--------------------------//
 //--------optimization--------//
@@ -196,9 +192,9 @@ bool	optimize(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count);
 int 		stk_is_sorted(t_node *stack);
 void		ft_push(t_stack *top, t_node *new);
 t_node		*ft_pop(t_stack *top);
-void 		index_stack(t_node *a);
+void 		index_stack(t_stack *a);
 t_node 		*ft_find_min(t_node *a);
-int 		get_target_half(t_node *a);
+int 		get_target_half(t_node *a, t_node *target);
 int			ft_sqrt(int nb);
 t_node 		*ft_find_max(t_node *a);
 t_node 		*stk_dup(t_node *stk);
@@ -210,10 +206,13 @@ int			ft_isoperator(char c);
 //--------------------------//
 
 void 		ft_print_lst(t_node *top);
-void		diff_selection(t_node *stk_a, t_node *stk_b, t_flags *flags, t_op_count *op_count);
 
 /*----------pushswap----------*/
 
 void		pushswap(char **argv);
+
+//free
+void	free_flags(t_flags *flags);
+void	free_op_count(t_op_count *op_count);
 
 #endif

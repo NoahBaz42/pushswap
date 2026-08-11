@@ -6,32 +6,31 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 19:26:09 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/10 15:32:42 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 07:43:23 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-void	ft_simple(t_stack *a, t_node *b,t_op_count	*op_count)
+void	ft_simple(t_stack *a, t_stack *b, t_op_count *op_count)
 {
 	t_node *min;
 	int		half;
 
-	b = NULL;
 	while (stk_is_sorted(*a) == NOT_SORTED)
 	{
 		min = ft_find_min(*a);
-		half = get_target_half(*a);
+		half = get_target_half(*a, min);
 		while ((*a)->content != min->content)
 		{
 			if (half == TOP_HALF)
-				op_ra_stack(a, op_count);
+				rotate_stack(a, op_count, 'a');
 			else
-				op_rra_stack(a, op_count);
+				rrotate_stack(a, op_count, 'a');
 		}
-		op_pb_stack(a, &b, op_count);
+		push_stack(a, b, op_count, 'b');
 	}
-	op_pushall_a(&b, a, op_count);
+	op_pushall_a(b, a, op_count, 'a');
 }
 // void ft_print_lst(t_node *top)
 // {

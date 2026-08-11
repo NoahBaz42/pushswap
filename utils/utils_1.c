@@ -34,21 +34,25 @@ void	ft_push(t_stack *top, t_node *new)
 	{
 		*top = new;
 		(*top)->prev = NULL;
+		(*top)->next = NULL;
 		return ;
 	}
 	new->next = *top;
+	(*top)->prev = new;
 	new->prev = NULL;
 	*top = new;
-	(*top)->prev = new;
 }
+
 t_node	*ft_pop(t_stack *top)
 {
 	t_node	*popped;
 
-	if(!top)
+	if (!top || !*top)
 		return (NULL);
 	popped = *top;
 	*top = (*top)->next;
+	if (*top)
+		(*top)->prev = NULL;
 	popped->next = NULL;
 	return (popped);
 }

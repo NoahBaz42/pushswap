@@ -12,6 +12,9 @@ PRINTF_DIR = ft_printf
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 BONUS = bonus
 
+LIBS = -L$(LIBFT_DIR) -lft
+LIBS += -L$(PRINTF_DIR) -lftprintf
+
 # CONSIDER:
 #	- go over naming conventions
 # 	- restructure directories
@@ -30,7 +33,7 @@ SRCS = test_main.c \
 		operations_push.c \
 		operations_rotate.c \
 		operations_swap.c \
-		operations_rotating.c \
+		operations_rrotate.c \
 		stack_is_3.c \
 		utils_1.c \
 		utils_2.c \
@@ -50,6 +53,7 @@ SRCS = test_main.c \
 		flag_diff.c \
 		pushswap.c \
 		bench.c \
+		free_parsing.c
 
 vpath %.c pushswap_algorithms pushswap_op utils flags parsing output
 
@@ -66,7 +70,7 @@ $(PRINTF):
 	make -C $(PRINTF_DIR)
 
 $(NAME): $(OBJS) $(LIBFT) $(PRINTF) | $(OBJS_DIR)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
 
 $(OBJS_DIR)%.o: %.c | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(CDEPS) -c $(INCLUDES) $< -o $@
@@ -79,8 +83,18 @@ $(OBJS_DIR):
 run: $(NAME)
 	./$(NAME) $(ARGS)
 
+check: $(NAME)
+	$(eval ARG := $(ARGS))
+	./$(NAME) $(ARG) | ./checker_linux $(ARG)
+
 gdb: $(NAME)
 	@gdb --tui --args ./$(NAME) $(ARGS)
+
+valgrind vg: $(NAME)
+	valgrind ./$(NAME) $(ARGS)
+
+valgrindplus vgp: $(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --keep-stacktraces=alloc-and-free ./$(NAME) $(ARGS)
 
 bonus: $(NAME)
 	make -C $(BONUS)

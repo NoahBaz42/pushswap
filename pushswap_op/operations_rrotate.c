@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_rotating.c                              :+:      :+:    :+:   */
+/*   operations_rrotate.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:00:56 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/10 07:41:53 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 05:52:15 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-void    op_rr(t_stack *a, t_stack *b, t_op_count	*op_count)
+void    op_rr(t_stack *a, t_stack *b, t_op_count *op_count, char stk_name)
 {
-    op_ra_stack(a, op_count);
-    op_rb_stack(b, op_count);
+    if(a && *a)
+        rotate_stack(a, op_count, stk_name);
+    if(b && *b)
+        rotate_stack(b, op_count, stk_name);
     
 }
 
-void    op_rrr(t_stack *a, t_stack *b, t_op_count	*op_count)
+void    op_rrr(t_stack *a, t_stack *b, t_op_count *op_count,char stk_name)
 {
     if (a && *a)
-        op_rra_stack(a, op_count);
+        rrotate_stack(a, op_count, stk_name);
     if (b && *b)
-        op_rrb_stack(b, op_count);
+        rrotate_stack(b, op_count, stk_name);
 }
-void    op_pushall_a(t_stack *b, t_stack *a, t_op_count	*op_count)
+void    op_pushall_a(t_stack *b, t_stack *a, t_op_count	*op_count, char stk_name)
 {
-    while (*b)
+    while (*b && b)
     {
-        op_pa_stack(b, a, op_count);
+        push_stack(b, a, op_count, stk_name);
     }
 }
 

@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:24:42 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 16:10:45 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 07:54:37 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,16 +90,17 @@ static t_node *find_cheapest_node(t_stack *a, ssize_t chunk_size)
 	ssize_t		target_index;
 	t_node		*node;
 	t_node		*head;
-	int			ret;
-	static int	i = 0;
+	long		ret;
+	long		i;
 	
+	i = ft_find_min(*a)->index;
 	chunk_size += i;
 	target_index = -1;
 	head = *a;
 	node = head;
-	while (i < chunk_size && node)
+	ret = set_cheapest(node, &target_index, i);
+	while (i < chunk_size && node && (i < (ft_find_max(*a)->index)))
 	{
-		ret = set_cheapest(node, &target_index, i);
 		if (ret == FOUND)
 			node = head;
 		else
@@ -110,23 +111,22 @@ static t_node *find_cheapest_node(t_stack *a, ssize_t chunk_size)
 	return (iterate_node(node, target_index));
 }
 
-static void	push_target_node(t_stack *src, t_stack *dest,
-						t_node *target,t_op_count	*op_count)
+static void	rot_target_node(t_stack *src, char name,
+						t_node *target, t_op_count *op_count)
 {
 	int		target_half;
 	t_node	*head;
 
 	head = *src;
-	target_half = get_target_half(head);
-	while (target != head && target)
+	target_half = get_target_half(head, target);
+	while (target != head && target && *src)
 	{
 		if (target_half == TOP_HALF)
-			op_ra_stack(src, op_count);
+			rotate_stack(src, op_count, name);
 		else
-			op_rra_stack(src, op_count);
+			rrotate_stack(src, op_count, name);
 		head = *src;
 	}
-	op_pb_stack(src, dest, op_count);
 
 }
 
@@ -138,10 +138,14 @@ void	chunk_sort(t_stack *a, t_stack *b, t_op_count	*op_count)
 	while (*a)
 	{
 		set_stack_costs(a);
-		push_target_node(a, b, find_cheapest_node(a, chunk_size), op_count);
+		rot_target_node(a, 'a', find_cheapest_node(a, chunk_size), op_count);
+		push_stack(a, b, op_count, 'b');
 	}
 	while (*b)
-		push_target_node(b, a, ft_find_max(*b), op_count);
+	{
+		rot_target_node(b, 'b', ft_find_max(*b), op_count);
+		push_stack(b, a, op_count, 'a');
+	}
 }
 
 void ft_print_lst(t_node *top)
