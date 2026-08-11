@@ -2,10 +2,8 @@ NAME = push_swap
 BONUS = checker
 
 CC = cc -g
-CFLAGS = -Wall -Wextra -Werror -I
+CFLAGS = -Wall -Wextra -Werror -I. -Ichecker
 CDEPS =  -MMD -MP
-
-INCLUDES = -I. -Ichecker
 
 LIBFT_DIR = libft_pushswap
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -29,7 +27,7 @@ DEFAULT_ARGS = $(shell shuf -i $(MIN)-$(MAX) -n $(COUNT))
 
 ARGS = $(DEFAULT_ARGS)
 
-SRCS = test_main.c \
+SRCS = main.c \
 		operations_push.c \
 		operations_rotate.c \
 		operations_swap.c \
@@ -42,7 +40,6 @@ SRCS = test_main.c \
 		stack_is_5.c \
 		complex_alg.c \
 		medium_alg.c \
-		optimization.c \
 		pushswap_exit.c \
 		stack_a.c \
 		parsing.c \
@@ -76,7 +73,7 @@ $(NAME): $(OBJS) $(LIBFT) $(PRINTF) | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
 
 $(OBJS_DIR)%.o: %.c | $(OBJS_DIR)
-	$(CC) $(CFLAGS) $(CDEPS) -c $(INCLUDES) $< -o $@
+	$(CC) $(CFLAGS) $(CDEPS) -c $< -o $@
 
 -include $(OBJS:.o=.d)
 
@@ -86,12 +83,19 @@ $(OBJS_DIR):
 run: $(NAME)
 	./$(NAME) $(ARGS)
 
+ifeq ($(USER), charlie)
 check: $(NAME)
 	$(eval ARG := $(ARGS))
-	./$(NAME) $(ARG) | ./checker_linux $(ARG)
+	./$(NAME) $(ARG)
+	@./ps_checker.sh $(ARG)
+else
+check: $(NAME)
+	$(eval ARG := $(ARGS))
+	./$(NAME) $(ARG) | checker_linux $(ARG)
+endif
 
 gdb: $(NAME)
-	@gdb --tui --args ./$(NAME) $(ARGS)
+	@gdb --tui --args ./$(NAME) --debug $(ARGS)
 
 valgrind vg: $(NAME)
 	valgrind ./$(NAME) $(ARGS)
