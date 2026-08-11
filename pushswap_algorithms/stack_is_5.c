@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 23:16:50 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 07:43:29 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 08:45:31 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	stk_5_is_3(t_stack *a, t_stack *b, t_op_count *op_count)
 	if(ft_lstsize(*a) == 3)
 	{
 		stack_is_3(a, op_count);
-		op_pushall_a(b, a, op_count, 'a');
+		op_pushall_a(b, a, op_count);
 	}
 	else 
 		give_error();

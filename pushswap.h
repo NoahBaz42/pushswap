@@ -79,23 +79,23 @@ typedef struct s_flags
 
 /*----------push------------*/
 
-void    	push_stack(t_stack *src, t_stack *dest, t_op_count	*op_count, char stk_name);
+void    	push_stack(t_stack *src, t_stack *dest, t_op_count *op_count, char stk_name);
 
 /*----------swap------------*/
 
 void		swap_stack(t_stack *stk, t_op_count	*op_count, char stk_name);
-void		op_ss(t_stack *a, t_stack *b, t_op_count	*op_count, char stk_name);
+void		op_ss(t_stack *a, t_stack *b, t_op_count *op_count);
 
 /*----------rotate----------*/
 
-void		rotate_stack(t_stack *stk, t_op_count	*op_count, char stk_name);
-void		rrotate_stack(t_stack *stk, t_op_count	*op_count, char stk_name);
+void		rotate_stack(t_stack *stk, t_op_count *op_count, char stk_name);
+void		rrotate_stack(t_stack *stk, t_op_count *op_count, char stk_name);
 
 /*----------more rotations----------*/
 
-void		op_rr(t_stack *src, t_stack *dest, t_op_count	*op_count, char stk_name);
-void		op_rrr(t_stack *src, t_stack *dest, t_op_count	*op_count, char stk_name);
-void		op_pushall_a(t_stack *b, t_stack *a, t_op_count	*op_count, char stk_name);
+void		op_rr(t_stack *src, t_stack *dest, t_op_count *op_count);
+void		op_rrr(t_stack *src, t_stack *dest, t_op_count *op_count);
+void		op_pushall_a(t_stack *b, t_stack *a, t_op_count	*op_count);
 
 
 //--------------------------//

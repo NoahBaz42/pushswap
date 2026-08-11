@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 23:17:25 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 07:43:09 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 08:45:20 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ bool	optimize(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count)
 	}
 	if (stk_is_sorted(*stk_a))
 	{
-		op_pushall_a(stk_b, stk_a, op_count, 'a');
+		op_pushall_a(stk_b, stk_a, op_count);
 		return (SORTED);
 	}
 	return (NOT_SORTED);

@@ -6,33 +6,33 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:00:56 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 05:52:15 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 08:46:50 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-void    op_rr(t_stack *a, t_stack *b, t_op_count *op_count, char stk_name)
+void    op_rr(t_stack *a, t_stack *b, t_op_count *op_count)
 {
     if(a && *a)
-        rotate_stack(a, op_count, stk_name);
+        rotate_stack(a, op_count, 'a');
     if(b && *b)
-        rotate_stack(b, op_count, stk_name);
+        rotate_stack(b, op_count, 'b');
     
 }
 
-void    op_rrr(t_stack *a, t_stack *b, t_op_count *op_count,char stk_name)
+void    op_rrr(t_stack *a, t_stack *b, t_op_count *op_count)
 {
     if (a && *a)
-        rrotate_stack(a, op_count, stk_name);
+        rrotate_stack(a, op_count, 'a');
     if (b && *b)
-        rrotate_stack(b, op_count, stk_name);
+        rrotate_stack(b, op_count, 'b');
 }
-void    op_pushall_a(t_stack *b, t_stack *a, t_op_count	*op_count, char stk_name)
+void    op_pushall_a(t_stack *b, t_stack *a, t_op_count	*op_count)
 {
     while (*b && b)
     {
-        push_stack(b, a, op_count, stk_name);
+        push_stack(b, a, op_count, 'a');
     }
 }
 

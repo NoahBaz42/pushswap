@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 14:31:47 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/11 05:50:03 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 08:46:02 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void    swap_stack(t_stack *stk, t_op_count	*op_count, char stk_name)
     ft_printf(1,"s%c\n", stk_name);
 }
 
-void    op_ss(t_stack *a, t_stack *b, t_op_count *op_count, char stk_name)
+void    op_ss(t_stack *a, t_stack *b, t_op_count *op_count)
 {
     if(a && *a)
-        swap_stack(a, op_count, stk_name);
+        swap_stack(a, op_count, 'a');
     if(b && *b)
-        swap_stack(b, op_count, stk_name);
+        swap_stack(b, op_count, 'b');
 }
 
 
