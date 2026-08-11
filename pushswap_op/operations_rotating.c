@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:00:56 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 16:04:59 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/10 07:41:53 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void    op_rr(t_stack *a, t_stack *b, t_op_count	*op_count)
 {
     op_ra_stack(a, op_count);
     op_rb_stack(b, op_count);
+    
 }
 
 void    op_rrr(t_stack *a, t_stack *b, t_op_count	*op_count)

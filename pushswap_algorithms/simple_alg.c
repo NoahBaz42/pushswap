@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 19:26:09 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 16:12:31 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/10 15:32:42 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_simple(t_stack *a, t_node *b,t_op_count	*op_count)
 		}
 		op_pb_stack(a, &b, op_count);
 	}
-	ft_pushall_a(&b, a, op_count);
+	op_pushall_a(&b, a, op_count);
 }
 // void ft_print_lst(t_node *top)
 // {

@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 22:03:38 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 10:09:55 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/10 22:29:47 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_list
 {
 	t_node	*root;
 }	t_list;
+
 
 // srcs_1 definitions:
 int					ft_atoi(const char *nptr);

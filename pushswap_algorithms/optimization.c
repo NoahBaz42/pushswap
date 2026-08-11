@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 23:17:25 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 01:39:22 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 01:53:38 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,32 +58,32 @@ bool	optimize(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count)
 	}
 	return (NOT_SORTED);
 }
-// int	main(int argc,char **argv)
-// {
-// 	t_node		*stk_a;
-// 	t_node		*stk_b;
-// 	t_op_count	*op_count;
-// 	int	i;
+int	main(int argc,char **argv)
+{
+	t_node		*stk_a;
+	t_node		*stk_b;
+	t_op_count	*op_count;
+	int	i;
 
-// 	i = 1;
-// 	stk_a = NULL;
-// 	stk_b = NULL;
-// 	op_count = ft_calloc(1, sizeof(t_op_count));
-// 	if (argc < 1)
-// 		return (printf("incorrect # of arguments\n"), 1);
-// 	printf("Unsorted:\n");
-// 	while (i < argc)
-// 	{
-// 		ft_lstadd_back(&stk_a, ft_lstnew(atoi( argv[i])));
-// 		i++;
-// 	}
-// 	printf("Sorted:\n");
-// 	index_stack(stk_a);
-// 	optimize(&stk_a, &stk_b, op_count);
-// 	while (stk_a)
-// 	{
-// 		printf("%lu\n", stk_a->content);
-// 		stk_a = stk_a->next;
-// 	}
-// 	return (0);
-// }
+	i = 1;
+	stk_a = NULL;
+	stk_b = NULL;
+	op_count = ft_calloc(1, sizeof(t_op_count));
+	if (argc < 1)
+		return (printf("incorrect # of arguments\n"), 1);
+	printf("Unsorted:\n");
+	while (i < argc)
+	{
+		ft_lstadd_back(&stk_a, ft_lstnew(atoi( argv[i])));
+		i++;
+	}
+	printf("Sorted:\n");
+	index_stack(stk_a);
+	optimize(&stk_a, &stk_b, op_count);
+	while (stk_a)
+	{
+		printf("%lu\n", stk_a->content);
+		stk_a = stk_a->next;
+	}
+	return (0);
+}

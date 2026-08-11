@@ -52,7 +52,6 @@ typedef struct e_op_count
 	int rrb;
 	int ss;
 	int rr;
-	int sss;
 	int rrr;
 	int total;
 }	t_op_count;
@@ -150,13 +149,14 @@ int   		count_flags(t_flags *flags);
 
 float		ft_disorder(t_node *stack);
 void		ft_resolve_strategy(t_flags *flag, float disorder);
-void		output_bench(t_op_count *bench, t_flags *flags);
+void		output_bench(t_stack *stk_a, t_op_count *bench, t_flags *flags);
+int			operations_output(t_op_count *bench);
 
 //--------------------------//
 //----------Error-----------//
 //--------------------------//
 
-void    	give_error(void);
+void    	give_error();
 void    	ft_free_array(char **array, int size);
 //void    free_list(t_node *node);
 
@@ -180,10 +180,15 @@ void		ft_del_it(int content);
 
 void		stack_is_3(t_stack *a, t_op_count	*op_count);
 void		stack_is_5(t_stack *a, t_op_count	*op_count);
-void    	ft_pushall_a(t_stack *b, t_stack *a);
 void		chunk_sort(t_stack *a, t_stack *b, t_op_count	*op_count);
-void		radix_sort(t_stack *a, t_stack *b);
+void		radix_sort(t_stack *a, t_stack *b, t_op_count *op_count);
 void		ft_simple(t_stack *a, t_node *b, t_op_count	*op_count);
+
+//--------------------------//
+//--------optimization--------//
+//--------------------------//
+
+bool	optimize(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count);
 
 //--------------------------//
 //-----------Utils----------//
@@ -205,6 +210,10 @@ int			ft_isoperator(char c);
 //--------------------------//
 
 void 		ft_print_lst(t_node *top);
-void		diff_selection(t_node *stk_a, t_node *stk_b, t_flags *flags);
+void		diff_selection(t_node *stk_a, t_node *stk_b, t_flags *flags, t_op_count *op_count);
+
+/*----------pushswap----------*/
+
+void		pushswap(char **argv);
 
 #endif

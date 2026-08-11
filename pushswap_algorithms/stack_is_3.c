@@ -6,11 +6,12 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 02:29:57 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 16:06:44 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 00:18:45 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
+#include <strings.h>
 
 t_node *ft_find_max(t_node *a)
 {
@@ -28,7 +29,7 @@ t_node *ft_find_max(t_node *a)
 	return (max);
 }
 
-void	stack_is_3(t_stack *a,t_op_count	*op_count)
+void	stack_is_3(t_stack *a, t_op_count *op_count)
 {
 	t_node	*highest_node;
 
@@ -42,25 +43,29 @@ void	stack_is_3(t_stack *a,t_op_count	*op_count)
 }
 // int	main(int argc,char **argv)
 // {
-// 	t_node	*top;
-	
+// 	t_node		*stk_a;
+// 	t_node		*stk_b;
+// 	t_op_count	*op_count;
 // 	int	i;
 
 // 	i = 1;
-// 	top = NULL;
-// 	if (argc < 2)
+// 	stk_a = NULL;
+// 	stk_b = NULL;
+// 	op_count = ft_calloc(1, sizeof(t_op_count));
+// 	if (argc < 1)
 // 		return (printf("incorrect # of arguments\n"), 1);
 // 	printf("Unsorted:\n");
 // 	while (i < argc)
 // 	{
-// 		ft_lstadd_back(&top, ft_lstnew(atoi( argv[i])));
+// 		ft_lstadd_back(&stk_a, ft_lstnew(atoi( argv[i])));
 // 		i++;
 // 	}
 // 	printf("Sorted:\n");
-// 	ft_simple(&top);
-// 	while (top)
+// 	stk_is_3(stk_a, op_count);
+// 	while (stk_a)
 // 	{
-// 		printf("%d\n", top->content);
-// 		top = top->next;
+// 		printf("%lu\n", stk_a->content);
+// 		stk_a = stk_a->next;
 // 	}
+// 	return (0);
 // }

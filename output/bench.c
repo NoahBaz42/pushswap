@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 14:41:02 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/09 15:27:51 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/10 15:26:10 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,11 @@ void output_bench(t_stack *stk_a, t_op_count *op_count, t_flags *flags)
              op_count->ra, op_count->rb, op_count->rr, op_count->rra, op_count->rrb, op_count->rrr);
 }
 
-int	ft_operations_output(t_op_count *bench)
+int	operations_output(t_op_count *bench)
 {
 	int	smallest_op;
 
-	smallest_op = bench->total_ops;
+	smallest_op = bench->total;
 	if (bench->sa < bench->sb)
 		smallest_op = bench->sb;
 	if (bench->sa < bench->ss)

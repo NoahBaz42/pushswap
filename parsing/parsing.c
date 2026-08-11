@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:20:16 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/10 15:34:27 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,21 +78,21 @@ t_node	*parsing(char **argv)
 	ft_free_array(array, count);
 	return (stack_a);
 }
-int	main(int argc,char **argv)
-{
-	t_node	*stk_a;
-	t_node	*stk_b;
+// int	main(int argc,char **argv)
+// {
+// 	t_node	*stk_a;
+// 	t_node	*stk_b;
 
-	stk_a = NULL;
-	stk_b = NULL;
-	if (argc < 2)
-		return (printf("incorrect # of arguments\n"), 1);
-	stk_a = parsing(argv);
-	index_stack(stk_a);
-	chunk_sort(&stk_a, &stk_b);
-	printf("Stack_a:\n");
-	ft_print_lst(stk_a);
-	ft_free_stack(&stk_a);
-	ft_free_stack(&stk_b);
-	return (0);
-}
+// 	stk_a = NULL;
+// 	stk_b = NULL;
+// 	if (argc < 2)
+// 		return (printf("incorrect # of arguments\n"), 1);
+// 	stk_a = parsing(argv);
+// 	index_stack(stk_a);
+// 	chunk_sort(&stk_a, &stk_b);
+// 	printf("Stack_a:\n");
+// 	ft_print_lst(stk_a);
+// 	ft_free_stack(&stk_a);
+// 	ft_free_stack(&stk_b);
+// 	return (0);
+// }

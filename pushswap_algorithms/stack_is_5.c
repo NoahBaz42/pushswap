@@ -6,11 +6,22 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 23:16:50 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 16:07:29 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/10 23:40:21 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
+
+static void	stk_5_is_3(t_stack *a, t_node *b, t_op_count *op_count)
+{
+	if(ft_lstsize(*a) == 3)
+	{
+		stack_is_3(&*a, op_count);
+		op_pushall_a(&b, a, op_count);
+	}
+	else 
+		give_error();
+}
 
 void	stack_is_5(t_stack *a, t_op_count	*op_count)
 {
@@ -34,13 +45,7 @@ void	stack_is_5(t_stack *a, t_op_count	*op_count)
 		op_pb_stack(&*a,&b, op_count);
 		i++;
 	}
-	if(ft_lstsize(*a) == 3)
-	{
-		stack_is_3(&*a, op_count);
-		ft_pushall_a(&b, a, op_count);
-	}
-	else 
-		give_error();
+	stk_5_is_3(a, b, op_count);
 }
 // int	main(int argc,char **argv)
 // {

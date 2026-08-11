@@ -6,13 +6,11 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 14:37:15 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/09 16:02:35 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/10 07:45:52 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-#include "C_algorithm/ft_printf/ft_printf.h"
-#include <linux/openat2.h>
 
 //--------------------------//
 //----------PUSH------------//
