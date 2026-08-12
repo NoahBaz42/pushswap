@@ -6,11 +6,13 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/31 20:58:16 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/10 23:45:44 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/12 04:06:03 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+#include <string.h>
+#include <stdio.h>
 
 char	*get_next_line(int fd)
 {
@@ -39,3 +41,17 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
+// int main(void)
+// {
+// 	int		i;
+// 	char	*line;
+
+// 	i = 0;
+// 	line = NULL;
+// 	while (!i || strcmp(line, "END\n"))
+// 	{
+// 		line = get_next_line(STDIN_FILENO);
+// 		printf("[%03d] %s", i, line);
+// 		i++;
+// 	}
+// }

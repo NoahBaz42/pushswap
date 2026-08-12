@@ -73,7 +73,7 @@ t_node	*ft_pop(t_stack *top)
 // 		i++;
 // 	}
 // 	printf("Disorder:\n");
-// 	printf("%f\n", ft_disorder(top));
+// 	printf("%f\n", disorder(top));
 
 // }
 

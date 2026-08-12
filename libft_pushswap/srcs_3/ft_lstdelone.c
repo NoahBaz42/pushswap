@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:13 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 02:31:30 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/12 04:48:59 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	ft_lstdelone(t_node *lst, void (*del)(int))
 	free(lst);
 }
 
-void	ft_free_node(t_node *lst)
+void	ft_free_node(t_node *node)
 {
-	if (!lst)
+	if (!node)
 		return ;
-	free(lst);
+	free(node);
 }
 
 // static void	del_it(void *content)

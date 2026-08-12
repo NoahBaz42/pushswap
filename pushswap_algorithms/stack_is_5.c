@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 23:16:50 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 08:45:31 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/12 00:19:17 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void	stack_is_5(t_stack *a, t_stack *b, t_op_count	*op_count)
 	{
 		while (*a != min)
 		{
+			min = ft_find_min(*a);
 			if (get_target_half(*a, min) == BOTTOM_HALF)
 				rrotate_stack(a, op_count, 'a');
 			else
 				rotate_stack(a, op_count, 'a');
-			min = ft_find_min(*a);
 		}
 		push_stack(a, b, op_count, 'b');
 		i++;

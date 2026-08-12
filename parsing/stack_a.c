@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 03:23:23 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/12 02:03:46 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 t_node	*array_to_stk(char **array)
 {
-	t_node	*stack_a;
+	t_node	*stk_a;
 	int		i;
 
-	stack_a = NULL;
+	stk_a = NULL;
 	i = 0;
 	while (array[i])
 	{
-		ft_lstadd_back(&stack_a, ft_lstnew(ft_atol(array[i])));
+		ft_lstadd_back(&stk_a, ft_lstnew(ft_atol(array[i])));
 		i++;
 	}
-	return (stack_a);
+	return (stk_a);
 }
 
 /*[ checks for duplicates in stack_a (it sees "05, 5, +5" as equal) ]*/

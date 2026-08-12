@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:24:39 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 05:55:31 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/11 09:24:05 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	radix_sort(t_stack *a, t_stack *b, t_op_count	*op_count)
 				rotate_stack(a, op_count, 'a');
 			n--;
 		}
-		op_pushall_a(b, a, op_count, 'a');
+		op_pushall_a(b, a, op_count);
 		bit *= 2;
 	}
 }

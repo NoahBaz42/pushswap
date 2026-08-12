@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 14:41:02 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/11 04:08:39 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/12 03:48:05 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,35 @@
 //----------[EDITED: while was confusing, made a cleaner one]-------------//
 //----------[EDITED: Deleted the function call in return: added size]-----//
 //----------[EDITED: size used to check 1 number case]--------------------//
-//----------[EDITED: ft_disorder returns a float, needed casting]---------//
+//----------[EDITED: disorder returns a float, needed casting]---------//
 
 #include "../pushswap.h"
 
-float ft_disorder(t_node *stack)
+float disorder(t_node *stack)
 {
-    t_node  *temp;
+    t_node  *node1;
+	t_node  *node2;
     int     count;
-    int     size;
+    int     total_pairs;
 
-    size = ft_lstsize(stack);
-    if (size <= 1)
-        return (0.0f);
-    temp = stack;
+    if (ft_lstsize(stack) <= 1)
+        return (0);
+    node1 = stack;
     count = 0;
-    while (temp && temp->next)
+	total_pairs = 0;
+    while (node1)
     {
-        if (temp->content > temp->next->content)
-            count++;
-        temp = temp->next;
+		node2 = node1->next;
+		while(node1 != node2 && node2)
+		{
+			total_pairs++;
+			if (node1->content > node2->content)
+            	count++;
+        	node2 = node2->next;
+		}
+        node1 = node1->next;
     }
-    return ((float)count / (float)size);
+    return ((float)count / (float) total_pairs);
 }
 
 //----------[defines difficulty based on disorder level]--------------------//
@@ -68,7 +75,9 @@ void output_bench(t_stack *stk_a, t_op_count *op_count, t_flags *flags)
     t_diff      used;
 
     used = flags->difficulty;
-    ft_printf(2, "[bench] disorder: %.2f%%\n", ft_disorder(*stk_a) * 100);
+    ft_printf(2, "[bench] disorder: %d", (int)(disorder(*stk_a) * 100));
+	ft_printf(2, ".%d", ((int)(disorder(*stk_a) * 100) % 10));
+	ft_printf(2, "%d\n", (((int)(disorder(*stk_a) * 100) % 10) % 10));
     ft_printf(2, "[bench] strategy: %s / %s\n",
              names[flags->difficulty], complex[used]);
     ft_printf(2, "[bench] total_ops: %d\n", op_count->total);
@@ -113,7 +122,7 @@ int	operations_output(t_op_count *bench)
 	if (flags->has_bench == true)
 	{
 		float	disorder;
-		disorder = ft_disorder(stack);
+		disorder = disorder(stack);
 		output_bench(bench, flags, disorder);
 		return ;
 	}

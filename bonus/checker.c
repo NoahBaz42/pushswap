@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 22:01:55 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/11 08:47:36 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/12 09:47:29 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,67 @@ static void	bonus_op(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count, char 
 	else if(ft_strcmp(line, "rrr") == 0)
 		op_rrr(stk_a, stk_b, op_count);
 }
+static void	execute_op(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count)
+{
+	char	*line;
+
+	line = get_next_line(STDIN_FILENO);
+	while (line)
+	{
+		bonus_op(stk_a, stk_b, op_count, line);
+		line = get_next_line(STDIN_FILENO);
+	}
+}
+static void	mini_parse(char **argv)
+{
+	t_node	*stk_a;
+	char	**array;
+	size_t	count;
+	
+	stk_a = NULL;
+	count = 1;
+	valid_args(argv, 1);
+	array = ft_split_all(argv, 1, count);
+	if (!array)
+		give_error();
+	stk_a = array_to_stk(array);
+	if(!stk_a)
+		exit_array(array, (int)count);
+	if (int_check(stk_a) == INVALID)
+	{
+		ft_free_array(array, count);
+		exit_stack(&stk_a);
+	}
+	// ft_free_array(array, count);
+}
 
 void	checker(char **argv)
 {
-	t_stack *stk_a;
-	t_stack *stk_b;
-	t_op_count *op_count;
+	t_stack 	*stk_a;
+	t_stack 	*stk_b;
+	t_op_count 	*op_count;
 	
 	stk_a = NULL;
 	stk_b = NULL;
-	*stk_a = parsing(argv);
 	op_count = ft_calloc(1, sizeof(t_op_count));
-	bonus_op (stk_a, stk_b, op_count, get_next_line(0));
+	mini_parse(argv);
+	execute_op(stk_a, stk_b, op_count);
 	if (stk_is_sorted(*stk_a))
 		ft_printf(1, "OK");
-	ft_printf(1, "KO");
-	ft_free_stack(stk_a);
-	ft_free_stack(stk_b);
+	else
+		ft_printf(1, "KO");
+}
+int	main(int argc, char **argv)
+{
+	if (!ft_strcmp(argv[1], "--debug"))
+	{
+		argv++;
+		argc--;
+		int fd = open("log.txt", O_RDWR | O_CREAT | O_TRUNC, 0644);
+		dup2(fd, STDOUT_FILENO);
+	}
+	if (argc < 2)
+		return(ft_printf(1, "Incorrect # of arguments\n"), 1);
+	checker(argv);
+	return (0);
 }

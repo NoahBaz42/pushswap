@@ -23,12 +23,12 @@ MIN = 0
 MAX = 999
 COUNT = 20
 DEFAULT_ARGS = $(shell shuf -i $(MIN)-$(MAX) -n $(COUNT))
-
+DEFAULT_FLAGS = --adaptive
 
 ARGS = $(DEFAULT_ARGS)
+FLAGS = $(DEFAULT_FLAGS)
 
-SRCS = main.c \
-		operations_push.c \
+SRCS =	operations_push.c \
 		operations_rotate.c \
 		operations_swap.c \
 		operations_rrotate.c \
@@ -81,7 +81,7 @@ $(OBJS_DIR):
 	mkdir $@
 
 run: $(NAME)
-	./$(NAME) $(ARGS)
+	./$(NAME) --bench $(ARGS)
 
 ifeq ($(USER), charlie)
 check: $(NAME)
@@ -95,15 +95,18 @@ check: $(NAME)
 endif
 
 gdb: $(NAME)
-	@gdb --tui --args ./$(NAME) --debug $(ARGS)
+	@gdb --tui --args ./$(NAME) --debug --bench $(ARGS)
 
 valgrind vg: $(NAME)
-	valgrind ./$(NAME) $(ARGS)
+	valgrind ./$(NAME) $(FLAGS) $(ARGS)
 
 valgrindplus vgp: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --keep-stacktraces=alloc-and-free ./$(NAME) $(ARGS)
 
 bonus: $(BONUS)
+
+rbonus: $(BONUS)
+	./checker $(ARGS)
 
 $(BONUS): $(OBJS) $(LIBFT) $(PRINTF) | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(BONUS)
@@ -124,4 +127,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re run gdb valgrind vg valgrindplus vgp bonus
+.PHONY: all clean fclean re run gdb valgrind vg valgrindplus vgp bonus check rbonus

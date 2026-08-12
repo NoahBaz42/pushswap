@@ -31,8 +31,8 @@
 # define NOT_SORTED 0
 # define SORTED 1
 
-# define VALID 1
 # define INVALID 0
+# define VALID 1
 
 typedef t_node *t_stack;
 
@@ -103,11 +103,12 @@ void		op_pushall_a(t_stack *b, t_stack *a, t_op_count	*op_count);
 //--------------------------//
 
 void		ft_args_check(char **argv);
+void		valid_args(char **argv, size_t i);
 char 		**ft_separate_and_validate(char **argv);
 void		ft_valid_array(char *array);
 int			ft_dup_check(char **array, int size);
 int			arr_count(char **array);
-t_node		*parsing(char **argv);
+t_node		*parsing(char **argv, t_flags *flags);
 size_t		ft_count_new_args(char **argv, size_t	i);
 char		**ft_split_all(char **argv, size_t arg_index, size_t count);
 
@@ -143,7 +144,8 @@ int   		count_flags(t_flags *flags);
 //----------Bench-----------//
 //--------------------------//
 
-float		ft_disorder(t_node *stack);
+float			disorder(t_node *stack);
+int 		disorder_decimals(t_node *stack);
 void		ft_resolve_strategy(t_flags *flag, float disorder);
 void		output_bench(t_stack *stk_a, t_op_count *bench, t_flags *flags);
 int			operations_output(t_op_count *bench);
@@ -162,13 +164,6 @@ void    	ft_free_array(char **array, int size);
 
 void		exit_array(char **array, int size);
 void		exit_stack(t_stack *stack);
-
-//--------------------------//
-//----------Lists-----------//
-//--------------------------//
-
-t_node		**ft_array_to_list(char **array);
-void		ft_del_it(int content);
 
 //--------------------------//
 //--------algorithms--------//
@@ -212,7 +207,6 @@ void 		ft_print_lst(t_node *top);
 void		pushswap(char **argv);
 
 //free
-void	free_flags(t_flags *flags);
 void	free_op_count(t_op_count *op_count);
 
 void	checker(char **argv);
