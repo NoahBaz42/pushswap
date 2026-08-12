@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/23 19:13:47 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 02:28:47 by charlie          ###   ########.fr       */
+/*   Created: 2026/04/23 19:13:47 by username         ##+#    #+#             */
+/*   Updated: 2026/08/12 23:11:51 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,21 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	i = 0;
 	if (n == 0)
 		return (0);
-	while ((unsigned char *)s1
-		&& (unsigned char)s1[i]
-		&& (unsigned char)s1[i] == (unsigned char)s2[i]
-		&& i + 1 < n)
+	while ((unsigned char *) s1 && (unsigned char) s1[i]
+		&& (unsigned char) s1[i] == (unsigned char) s2[i] && i + 1 < n)
 		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }
+
 int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
 
 	i = 0;
-	while ((unsigned char *)s1
-		&& (unsigned char)s1[i]
-		&& (unsigned char)s1[i] == (unsigned char)s2[i])
+	while ((unsigned char *) s1 && (unsigned char) s1[i]
+		&& (unsigned char) s1[i] == (unsigned char) s2[i])
 		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }
 
 // static void	print_test(char *name, const char *str,

@@ -12,7 +12,6 @@
 
 #include "../libft.h"
 
-
 static int	ft_cmp(char c, char const *set)
 {
 	int	i;

@@ -16,7 +16,6 @@
 /*----split adapted for pushswap------*/
 /*------------------------------------*/
 
-
 size_t	ft_split_arg(char **array, char *arg, size_t size)
 {
 	size_t	i;

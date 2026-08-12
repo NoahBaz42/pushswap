@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                        :+:      :+:    :+:   */
+/*   pushswap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/16 08:27:51 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 08:07:04 by charlie          ###   ########.fr       */
+/*   Created: 2026/07/16 08:27:51 by username         ##+#    #+#             */
+/*   Updated: 2026/08/12 22:58:56 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-static void	diff_selection(t_stack *stk_a, t_stack *stk_b, t_flags *flags, t_op_count *op_count)
+static void	diff_selection(t_stack *stk_a, t_stack *stk_b, t_flags *flags,
+	t_op_count	*op_count)
 {
 	size_t	stack_size;
 
@@ -28,7 +29,7 @@ static void	diff_selection(t_stack *stk_a, t_stack *stk_b, t_flags *flags, t_op_
 	else if (flags->difficulty == DIFF_MEDIUM)
 		return (chunk_sort(stk_a, stk_b, op_count));
 	else
-	 	return (radix_sort(stk_a, stk_b, op_count));	
+		return (radix_sort(stk_a, stk_b, op_count));
 }
 
 static void	free_all(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count)
@@ -44,11 +45,14 @@ void	pushswap(char **argv)
 	t_node		*stk_b;
 	t_node		*og_stk;
 	t_flags		flags;
-    t_op_count	*op_count;
+	t_op_count	*op_count;
 
 	stk_a = NULL;
 	stk_b = NULL;
-	flags = (t_flags){0};
+	flags = (t_flags)
+	{
+		0
+	};
 	op_count = ft_calloc(1, sizeof(t_op_count));
 	stk_a = parsing(argv, &flags);
 	og_stk = parsing(argv, &flags);
@@ -60,23 +64,25 @@ void	pushswap(char **argv)
 	ft_free_stack(&og_stk);
 }
 
-// int	main(int argc, char **argv)
-// {
-// 	// if (CHECKER)
-// 		// return (checker(argv), 42);
-// 	if (!ft_strcmp(argv[1], "--debug"))
-// 	{
-// 		argv++;
-// 		argc--;
-// 		int fd = open("log.txt", O_RDWR | O_CREAT | O_TRUNC, 0644);
-// 		dup2(fd, STDOUT_FILENO);
-// 	}
-// 	if (argc < 2)
-// 		return(ft_printf(1, "Incorrect # of arguments\n"), 1);
-// 	pushswap(argv);
-// 	return (0);
-// }
+int	main(int argc, char **argv)
+{
+	int	fd;
 
+	if (!ft_strcmp(argv[1], "--debug"))
+	{
+		argv++;
+		argc--;
+		fd = open("log.txt", O_RDWR | O_CREAT | O_TRUNC, 0644);
+		dup2(fd, STDOUT_FILENO);
+	}
+	if (argc < 2)
+		return (ft_printf(1, "Incorrect # of arguments\n"), 1);
+	pushswap(argv);
+	return (0);
+}
+
+// if (CHECKER)
+// return (checker(argv), 42);
 // --- MAIN: MEDIUM ALG --- //
 // int	main(int argc,char **argv)
 // {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   simple_alg.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/08 19:26:09 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 08:45:25 by charlie          ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   simple_alg.c                                      :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/07/08 19:26:09 by username         #+#    #+#              */
+/*   Updated: 2026/08/12 21:41:00 by username        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_simple(t_stack *a, t_stack *b, t_op_count *op_count)
 {
-	t_node *min;
+	t_node	*min;
 	int		half;
 
 	while (stk_is_sorted(*a) == NOT_SORTED)
@@ -39,27 +39,28 @@ void	ft_simple(t_stack *a, t_stack *b, t_op_count *op_count)
 // 	stack = top;
 // 		while (stack)
 // 	{
-// 		printf("% 5d: %3ld @ %1ld\n", stack->content, stack->index, stack->cost);
+// 		printf("% 5d: %3ld @ %1ld\n", stack->content, stack->index,
+//			stack->cost);
 // 		stack = stack->next;
 // 	}
 // }
 //-----------find_max----------//
 // int	main(int argc,char **argv)
 // {
-	// t_node	*top;
-	// int		i;
-// 
-	// i = 1;
-	// top = NULL;
-	// if (argc < 2)
-		// return (printf("incorrect # of arguments\n"), 1);
-	// printf("list:\n");
-	// while (i < argc)
-	// {
-		// ft_lstadd_back(&top, ft_lstnew(atoi( argv[i])));
-		// i++;
-	// }
-	// ft_simple(&top);
-	// ft_print_lst(top);
-	// return (0);
+// t_node	*top;
+// int		i;
+//
+// i = 1;
+// top = NULL;
+// if (argc < 2)
+// return (printf("incorrect # of arguments\n"), 1);
+// printf("list:\n");
+// while (i < argc)
+// {
+// ft_lstadd_back(&top, ft_lstnew(atoi( argv[i])));
+// i++;
+// }
+// ft_simple(&top);
+// ft_print_lst(top);
+// return (0);
 // }

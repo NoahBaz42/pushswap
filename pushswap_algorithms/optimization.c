@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   optimization.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 23:17:25 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 08:45:20 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/12 23:10:07 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static bool	optimize_check(t_node *stk_a, t_node *node)
 {
 	size_t	i;
 	size_t	size;
-	t_node *next;
+	t_node	*next;
 
 	i = 0;
 	size = ft_lstsize(stk_a);
@@ -24,7 +24,7 @@ static bool	optimize_check(t_node *stk_a, t_node *node)
 	{
 		next = node->next;
 		if (node->next == NULL)
-				next = stk_a;
+			next = stk_a;
 		if (node->index < next->index)
 			node = next;
 		else
@@ -35,9 +35,10 @@ static bool	optimize_check(t_node *stk_a, t_node *node)
 		return (SORTED);
 	return (NOT_SORTED);
 }
+
 bool	optimize(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count)
 {
-	t_node *min;
+	t_node	*min;
 
 	min = ft_find_min(*stk_a);
 	if (optimize_check(*stk_a, min) == SORTED)
@@ -48,7 +49,6 @@ bool	optimize(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count)
 				rotate_stack(stk_a, op_count, 'a');
 			else
 				rrotate_stack(stk_a, op_count, 'a');
-			// i++;
 		}
 	}
 	if (stk_is_sorted(*stk_a))
@@ -58,6 +58,7 @@ bool	optimize(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count)
 	}
 	return (NOT_SORTED);
 }
+//i++;
 // int	main(int argc,char **argv)
 // {
 // 	t_node		*stk_a;

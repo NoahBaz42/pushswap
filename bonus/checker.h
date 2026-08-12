@@ -16,8 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-#define BUFFER_SIZE 3
-
+# define BUFFER_SIZE 3
 
 size_t	ft_strlen_gnl(char *line);
 void	*ft_memcpy(void *dest, const void *src, size_t n);

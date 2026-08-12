@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/29 21:56:27 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/12 04:48:31 by charlie          ###   ########.fr       */
+/*                                                       :::      ::::::::    */
+/*   ft_lstnew.c                                       :+:      :+:    :+:    */
+/*                                                   +:+ +:+         +:+      */
+/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
+/*                                               +#+#+#+#+#+   +#+            */
+/*   Created: 2026/04/29 21:56:27 by username         #+#    #+#              */
+/*   Updated: 2026/08/12 21:35:50 by username        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-
-// t_node	*ft_lstnew(int content)
-// {
-// 	t_node	*new;
-
-// 	new = malloc(sizeof(t_node));
-// 	if (!new)
-// 		return (NULL);
-// 	new->content = content;
-// 	new->next = NULL;
-// 	return (new);
-// }
 
 t_node	*ft_lstnew(long content)
 {
@@ -38,6 +26,18 @@ t_node	*ft_lstnew(long content)
 	new->chunk_min = 1;
 	return (new);
 }
+
+// t_node	*ft_lstnew(int content)
+// {
+// 	t_node	*new;
+
+// 	new = malloc(sizeof(t_node));
+// 	if (!new)
+// 		return (NULL);
+// 	new->content = content;
+// 	new->next = NULL;
+// 	return (new);
+// }
 
 // static void	del_it(void *content)
 // {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h" 
+#include "../pushswap.h"
 
 //----------[counts args, without spaces]---------------------------------//
 
@@ -37,7 +37,7 @@ size_t	count_args(const char *arg)
 /*[------------------!!!NEEDS REVISION!!!!------------------------- ]*/
 /*[ ps: DOES NOT give a valid error: must free BEFORE exiting.. ]*/
 
-size_t	count_new_args(char **argv, size_t	i)
+size_t	count_new_args(char **argv, size_t i)
 {
 	size_t	count;
 

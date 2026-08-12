@@ -14,16 +14,16 @@
 
 static void	stk_5_is_3(t_stack *a, t_stack *b, t_op_count *op_count)
 {
-	if(ft_lstsize(*a) == 3)
+	if (ft_lstsize(*a) == 3)
 	{
 		stack_is_3(a, op_count);
 		op_pushall_a(b, a, op_count);
 	}
-	else 
+	else
 		give_error();
 }
 
-void	stack_is_5(t_stack *a, t_stack *b, t_op_count	*op_count)
+void	stack_is_5(t_stack *a, t_stack *b, t_op_count *op_count)
 {
 	t_node	*min;
 	int		i;
@@ -48,7 +48,7 @@ void	stack_is_5(t_stack *a, t_stack *b, t_op_count	*op_count)
 // int	main(int argc,char **argv)
 // {
 // 	t_node	*top;
-	
+
 // 	int	i;
 
 // 	i = 1;

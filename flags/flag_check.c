@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flag_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 19:44:11 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/11 02:35:34 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/12 23:07:37 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static bool	right_flags(t_flags *flags, char **argv)
 	return (false);
 }
 
-//----------[checks 1st arg for bench or difficulty]----------------------------//
+//----------[checks 1st arg for bench or difficulty]-------------------------//
 //----------(flag_bench already checks both arg[1] and arg[2])---------------//
 //----------(right_flags checks for unvalid flags in 1st 2 args)-------------//
 

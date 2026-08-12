@@ -45,4 +45,4 @@ int	ft_putnbr(int n, int fd)
 // {
 // 	ft_putnbr(-2147483647);
 //     printf("\n%d\n", -2147483647);
-// } 
+// }

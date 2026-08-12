@@ -12,7 +12,6 @@
 
 #include "../libft.h"
 
-
 void	ft_lstiter(t_node *lst, void (*f)(int))
 {
 	t_node	*temp;

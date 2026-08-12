@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "checker.h"
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
 
 char	*get_next_line(int fd)
 {

@@ -13,11 +13,11 @@
 #include "../pushswap.h"
 #include <strings.h>
 
-t_node *ft_find_max(t_node *a)
+t_node	*ft_find_max(t_node *a)
 {
 	t_node	*max;
 	t_node	*next;
-	
+
 	max = a;
 	next = a;
 	while (next && next->next)
@@ -38,7 +38,7 @@ void	stack_is_3(t_stack *a, t_op_count *op_count)
 		rotate_stack(a, op_count, 'a');
 	else if ((*a)->next == highest_node)
 		rrotate_stack(a, op_count, 'a');
-	if((*a)->content > (*a)->next->content)
+	if ((*a)->content > (*a)->next->content)
 		swap_stack(a, op_count, 'a');
 }
 // int	main(int argc,char **argv)

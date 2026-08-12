@@ -14,7 +14,7 @@
 
 int	ft_putuns(unsigned int num, int fd)
 {
-	int			count;
+	int	count;
 
 	count = 0;
 	if (num >= 10)

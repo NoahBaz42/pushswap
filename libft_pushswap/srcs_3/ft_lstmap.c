@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-t_node	*ft_lstmap(t_node *lst, int(*f)(int), void (*del)(int))
+t_node	*ft_lstmap(t_node *lst, int (*f)(int), void (*del)(int))
 {
 	t_node	*nlst;
 	t_node	*new;

@@ -15,7 +15,7 @@
 
 static int	ft_get_min(t_node *a)
 {
-	int		min;
+	int			min;
 	static int	index = 0;
 
 	min = INT_MAX;
@@ -53,7 +53,7 @@ static int	ft_get_next_min(t_node *a, int ref)
 	return (min);
 }
 
-void index_stack(t_stack *a)
+void	index_stack(t_stack *a)
 {
 	size_t		size;
 	size_t		i;

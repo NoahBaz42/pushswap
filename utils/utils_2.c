@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 01:20:12 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 22:38:04 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/12 23:08:28 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-t_node *ft_find_min(t_node *a)
+t_node	*ft_find_min(t_node *a)
 {
 	t_node	*min;
 	t_node	*node;
-	
+
 	min = a;
 	node = a;
 	while (node && node->next)
@@ -28,7 +28,7 @@ t_node *ft_find_min(t_node *a)
 	return (min);
 }
 
-int get_target_half(t_node *a, t_node *target)
+int	get_target_half(t_node *a, t_node *target)
 {
 	t_node	*node;
 	size_t	count;
@@ -37,7 +37,7 @@ int get_target_half(t_node *a, t_node *target)
 	node = a;
 	if (!target)
 		target = ft_find_min(a);
-	while(node != target)
+	while (node != target)
 	{
 		count++;
 		node = node->next;
@@ -58,7 +58,8 @@ int	ft_sqrt(int nb)
 		i--;
 	return (i);
 }
-t_node *stk_dup(t_node *stk)
+
+t_node	*stk_dup(t_node *stk)
 {
 	t_node	*new;
 

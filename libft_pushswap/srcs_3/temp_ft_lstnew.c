@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   temp_ft_lstnew.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpassos- <bpassos-@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:27 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/03 22:51:29 by bpassos-         ###   ########.fr       */
+/*   Updated: 2026/08/12 23:10:58 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ t_list	*ft_newlst(t_node *root)
 	if (!new)
 		return (NULL);
 	new->root = root;
-	// new->root->prev = NULL;
 	return (new);
 }
 
+// new->root->prev = NULL;
 // static void	del_it(void *content)
 // {
 // 	free(content);

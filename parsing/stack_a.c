@@ -43,8 +43,8 @@ bool	int_check(t_node *stack_a)
 	node = stack_a;
 	while (node && node->next)
 	{
-		if (node->content == node->next->content
-			 || node->content > INT_MAX || node->content < INT_MIN)
+		if (node->content == node->next->content || node->content > INT_MAX
+			|| node->content < INT_MIN)
 			return (INVALID);
 		node = node->next;
 	}

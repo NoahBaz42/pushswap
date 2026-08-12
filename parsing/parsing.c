@@ -10,9 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h" 
+#include "../pushswap.h"
 #include <strings.h>
-
 
 /*------[ checks for valid numbers ]--------*/
 
@@ -67,7 +66,7 @@ t_node	*parsing(char **argv, t_flags *flags)
 	if (!array)
 		give_error();
 	stk_a = array_to_stk(array);
-	if(!stk_a)
+	if (!stk_a)
 		exit_array(array, (int)count);
 	if (int_check(stk_a) == INVALID)
 	{

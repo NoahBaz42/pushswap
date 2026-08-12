@@ -3,32 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   medium_alg.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/16 08:24:42 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 22:55:13 by charlie          ###   ########.fr       */
+/*   Created: 2026/07/16 08:24:42 by username         ##+#    #+#             */
+/*   Updated: 2026/08/12 23:09:10 by noah-baz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
-int	ft_abs(ssize_t num)
-{
-	if (num < 0)
-		return(num * -1);
-	return(num);
-}
-
-static void set_stack_costs(t_stack *a)
+static void	set_stack_costs(t_stack *a)
 {
 	ssize_t	idx;
 	ssize_t	mid;
-	ssize_t size;
+	ssize_t	size;
 	t_node	*node;
-	
+
 	node = *a;
 	idx = 0;
-	size = (ssize_t)ft_lstsize(node);
+	size = (ssize_t) ft_lstsize(node);
 	mid = size / 2;
 	while (node)
 	{
@@ -55,12 +48,12 @@ static t_node	*node_fetch(t_stack *stk, int index)
 	return (NULL);
 }
 
-static t_node *find_cheapest_node(t_stack *a, ssize_t chunk_size)
+static t_node	*find_cheapest_node(t_stack *a, ssize_t chunk_size)
 {
-	ssize_t		i;
-	t_node		*node;
-	t_node		*target;
-	ssize_t		chunk;
+	ssize_t	i;
+	t_node	*node;
+	t_node	*target;
+	ssize_t	chunk;
 
 	i = ft_find_min(*a)->index;
 	target = NULL;
@@ -72,15 +65,15 @@ static t_node *find_cheapest_node(t_stack *a, ssize_t chunk_size)
 		node = node_fetch(a, i);
 		if (node && (!target || node->cost < target->cost))
 			target = node;
-		i++;	
+		i++;
 	}
 	if (!target)
 		return (NULL);
 	return (node_fetch(a, target->index));
 }
 
-static void	rot_target_node(t_stack *src, char name,
-						t_node *target, t_op_count *op_count)
+static void	rot_target_node(t_stack *src, char name, t_node *target,
+		t_op_count	*op_count)
 {
 	int		target_half;
 	t_node	*head;
@@ -95,10 +88,9 @@ static void	rot_target_node(t_stack *src, char name,
 			rrotate_stack(src, op_count, name);
 		head = *src;
 	}
-
 }
 
-void	chunk_sort(t_stack *a, t_stack *b, t_op_count	*op_count)
+void	chunk_sort(t_stack *a, t_stack *b, t_op_count *op_count)
 {
 	size_t	chunk_size;
 
@@ -113,17 +105,5 @@ void	chunk_sort(t_stack *a, t_stack *b, t_op_count	*op_count)
 	{
 		rot_target_node(b, 'b', ft_find_max(*b), op_count);
 		push_stack(b, a, op_count, 'a');
-	}
-}
-
-void ft_print_lst(t_node *top)
-{
-	t_node	*stack;
-
-	stack = top;
-		while (stack)
-	{
-		printf("% 5ld: %3ld @ %1ld\n", stack->content, stack->index, stack->cost);
-		stack = stack->next;
 	}
 }
