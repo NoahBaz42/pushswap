@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/10 22:01:55 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/13 05:32:59 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 20:29:29 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,39 @@ static void	bonus_op(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count,
 		op_rrr(stk_a, stk_b, op_count);
 }
 
-static void	execute_op(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count)
+static void	store_op(t_op_lst *op_lst)
 {
 	char	*line;
+	char	*input;
 
 	line = get_next_line(STDIN_FILENO);
-	while (line)
+	input = ft_strtrim(line, "\n");
+	add_op(&op_lst, op_new(input));
+	while (input)
 	{
-		bonus_op(stk_a, stk_b, op_count, line);
 		line = get_next_line(STDIN_FILENO);
+		input = ft_strtrim(line, "\n");
+		add_op(&op_lst, op_new(input));
 	}
 }
 
-static void	mini_parse(char **argv)
+static void	execute_op(t_stack *stk_a, t_stack *stk_b,
+						t_op_count *op_count, t_op_lst *op_lst)
+{
+	while (op_lst)
+	{
+		bonus_op(stk_a, stk_b, op_count, op_lst->op);
+		op_lst = op_lst->next;
+	}
+}
+
+static t_node	*mini_parse(char **argv)
 {
 	t_node	*stk_a;
 	char	**array;
 	size_t	count;
 	int		i;
 
-	
 	stk_a = NULL;
 	i = 1;
 	valid_args(argv, i);
@@ -68,43 +81,36 @@ static void	mini_parse(char **argv)
 	if (!array)
 		give_error();
 	stk_a = array_to_stk(array);
-	if(!stk_a)
+	if (!stk_a)
 		exit_array(array, (int)count);
 	if (dup_check(stk_a) == INVALID)
 	{
 		ft_free_array(array, count);
 		exit_stack(&stk_a);
 	}
-	ft_free_array(array, count);;
-	array = ft_split_all(argv, 1, count);
-	if (!array)
-		give_error();
-	stk_a = array_to_stk(array);
-	if (!stk_a)
-		exit_array(array, (int) count);
-	if (dup_check(stk_a) == INVALID)
-	{
-		ft_free_array(array, count);
-		exit_stack(&stk_a);
-	}
+	ft_free_array(array, count);
+	return (stk_a);
 }
-// ft_free_array(array, count);
 
 void	checker(char **argv)
 {
-	t_stack		*stk_a;
-	t_stack		*stk_b;
+	t_node		*stk_a;
+	t_node		*stk_b;
 	t_op_count	*op_count;
+	t_op_lst	*op_lst;
 
 	stk_a = NULL;
 	stk_b = NULL;
+	op_lst = NULL;
 	op_count = ft_calloc(1, sizeof(t_op_count));
-	mini_parse(argv);
-	execute_op(stk_a, stk_b, op_count);
-	if (stk_is_sorted(*stk_a))
-		ft_printf(1, "OK");
+	op_count->checker = true;
+	stk_a = mini_parse(argv);
+	store_op(op_lst);
+	execute_op(&stk_a, &stk_b, op_count, op_lst);
+	if (stk_is_sorted(stk_a))
+		ft_printf(1, "OK\n");
 	else
-		ft_printf(1, "KO");
+		ft_printf(1, "KO\n");
 }
 // int	main(int argc, char **argv)
 // {
