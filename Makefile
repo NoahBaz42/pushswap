@@ -23,7 +23,7 @@ MIN = 0
 MAX = 999
 COUNT = 20
 DEFAULT_ARGS = $(shell shuf -i $(MIN)-$(MAX) -n $(COUNT))
-DEFAULT_FLAGS = --adaptive
+DEFAULT_FLAGS =
 
 ARGS = $(DEFAULT_ARGS)
 FLAGS = $(DEFAULT_FLAGS)
@@ -45,7 +45,8 @@ SRCS =	operations_push.c \
 		parsing.c \
 		parsing_split.c \
 		parsing_utils.c \
-		flag_bench.c \
+		bench_utils.c \
+		bench.c \
 		flag_check.c \
 		flag_diff.c \
 		pushswap.c \
@@ -80,7 +81,7 @@ $(OBJS_DIR):
 	mkdir $@
 
 run: $(NAME)
-	./$(NAME) --bench $(ARGS)
+	./$(NAME) $(FLAGS) $(ARGS)
 
 ifeq ($(USER), charlie)
 check: $(NAME)
@@ -94,7 +95,7 @@ check: $(NAME)
 endif
 
 gdb: $(NAME)
-	@gdb --tui --args ./$(NAME) --debug --bench $(ARGS)
+	@gdb --tui --args ./$(NAME) --debug $(FLAGS) $(ARGS)
 
 valgrind vg: $(NAME)
 	valgrind ./$(NAME) $(FLAGS) $(ARGS)
