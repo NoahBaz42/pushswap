@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 22:03:38 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/13 23:05:54 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 23:51:23 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void					ft_putendl_fd(char *s, int fd);
 void					ft_putnbr_fd(int n, int fd);
 // srcs_3 definitions:
 // t_list				*ft_lstnew(t_node *root);
-t_node					*ft_lstnew(long content);
+t_node					*ft_lstnew(int content);
 void					ft_lstadd_front(t_node **lst, t_node *new);
 size_t					ft_lstsize(t_node *lst);
 t_node					*ft_lstlast(t_node *lst);

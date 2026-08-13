@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 21:09:30 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 04:10:03 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 00:12:52 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	ft_get_next_min(t_node *a, int ref)
 	long		min;
 	static int	index = 1;
 
-	min = LONG_MAX;
+	min = INT_MAX;
 	while (a)
 	{
 		if (min > a->content && a->content > ref)

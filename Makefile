@@ -51,11 +51,6 @@ SRCS =	operations_push.c \
 		flag_diff.c \
 		pushswap.c \
 		free_parsing.c \
-		checker.c \
-		checker_utils.c \
-		checker_free_utils.c \
-		get_next_line.c \
-		get_next_line_utils.c
 
 vpath %.c pushswap_algorithms pushswap_op utils flags parsing bonus
 

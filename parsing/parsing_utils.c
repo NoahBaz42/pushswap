@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:45:15 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/13 05:04:30 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 00:02:08 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,9 @@ long int	ft_atol(char *array)
 	}
 	while (array[i] >= '0' && array[i] <= '9')
 	{
-		if (result < INT_MIN || result > INT_MAX)
-			give_error();
 		result = (result * 10) + (array[i] - '0');
+		if (result < INT_MIN ||result > INT_MAX)
+			give_error();
 		i++;
 	}
 	return (result * sign);
