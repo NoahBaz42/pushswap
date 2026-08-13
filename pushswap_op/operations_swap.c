@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 14:31:47 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/13 06:45:28 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 22:40:13 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void	swap_stack(t_stack *stk, t_op_count *op_count, char stk_name)
 	else
 		op_count->sb++;
 	op_count->total++;
-	ft_printf(1, "s%c\n", stk_name);
+	if (!op_count->checker)
+		ft_printf(1, "s%c\n", stk_name);
 }
 
 void	op_ss(t_stack *a, t_stack *b, t_op_count *op_count)

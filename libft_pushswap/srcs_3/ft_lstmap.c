@@ -6,13 +6,13 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:25 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 02:31:58 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 23:04:47 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-t_node	*ft_lstmap(t_node *lst, int (*f)(int), void (*del)(int))
+t_node	*ft_lstmap(t_node *lst, int (*f)(int), void (*del)(long))
 {
 	t_node	*nlst;
 	t_node	*new;

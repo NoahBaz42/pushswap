@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 14:42:23 by username         ##+#    #+#             */
-/*   Updated: 2026/08/13 06:44:30 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 22:39:26 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,8 @@ void	rotate_stack(t_stack *stk, t_op_count *op_count, char stk_name)
 	t_node	*new_start;
 	t_node	*last;
 
-	if (!stk && !*stk)
-	{
-		ft_free_stack(stk);
-		give_error();
-	}
+	if (!stk || !*stk)
+		return ;
 	new_start = (*stk)->next;
 	last = ft_lstlast(*stk);
 	last->next = ft_pop(stk);

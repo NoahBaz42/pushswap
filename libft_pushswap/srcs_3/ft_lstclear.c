@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:18 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/12 04:42:50 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 23:04:13 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 // 	printf("deleting node content at memory address %p\n", node->content);
 // }
 
-void	ft_lstclear(t_node **lst, void (*del)(int))
+void	ft_lstclear(t_node **lst, void (*del)(long))
 {
 	t_node	*head;
 	t_node	*node;

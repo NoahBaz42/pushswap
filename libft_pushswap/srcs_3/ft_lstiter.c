@@ -6,13 +6,13 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:20 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/09 02:31:43 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 23:03:12 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_lstiter(t_node *lst, void (*f)(int))
+void	ft_lstiter(t_node *lst, void (*f)(long))
 {
 	t_node	*temp;
 

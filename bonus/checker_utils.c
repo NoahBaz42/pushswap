@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 19:01:33 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/13 20:30:44 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 23:11:42 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_op_lst	*op_new(char *op)
 {
 	t_op_lst	*new;
 
-	new = ft_calloc(1, sizeof(t_node));
+	new = ft_calloc(1, sizeof(t_op_lst));
 	if (!new)
 		return (NULL);
 	new->op = op;

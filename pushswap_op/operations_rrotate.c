@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:00:56 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/13 06:44:58 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 22:40:07 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	rrotate_stack(t_stack *stk, t_op_count *op_count, char stk_name)
 	else
 		op_count->rrb++;
 	op_count->total++;
-	ft_printf(1, "rr%c\n", stk_name);
+	if (!op_count->checker)
+		ft_printf(1, "rr%c\n", stk_name);
 }
 
 void	op_rrr(t_stack *a, t_stack *b, t_op_count *op_count)

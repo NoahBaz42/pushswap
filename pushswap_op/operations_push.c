@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 14:37:15 by username         ##+#    #+#             */
-/*   Updated: 2026/08/13 06:44:39 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 22:39:59 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	push_stack(t_stack *src, t_stack *dest, t_op_count *op_count,
 	else
 		op_count->pb++;
 	op_count->total++;
-	ft_printf(1, "p%c\n", stk_name);
+	if (!op_count->checker)
+		ft_printf(1, "p%c\n", stk_name);
 }
 
 void	op_pushall_a(t_stack *b, t_stack *a, t_op_count *op_count)

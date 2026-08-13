@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 22:03:38 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/13 20:32:06 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 23:05:54 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +104,11 @@ size_t					ft_lstsize(t_node *lst);
 t_node					*ft_lstlast(t_node *lst);
 t_node					*ft_lstb4last(t_node *lst);
 void					ft_lstadd_back(t_node **lst, t_node *new);
-void					ft_lstdelone(t_node *lst, void (*del)(int));
-void					ft_lstclear(t_node **lst, void (*del)(int));
-void					ft_lstiter(t_node *lst, void (*f)(int));
+void					ft_lstdelone(t_node *lst, void (*del)(long));
+void					ft_lstclear(t_node **lst, void (*del)(long));
+void					ft_lstiter(t_node *lst, void (*f)(long));
 t_node					*ft_lstmap(t_node *lst, int (*f)(int),
-							void (*del)(int));
+							void (*del)(long));
 
 // PS Extra:
 void					ft_free_stack(t_node **lst);

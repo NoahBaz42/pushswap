@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:27:51 by username         ##+#    #+#             */
-/*   Updated: 2026/08/13 20:38:34 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 23:20:29 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ void	pushswap(char **argv)
 	free_all(&stk_a, &stk_b, op_count);
 }
 
-int	main(int argc, char **argv)
-{
-	if (argc < 2)
-		return (0);
-	pushswap(argv);
-	return (0);
-}
+// int	main(int argc, char **argv)
+// {
+// 	if (argc < 2)
+// 		return (0);
+// 	pushswap(argv);
+// 	return (0);
+// }
 
 // if (CHECKER)
 // return (checker(argv), 42);

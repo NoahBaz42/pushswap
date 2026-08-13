@@ -6,13 +6,13 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 21:56:13 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/12 04:48:59 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 23:04:04 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_lstdelone(t_node *lst, void (*del)(int))
+void	ft_lstdelone(t_node *lst, void (*del)(long))
 {
 	if (!lst || !del)
 		return ;
