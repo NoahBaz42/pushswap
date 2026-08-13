@@ -52,6 +52,7 @@ SRCS =	operations_push.c \
 		pushswap.c \
 		free_parsing.c \
 		checker.c \
+		checker_utils.c \
 		get_next_line.c \
 		get_next_line_utils.c
 

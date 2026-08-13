@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 03:23:23 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/13 05:32:59 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 20:25:39 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool	dup_check(t_node *stack_a)
 	while (node1)
 	{
 		node2 = node1->next;
-		while(node2)
+		while (node2)
 		{
 			if (node1->content == node2->content)
 				return (INVALID);

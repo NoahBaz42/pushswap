@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 22:03:38 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/13 05:44:08 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 20:32:06 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ struct					s_node
 	ssize_t				cost;
 	t_node				*next;
 	t_node				*prev;
+};
+
+typedef struct s_op_lst	t_op_lst;
+
+struct					s_op_lst
+{
+	char				*op;
+	t_op_lst			*next;
+	t_op_lst			*prev;
 };
 
 typedef struct s_list

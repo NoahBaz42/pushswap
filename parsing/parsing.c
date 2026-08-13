@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:20:16 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/13 05:32:59 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 20:22:23 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ t_node	*parsing(char **argv, t_flags *flags)
 	if (dup_check(stk_a) == INVALID)
 	{
 		ft_free_array(array, count);
+		free(flags);
 		exit_stack(&stk_a);
 	}
 	ft_free_array(array, count);

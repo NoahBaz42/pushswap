@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:38 by username         ##+#    #+#             */
-/*   Updated: 2026/08/13 13:51:52 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 20:24:00 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,19 @@ typedef t_node	*t_stack;
 
 typedef struct e_op_count
 {
-	int	pa;
-	int	pb;
-	int	sa;
-	int	sb;
-	int	ra;
-	int	rb;
-	int	rra;
-	int	rrb;
-	int	ss;
-	int	rr;
-	int	rrr;
-	int	total;
-	bool checker;
+	int		pa;
+	int		pb;
+	int		sa;
+	int		sb;
+	int		ra;
+	int		rb;
+	int		rra;
+	int		rrb;
+	int		ss;
+	int		rr;
+	int		rrr;
+	int		total;
+	bool	checker;
 }	t_op_count;
 
 typedef enum e_flags

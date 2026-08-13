@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:27:51 by username         ##+#    #+#             */
-/*   Updated: 2026/08/13 08:55:16 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 20:25:02 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	pushswap(char **argv)
 	index_stack(&stk_a);
 	diff_selection(&stk_a, &stk_b, &flags, op_count);
 	if (flags.has_bench == true)
-		output_bench( op_count, &flags, dis_level);
+		output_bench(op_count, &flags, dis_level);
 	free_all(&stk_a, &stk_b, op_count);
 }
 
@@ -65,15 +65,6 @@ int	main(int argc, char **argv)
 {
 	if (argc < 2)
 		return (0);
-	if (!ft_strcmp(argv[1], "--debug"))
-	{
-		argv++;
-		argc--;
-		int fd = open("log.txt", O_RDWR | O_CREAT | O_TRUNC, 0644);
-		dup2(fd, STDOUT_FILENO);
-	}
-	if (argc < 2)
-		return(ft_printf(1, "Incorrect # of arguments\n"), 1);
 	pushswap(argv);
 	return (0);
 }

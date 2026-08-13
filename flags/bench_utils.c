@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 07:02:32 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/13 08:43:00 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 20:31:26 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,3 @@ void	ft_resolve_strategy(t_flags *flag, float disorder)
 	else
 		flag->difficulty = DIFF_COMPLEX;
 }
-
