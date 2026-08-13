@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:27:51 by username         ##+#    #+#             */
-/*   Updated: 2026/08/13 20:25:02 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 20:38:34 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,15 @@ static void	diff_selection(t_stack *stk_a, t_stack *stk_b, t_flags *flags,
 	stack_size = ft_lstsize(*stk_a);
 	flags->chosen = flags->difficulty;
 	if (stack_size == 3)
+	{
+		flags->difficulty = DIFF_SIMPLE;
 		return (stack_is_3(stk_a, op_count));
+	}
 	if (stack_size == 5)
+	{
+		flags->difficulty = DIFF_SIMPLE;
 		return (stack_is_5(stk_a, stk_b, op_count));
+	}
 	if (flags->has_diff == false || flags->difficulty == DIFF_ADAPTIVE)
 		ft_resolve_strategy(flags, disorder(*stk_a));
 	if (flags->difficulty == DIFF_SIMPLE)
