@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:20:16 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/12 21:38:55 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 05:32:59 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_node	*parsing(char **argv, t_flags *flags)
 	stk_a = array_to_stk(array);
 	if (!stk_a)
 		exit_array(array, (int)count);
-	if (int_check(stk_a) == INVALID)
+	if (dup_check(stk_a) == INVALID)
 	{
 		ft_free_array(array, count);
 		exit_stack(&stk_a);
