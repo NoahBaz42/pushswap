@@ -105,17 +105,6 @@ valgrind vg: $(NAME)
 valgrindplus vgp: $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --keep-stacktraces=alloc-and-free ./$(NAME) $(ARGS)
 
-bonus: $(BONUS)
-
-rbonus: $(BONUS)
-	./checker $(ARGS)
-
-bonusgdb: $(BONUS)
-	gdb --tui --args ./checker $(ARGS)
-
-$(BONUS): $(OBJS) $(LIBFT) $(PRINTF) | $(OBJS_DIR)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(BONUS)
-
 clean:
 	rm -rf $(OBJS_DIR)
 	make -C $(LIBFT_DIR) clean
