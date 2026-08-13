@@ -107,6 +107,9 @@ bonus: $(BONUS)
 rbonus: $(BONUS)
 	./checker $(ARGS)
 
+bonusgdb: $(BONUS)
+	gdb --tui --args ./checker $(ARGS)
+
 $(BONUS): $(OBJS) $(LIBFT) $(PRINTF) | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(BONUS)
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   operations_rotate.c                               :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/08/09 14:42:23 by username         #+#    #+#              */
-/*   Updated: 2026/08/12 21:33:55 by username        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   operations_rotate.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/09 14:42:23 by username         ##+#    #+#             */
+/*   Updated: 2026/08/13 06:44:30 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	rotate_stack(t_stack *stk, t_op_count *op_count, char stk_name)
 	else
 		op_count->rb++;
 	op_count->total++;
-	ft_printf(1, "r%c\n", stk_name);
+	if (!op_count->checker)
+		ft_printf(1, "r%c\n", stk_name);
 }
 
 void	op_rr(t_stack *a, t_stack *b, t_op_count *op_count)

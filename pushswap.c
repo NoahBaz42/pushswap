@@ -66,7 +66,24 @@ void	pushswap(char **argv)
 
 int	main(int argc, char **argv)
 {
+<<<<<<< Updated upstream
 	int	fd;
+=======
+	// if (CHECKER)
+		// return (checker(argv), 42);
+	if (!ft_strcmp(argv[1], "--debug"))
+	{
+		argv++;
+		argc--;
+		int fd = open("log.txt", O_RDWR | O_CREAT | O_TRUNC, 0644);
+		dup2(fd, STDOUT_FILENO);
+	}
+	if (argc < 2)
+		return(ft_printf(1, "Incorrect # of arguments\n"), 1);
+	pushswap(argv);
+	return (0);
+}
+>>>>>>> Stashed changes
 
 	if (!ft_strcmp(argv[1], "--debug"))
 	{
