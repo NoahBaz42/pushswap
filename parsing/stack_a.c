@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 03:23:23 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/12 02:03:46 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 05:32:59 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,28 @@ t_node	*array_to_stk(char **array)
 /*[ line 75: its just hard to look bc in struct content is a void * ]*/
 /*[ would be easier if it was an int butIm not changing ts rn alone ]*/
 
-bool	int_check(t_node *stack_a)
+bool	dup_check(t_node *stack_a)
 {
-	t_node	*node;
+	t_node	*node1;
+	t_node	*node2;
 
 	if (!stack_a)
 	{
 		ft_free_node(stack_a);
 		give_error();
 	}
-	node = stack_a;
-	while (node && node->next)
+	node1 = stack_a;
+	node2 = node1->next;
+	while (node1)
 	{
-		if (node->content == node->next->content || node->content > INT_MAX
-			|| node->content < INT_MIN)
-			return (INVALID);
-		node = node->next;
+		node2 = node1->next;
+		while(node2)
+		{
+			if (node1->content == node2->content)
+				return (INVALID);
+			node2 = node2->next;
+		}
+		node1 = node1->next;
 	}
 	return (VALID);
 }

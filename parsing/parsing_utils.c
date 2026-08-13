@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:45:15 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/13 05:04:30 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ int	ft_isspace(char c)
 
 long int	ft_atol(char *array)
 {
-	int			i;
-	int			sign;
-	long int	result;
+	int				i;
+	long			sign;
+	long			result;
 
 	i = 0;
 	sign = 1;
@@ -91,6 +91,8 @@ long int	ft_atol(char *array)
 	}
 	while (array[i] >= '0' && array[i] <= '9')
 	{
+		if (result < INT_MIN || result > INT_MAX)
+			give_error();
 		result = (result * 10) + (array[i] - '0');
 		i++;
 	}
