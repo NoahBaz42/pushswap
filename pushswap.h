@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:38 by username         ##+#    #+#             */
-/*   Updated: 2026/08/12 23:04:10 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/13 13:51:52 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct e_op_count
 	int	rr;
 	int	rrr;
 	int	total;
+	bool checker;
 }	t_op_count;
 
 typedef enum e_flags
@@ -67,6 +68,7 @@ typedef struct s_flags
 	bool	has_bench;
 	bool	has_diff;
 	t_diff	difficulty;
+	t_diff	chosen;
 }		t_flags;
 
 //--------------------------//
@@ -124,7 +126,7 @@ size_t	count_new_args(char **argv, size_t i);
 //-----------stack_a--------//
 //--------------------------//
 t_node	*array_to_stk(char **array);
-bool	int_check(t_node *stack_a);
+bool	dup_check(t_node *stack_a);
 void	free_array(char **array, int size);
 
 //--------------------------//
@@ -144,7 +146,7 @@ int		count_flags(t_flags *flags);
 float	disorder(t_node *stack);
 int		disorder_decimals(t_node *stack);
 void	ft_resolve_strategy(t_flags *flag, float disorder);
-void	output_bench(t_stack *stk_a, t_op_count *bench, t_flags *flags);
+void	output_bench(t_op_count *bench, t_flags *flags, float disorder);
 int		operations_output(t_op_count *bench);
 
 //--------------------------//

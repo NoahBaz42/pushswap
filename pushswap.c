@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:27:51 by username         ##+#    #+#             */
-/*   Updated: 2026/08/12 22:58:56 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/13 08:55:16 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	diff_selection(t_stack *stk_a, t_stack *stk_b, t_flags *flags,
 	size_t	stack_size;
 
 	stack_size = ft_lstsize(*stk_a);
+	flags->chosen = flags->difficulty;
 	if (stack_size == 3)
 		return (stack_is_3(stk_a, op_count));
 	if (stack_size == 5)
@@ -43,34 +44,27 @@ void	pushswap(char **argv)
 {
 	t_node		*stk_a;
 	t_node		*stk_b;
-	t_node		*og_stk;
 	t_flags		flags;
 	t_op_count	*op_count;
+	float		dis_level;
 
 	stk_a = NULL;
 	stk_b = NULL;
-	flags = (t_flags)
-	{
-		0
-	};
+	flags = (t_flags){0};
 	op_count = ft_calloc(1, sizeof(t_op_count));
 	stk_a = parsing(argv, &flags);
-	og_stk = parsing(argv, &flags);
+	dis_level = disorder(stk_a);
 	index_stack(&stk_a);
 	diff_selection(&stk_a, &stk_b, &flags, op_count);
 	if (flags.has_bench == true)
-		output_bench(&og_stk, op_count, &flags);
+		output_bench( op_count, &flags, dis_level);
 	free_all(&stk_a, &stk_b, op_count);
-	ft_free_stack(&og_stk);
 }
 
 int	main(int argc, char **argv)
 {
-<<<<<<< Updated upstream
-	int	fd;
-=======
-	// if (CHECKER)
-		// return (checker(argv), 42);
+	if (argc < 2)
+		return (0);
 	if (!ft_strcmp(argv[1], "--debug"))
 	{
 		argv++;
@@ -80,20 +74,6 @@ int	main(int argc, char **argv)
 	}
 	if (argc < 2)
 		return(ft_printf(1, "Incorrect # of arguments\n"), 1);
-	pushswap(argv);
-	return (0);
-}
->>>>>>> Stashed changes
-
-	if (!ft_strcmp(argv[1], "--debug"))
-	{
-		argv++;
-		argc--;
-		fd = open("log.txt", O_RDWR | O_CREAT | O_TRUNC, 0644);
-		dup2(fd, STDOUT_FILENO);
-	}
-	if (argc < 2)
-		return (ft_printf(1, "Incorrect # of arguments\n"), 1);
 	pushswap(argv);
 	return (0);
 }

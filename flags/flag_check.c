@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flag_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 19:44:11 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/12 23:07:37 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/13 05:18:18 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ static bool	right_flags(t_flags *flags, char **argv)
 
 void	flag_check(t_flags *flags, char **argv)
 {
+	flag_diff(flags, argv[1]);
 	if (argv[1])
 		flag_bench(flags, argv);
-	flag_diff(flags, argv[1]);
 	if (argv[2])
 		flag_diff(flags, argv[2]);
 	if (argv[1] && !right_flags(flags, argv))
