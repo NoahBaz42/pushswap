@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:45:15 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 04:24:47 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ size_t	count_args(const char *arg)
 			i++;
 		if (arg[i] && isspace(arg[i]) == 0)
 			words++;
-		while (arg[i] && isspace(arg[i]) == 0)
-			i++;
+		i++;
 	}
 	return (words);
 }
