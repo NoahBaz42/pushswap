@@ -6,7 +6,7 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 08:21:47 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 05:46:03 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ char	**ft_split_all(char **argv, size_t arg_index, size_t count)
 	array = malloc(sizeof(char *) * (count + 1));
 	if (!array)
 		return (NULL);
+	ft_bzero(array, sizeof(char *) * (count + 1));
 	while (argv[arg_index])
 	{
 		size = ft_split_arg(array, argv[arg_index], size);

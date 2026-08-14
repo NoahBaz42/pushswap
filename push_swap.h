@@ -127,7 +127,6 @@ size_t	count_new_args(char **argv, size_t i);
 //--------------------------//
 t_node	*array_to_stk(char **array);
 bool	dup_check(t_node *stack_a);
-void	free_array(char **array, int size);
 
 //--------------------------//
 //----------Flags-----------//
