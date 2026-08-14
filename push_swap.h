@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                         :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/22 18:57:38 by username         ##+#    #+#             */
-/*   Updated: 2026/08/13 20:24:00 by charlie          ###   ########.fr       */
+/*   Created: 2026/06/22 18:57:38 by nbaz-sil          #+#    #+#             */
+/*   Updated: 2026/08/14 06:38:17 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "ft_printf/ft_printf.h"
 # include "libft_push_swap/libft.h"
@@ -125,7 +125,7 @@ size_t	count_new_args(char **argv, size_t i);
 //--------------------------//
 //-----------stack_a--------//
 //--------------------------//
-t_node	*array_to_stk(char **array);
+t_node	*array_to_stk(char **array, size_t count);
 bool	dup_check(t_node *stack_a);
 
 //--------------------------//
@@ -153,14 +153,14 @@ int		operations_output(t_op_count *bench);
 //--------------------------//
 
 void	give_error(void);
-void	ft_free_array(char **array, int size);
+void	ft_free_array(char **array, size_t size);
 // void    free_list(t_node *node);
 
 //--------------------------//
 //----------Exit------------//
 //--------------------------//
 
-void	exit_array(char **array, int size);
+void	exit_array(char **array, size_t size);
 void	exit_stack(t_stack *stack);
 
 //--------------------------//

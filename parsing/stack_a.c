@@ -3,25 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   stack_a.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 03:23:23 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 06:32:16 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*array_to_stk(char **array)
+t_node	*array_to_stk(char **array, size_t count)
 {
 	t_node	*stk_a;
 	int		i;
+	long	check;
 
 	stk_a = NULL;
 	i = 0;
 	while (array[i])
 	{
-		ft_lstadd_back(&stk_a, ft_lstnew(ft_atol(array[i])));
+		check = ft_atol(array[i]);
+		if (check == 1L + INT_MAX)
+		{
+			ft_free_array(array, count);
+			exit_stack(&stk_a);
+		}
+		ft_lstadd_back(&stk_a, ft_lstnew(check));
 		i++;
 	}
 	return (stk_a);

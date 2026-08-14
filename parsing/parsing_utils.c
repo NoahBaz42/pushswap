@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:45:15 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/14 05:57:05 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 06:07:58 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_isspace(char c)
 
 //------[ascii to long int]----------//
 
-long int	ft_atol(char *array)
+long	ft_atol(char *array)
 {
 	int				i;
 	long			sign;
@@ -92,9 +92,9 @@ long int	ft_atol(char *array)
 	{
 		result = (result * 10) + (array[i] - '0');
 		if ((result * sign) < INT_MIN)
-			give_error();
+			return (1L + INT_MAX);
 		else if ((result * sign) > INT_MAX)
-			give_error();
+			return (1L + INT_MAX);
 		i++;
 	}
 	return (result * sign);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   push_swap_exit.c                                   :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/08/07 03:45:57 by username         #+#    #+#              */
-/*   Updated: 2026/08/12 21:38:55 by username        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   push_swap_exit.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/07 03:45:57 by username          #+#    #+#             */
+/*   Updated: 2026/08/14 06:39:04 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	give_error(void)
 	exit(1);
 }
 
-void	ft_free_array(char **array, int size)
+void	ft_free_array(char **array, size_t size)
 {
 	if (!array)
 		return ;
@@ -30,13 +30,13 @@ void	ft_free_array(char **array, int size)
 	free(array);
 }
 
-void	exit_array(char **array, int size)
+void	exit_array(char **array, size_t size)
 {
 	ft_free_array(array, size);
 	give_error();
 }
 
-//----[with help of temp, we free every node and then the stack]----------//
+//----[with help of temp, we free every node and then the stack]--------//
 
 void	exit_stack(t_stack *stack)
 {

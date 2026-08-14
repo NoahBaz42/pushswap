@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:20:16 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 06:17:12 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ t_node	*parsing(char **argv, t_flags *flags)
 	array = ft_split_all(argv, i, count);
 	if (!array)
 		give_error();
-	stk_a = array_to_stk(array);
+	stk_a = array_to_stk(array, count);
 	if (!stk_a)
 		exit_array(array, (int)count);
 	if (dup_check(stk_a) == INVALID)
