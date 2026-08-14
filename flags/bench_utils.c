@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   bench_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/13 07:02:32 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
+/*   Created: 2026/08/13 07:02:32 by nbaz-sil          #+#    #+#             */
+/*   Updated: 2026/08/14 10:48:52 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-//------[Checks for the flag (--bench) on the 1st and 2nd args]-----------//
-//------[gives error if there´s more then 1 bench flag]-------------------//
-//------------(needs an error dealing revision)---------------------------//
 
 void	flag_bench(t_flags *flags, char **argv)
 {
@@ -27,16 +24,12 @@ void	flag_bench(t_flags *flags, char **argv)
 	}
 }
 
-//--------[returns true if arg is (--bench), false otherwise]-------------//
-
 bool	is_bench_flags(char *flag)
 {
 	if (!ft_strcmp(flag, "--bench"))
 		return (true);
 	return (false);
 }
-
-//----------[checks the disorder of the stack]----------------------------//
 
 float	disorder(t_node *stack)
 {
@@ -64,8 +57,6 @@ float	disorder(t_node *stack)
 	}
 	return ((float) count / (float) total_pairs);
 }
-
-//----------[defines difficulty based on disorder level]--------------------//
 
 void	ft_resolve_strategy(t_flags *flag, float disorder)
 {

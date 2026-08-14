@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/07 03:45:57 by username          #+#    #+#             */
-/*   Updated: 2026/08/14 06:39:04 by nbaz-sil         ###   ########.fr       */
+/*   Created: 2026/08/07 03:45:57 by nbaz-sil          #+#    #+#             */
+/*   Updated: 2026/08/14 10:51:48 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ void	exit_array(char **array, size_t size)
 	ft_free_array(array, size);
 	give_error();
 }
-
-//----[with help of temp, we free every node and then the stack]--------//
 
 void	exit_stack(t_stack *stack)
 {

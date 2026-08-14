@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   flag_diff.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 08:50:36 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
+/*   Created: 2026/07/09 08:50:36 by nbaz-sil          #+#    #+#             */
+/*   Updated: 2026/08/14 10:49:50 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-//----------[activates diff, error if duplicate]--------------------------//
 
 static void	activatt_diff(t_flags *flags, t_diff diff)
 {
@@ -21,9 +19,6 @@ static void	activatt_diff(t_flags *flags, t_diff diff)
 	flags->difficulty = diff;
 	flags->has_diff = true;
 }
-
-//----------[strcmpares arg with diff flags]------------------------------//
-//----------[if 0(theyre the same), activatt_diff]---------------------//
 
 void	flag_diff(t_flags *flags, char *arg)
 {
@@ -36,8 +31,6 @@ void	flag_diff(t_flags *flags, char *arg)
 	else if (!ft_strcmp(arg, "--adaptive"))
 		activatt_diff(flags, DIFF_ADAPTIVE);
 }
-
-//----------[checks for diff flags; false if none]------------------------//
 
 bool	is_diff_flags(char *flag)
 {

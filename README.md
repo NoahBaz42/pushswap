@@ -43,7 +43,7 @@ example:
 >```
 >./push_swap --medium 67 69 420 911 123 321
 >```
-### ---complex 
+### --complex 
 
 The complex algorithm O(n log n) sorts the values with radix sort adaptation 
 
@@ -53,11 +53,9 @@ example:
 >./push_swap --complex 67 69 420 911 42 123 321
 >```
 
->[!NOTE]
->the flags above will force the program to use the chosen algorithms
+>	[!NOTE]	the flags above will force the program to use the chosen algorithms
 >
->	If the number of values to sort is equal to 3 or 5, the program will automatically
-		use a personalized sorting, regardless of the flags inputted.
+>		If the number of values to sort is equal to 3 or 5, the program will automatically use a personalized sorting, regardless of the flags inputted.
 
 ### --adaptive
 
@@ -68,7 +66,28 @@ example:
 >```
 >./push_swap --adaptive 67 69 420 911 123 321 42
 >```
-
+output:
+it should print just the operations.
+```
+pb
+rra
+pb
+pb
+ra
+ra
+pb
+pb
+pb
+pb
+pa
+pa
+pa
+pa
+pa
+rb
+pa
+pa
+```
 ### --bench
 
 The benchmark mode will display:
@@ -83,27 +102,53 @@ example:
 >./push_swap --bench --adaptive 67 42 69 420 911 123 321
 >```
 
+>```
+>[bench] disorder: 23.38%
+>[bench] strategy: Adaptive / O(n√n)
+>[bench] total_ops: 17
+>[bench] sa: 0 sb: 0 ss: 0 pa: 7 pb: 7
+>[bench] ra: 2 rb: 1 rr: 0 rra: 0 rrb: 0 rrr: 0
+>```
 # Algorithm 
 
-each one of the difficulty selectors chooses a type of algorithm.
 
 ## Simple algorithm 0(n2)
 
-For small inputs, the program uses a selection-based approach. It does so by repeatedly finding the minimum value, rotates the stack to bring it to the top, pushes it to the second stack, and then pushes everything back in order.
+For small inputs, the program uses a `selection-based` approach. It does so by repeatedly finding the minimum value, rotates the stack to bring it to the top, pushes it to the second stack, and then pushes everything back in order.
 
 This is simple to implement and works well when the input is small, but it becomes expensive for larger stacks because it may require many rotations.
 
 ## Medium algorithm O(n√n)
 
-The Medium algorithm uses a chunk-based sorting mechanism, where the stack is divided into chunks, and values are moved to the second stack chunk by chunk.
+The Medium algorithm uses a `chunk-based sorting` mechanism, where the stack is divided into chunks, and values are moved to the second stack chunk by chunk.
 
 This reduces the number of operations compared to a pure selection approach, while staying simpler than a full radix-based solution.
 
 ## Complex algorithm O(n log n)
 
-For larger and more disordered inputs, the program uses radix sort on normalized indices.
+For larger and more disordered inputs, the program uses `radix sort` on normalized indices.
 
 This strategy is a good choice for bigger datasets because it scales much better than quadratic approaches and keeps the number of operations more predictable.
+
+# Disorder: Measuring with O(n²)
+
+The disorder score measures how "out of order" the input stack is, on a scale from 0 (already sorted) to 1 (fully reverse-sorted). It's the value used by `--adaptive` to decide which algorithm to run, and the value printed by `--bench`.
+
+### How it's calculated
+
+For every pair of numbers in the stack, we check whether the first one is bigger than the next . We do this for every number against every number that comes after it.
+
+- **Inverted pair**: any two numbers `a` and `b`, where `a` comes before `b` in the stack, and `a > b`.
+- **Total pairs**: every possible pair of numbers in the stack, i.e. `n * (n - 1) / 2` for `n` numbers.
+
+A fully sorted stack has 0 inverted pairs, so `disorder = 0`. A fully reverse-sorted stack has every pair inverted, so `disorder = 1`. Everything else falls somewhere in between depending on how scrambled the input is.
+
+
+example:
+ ```
+ ./push_swap --bench --adaptive 67 42 69 420 911 123 321
+ ```
+> This will print the computed disorder value alongside the algorithm it selected.
 
 # Resources
 

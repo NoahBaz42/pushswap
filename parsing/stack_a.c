@@ -6,7 +6,7 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/09 03:23:23 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/14 06:32:16 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/08/14 10:17:59 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ t_node	*array_to_stk(char **array, size_t count)
 	return (stk_a);
 }
 
-/*[ checks for duplicates in stack_a (it sees "05, 5, +5" as equal) ]*/
-/*[ line 75: its just hard to look bc in struct content is a void * ]*/
-/*[ would be easier if it was an int butIm not changing ts rn alone ]*/
-
 bool	dup_check(t_node *stack_a)
 {
 	t_node	*node1;
@@ -63,15 +59,3 @@ bool	dup_check(t_node *stack_a)
 	}
 	return (VALID);
 }
-// int	main(int argc,char **argv)
-// {
-// 	t_node	*stk_a;
-
-// 	stk_a = NULL;
-// 	if (argc < 2)
-// 		return (printf("incorrect # of arguments\n"), 1);
-// 	stk_a = array_to_stk(argv);
-// 	printf("Stack_a:\n");
-// 	ft_print_lst(stk_a);
-// 	return (0);
-// }

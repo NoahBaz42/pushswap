@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 08:52:33 by username         ##+#    #+#             */
-/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
+/*   Created: 2026/07/09 08:52:33 by nbaz-sil          #+#    #+#             */
+/*   Updated: 2026/08/14 10:49:33 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-//----------[Prints the benchmark]--------------------//
 
 void	output_bench(t_op_count *op_count, t_flags *flags, float disorder)
 {

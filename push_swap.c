@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/16 08:27:51 by username          #+#    #+#             */
-/*   Updated: 2026/08/14 06:32:38 by nbaz-sil         ###   ########.fr       */
+/*   Created: 2026/07/16 08:27:51 by bpassos-          #+#    #+#             */
+/*   Updated: 2026/08/14 10:51:57 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,41 +73,3 @@ int	main(int argc, char **argv)
 	push_swap(argv);
 	return (0);
 }
-
-// if (CHECKER)
-// return (checker(argv), 42);
-// --- MAIN: MEDIUM ALG --- //
-// int	main(int argc,char **argv)
-// {
-// 	int	i;
-// 	t_node	*stk_a;
-// 	t_node	*stk_b;
-// 	t_op_count *op_count;
-
-// 	i = 1;
-// 	stk_a = NULL;
-// 	stk_b = NULL;
-// 	op_count = ft_calloc(1, sizeof(t_op_count));
-// 	if (argc < 2)
-// 		return (printf("incorrect # of arguments\n"), 1);
-// 	if (!ft_strcmp(argv[1], "--debug"))
-// 	{
-// 		argv++;
-// 		argc--;
-// 		int fd = open("log.txt", O_RDWR | O_CREAT | O_TRUNC, 0644);
-// 		dup2(fd, STDOUT_FILENO);
-// 	}
-// 	while (i < argc)
-// 	{
-// 		ft_lstadd_back(&stk_a, ft_lstnew(atoi( argv[i])));
-// 		i++;
-// 	}
-// 	index_stack(&stk_a);
-// 	// printf("Original list:\n");
-// 	// ft_print_lst(stk_a);
-// 	// printf("\n------------\n");
-// 	chunk_sort(&stk_a, &stk_b, op_count);
-// 	// printf("Sorted stack list:\n");
-// 	// ft_print_lst(stk_a);
-// 	return (0);
-// }

@@ -50,7 +50,6 @@ SRCS =	operations_push.c \
 		flag_check.c \
 		flag_diff.c \
 		push_swap.c \
-		free_parsing.c \
 
 vpath %.c push_swap_alg push_swap_op utils flags parsing bonus
 

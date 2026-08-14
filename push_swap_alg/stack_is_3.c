@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_is_3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 02:29:57 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 10:17:19 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,31 +41,3 @@ void	stack_is_3(t_stack *a, t_op_count *op_count)
 	if ((*a)->content > (*a)->next->content)
 		swap_stack(a, op_count, 'a');
 }
-// int	main(int argc,char **argv)
-// {
-// 	t_node		*stk_a;
-// 	t_node		*stk_b;
-// 	t_op_count	*op_count;
-// 	int	i;
-
-// 	i = 1;
-// 	stk_a = NULL;
-// 	stk_b = NULL;
-// 	op_count = ft_calloc(1, sizeof(t_op_count));
-// 	if (argc < 1)
-// 		return (printf("incorrect # of arguments\n"), 1);
-// 	printf("Unsorted:\n");
-// 	while (i < argc)
-// 	{
-// 		ft_lstadd_back(&stk_a, ft_lstnew(atoi( argv[i])));
-// 		i++;
-// 	}
-// 	printf("Sorted:\n");
-// 	stk_is_3(stk_a, op_count);
-// 	while (stk_a)
-// 	{
-// 		printf("%lu\n", stk_a->content);
-// 		stk_a = stk_a->next;
-// 	}
-// 	return (0);
-// }

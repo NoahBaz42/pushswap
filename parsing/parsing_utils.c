@@ -6,13 +6,11 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:45:15 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/14 06:07:58 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/08/14 10:18:49 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-//----------[counts args, without spaces]---------------------------------//
 
 size_t	count_args(const char *arg)
 {
@@ -32,10 +30,6 @@ size_t	count_args(const char *arg)
 	return (words);
 }
 
-//----------[with count_args, checks all of the array]-----------------//
-/*[------------------!!!NEEDS REVISION!!!!------------------------- ]*/
-/*[ ps: DOES NOT give a valid error: must free BEFORE exiting.. ]*/
-
 size_t	count_new_args(char **argv, size_t i)
 {
 	size_t	count;
@@ -48,10 +42,6 @@ size_t	count_new_args(char **argv, size_t i)
 	}
 	return (count);
 }
-/*[------------------!!!NEEDS REVISION!!!!------------------------- ]*/
-/*[ ps: DOES NOT give a valid error: must free BEFORE exiting.. ]*/
-
-//----------[+ or -]-----------------//
 
 int	ft_isoperator(char c)
 {
@@ -60,16 +50,12 @@ int	ft_isoperator(char c)
 	return (0);
 }
 
-//-----[white space checker]---------//
-
 int	ft_isspace(char c)
 {
 	if (c == ' ' || (c >= 9 && c <= 13))
 		return (1);
 	return (0);
 }
-
-//------[ascii to long int]----------//
 
 long	ft_atol(char *array)
 {

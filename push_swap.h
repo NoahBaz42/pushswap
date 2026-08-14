@@ -6,7 +6,7 @@
 /*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 18:57:38 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/14 06:38:17 by nbaz-sil         ###   ########.fr       */
+/*   Updated: 2026/08/14 10:27:11 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ size_t	count_new_args(char **argv, size_t i);
 //--------------------------//
 //-----------stack_a--------//
 //--------------------------//
+
 t_node	*array_to_stk(char **array, size_t count);
 bool	dup_check(t_node *stack_a);
 
@@ -174,12 +175,6 @@ void	radix_sort(t_stack *a, t_stack *b, t_op_count *op_count);
 void	ft_simple(t_stack *a, t_stack *b, t_op_count *op_count);
 
 //--------------------------//
-//--------optimization--------//
-//--------------------------//
-
-bool	optimize(t_stack *stk_a, t_stack *stk_b, t_op_count *op_count);
-
-//--------------------------//
 //-----------Utils----------//
 //--------------------------//
 int		stk_is_sorted(t_node *stack);
@@ -203,11 +198,6 @@ void	ft_print_lst(t_node *top);
 /*----------push_swap----------*/
 
 void	push_swap(char **argv);
-
-// free
-void	free_op_count(t_op_count *op_count);
-
-void	checker(char **argv);
 
 int		ft_abs(ssize_t num);
 

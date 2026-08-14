@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   flag_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/30 19:44:11 by noah-baz          #+#    #+#             */
-/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
+/*   Created: 2026/06/30 19:44:11 by nbaz-sil          #+#    #+#             */
+/*   Updated: 2026/08/14 10:49:42 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-//----------[counts how many flags are active]----------------------------//
 
 int	count_flags(t_flags *flags)
 {
@@ -25,9 +23,6 @@ int	count_flags(t_flags *flags)
 		count++;
 	return (count);
 }
-
-//----------[based on count_flags, checks for valid flags]-------------//
-//----------[true if valid flags, false otherwise]------------------------//
 
 static bool	right_flags(t_flags *flags, char **argv)
 {
@@ -49,10 +44,6 @@ static bool	right_flags(t_flags *flags, char **argv)
 	}
 	return (false);
 }
-
-//----------[checks 1st arg for bench or difficulty]-------------------------//
-//----------(flag_bench already checks both arg[1] and arg[2])---------------//
-//----------(right_flags checks for unvalid flags in 1st 2 args)-------------//
 
 void	flag_check(t_flags *flags, char **argv)
 {

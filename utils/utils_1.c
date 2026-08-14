@@ -3,23 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nbaz-sil <nbaz-sil@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/12 21:42:04 by username         ##+#    #+#             */
-/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bpassos <bpassos@student.42.lisbon>            +#+  +:+
-+#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/06 04:50:30 by charlie           #+#    #+#             */
-/*   Updated: 2026/07/06 04:50:30 by charlie          ###   ########.fr       */
+/*   Created: 2026/08/14 10:21:54 by nbaz-sil          #+#    #+#             */
+/*   Updated: 2026/08/14 10:22:10 by nbaz-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,37 +76,3 @@ int	ft_abs(ssize_t num)
 		return (num * -1);
 	return (num);
 }
-
-// int	main(int argc,char **argv)
-// {
-// 	t_node	*top;
-
-// 	int	i;
-
-// 	i = 1;
-// 	top = NULL;
-// 	if (argc < 2)
-// 		return (printf("incorrect # of arguments\n"), 1);
-// 	printf("Unsorted:\n");
-// 	while (i < argc)
-// 	{
-// 		ft_lstadd_back(&top, ft_lstnew(atoi( argv[i])));
-// 		i++;
-// 	}
-// 	printf("Disorder:\n");
-// 	printf("%f\n", disorder(top));
-
-// }
-
-// int main (int argc, char **argv)
-// {
-// 	int	nb;
-// 	int sqr;
-
-// 	if (argc != 2)
-// 		return(printf("incorrect # of arguments"), 1);
-// 	nb = ft_atoi(argv[1]);
-// 	sqr = ft_sqr(nb);
-// 	printf("Number: %d, SQR: %d\n", nb, sqr);
-// 	return (0);
-// }
