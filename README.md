@@ -23,6 +23,42 @@ make
 ./push_swap 42 67 69 420 911 123 321
 ```
 
+>## Operations
+
+### Swap elements
+
+- **sa** (swap a): Swaps the first 2 elements at the top of stack a.
+				Do nothing if there is only one or no elements in stack a.
+- **sb** (swap b): Swaps the first 2 elements at the top of stack b.
+				Do nothing if there is only one or no elements in stack b.
+- **ss**: Executes **sa** and **sb** at the same time.
+
+### Push elements
+
+- **pa** (push a): Takes the fist element of stack b and inserts it at the top of stack a.
+				Do nothing if there are no elements in stack b.
+- **pb** (push b): Takes the fist element of stack b and inserts it at the top of stack a.
+				Do nothing if there are no elements in stack b.
+
+### Rotate elements
+
+- **ra** (rotate a): Shifts all elements of stack a up by one.
+				The first element becomes the last one.
+
+- **rb** (rotate b): Shifts all elements of stack b up by one.
+				The first element becomes the last one.
+- **rr**: Executes **ra** and **rb** at the same time.
+
+### reverse rotate elements
+
+- **rra** (rotate a): Shifts all elements of stack a down by one.
+				The last element becomes the first one.
+
+- **rrb** (rotate b): Shifts all elements of stack b down by one.
+				The last element becomes the first one.
+
+- **rrr**: Executes **rra** and **rrb** at the same time.
+
 >## Flags
 
 ### --simple
@@ -60,6 +96,14 @@ example:
 ### --adaptive
 
 The adaptive strategy selects different internal methods depending on the measured disorder.
+
+**Low disorder**: if disorder is < 0.2, adaptive will chose 0(n2) complexity algorithm.
+
+**medium disorder**: if 0.2 <= disorder > 0.5, adaptive will chose O(n√n) complexity algorithm.
+
+**High disorder**: if disorder is >= 0.5, adaptive will chose O(n log n) complexity algorithm.
+
+>**Note**: If the input size is 3 or 5 elements another algorithm will be used for the sorting instead. This is done to save operations count under low inputs.
 
 example:
 
@@ -120,9 +164,11 @@ This is simple to implement and works well when the input is small, but it becom
 
 ## Medium algorithm O(n√n)
 
-The Medium algorithm uses a `chunk-based sorting` mechanism, where the stack is divided into chunks, and elements are moved to the second stack chunk by chunk. Each size of the chunk is dependent of the number of elements that were selected, in which, size = √n (where n equals to the number of elements selected). Aditionally, the program will assign a moving cost value (How costly in terms of number of operations it is to move an element to stack b) to each element of the current chunk. Then it find and move the lowest value of chunk to stack b. 
+The Medium algorithm uses a `chunk-based sorting` mechanism, where the stack is divided into chunks, and elements are moved to the second stack chunk by chunk. Each size of the chunk is dependent of the number of elements that were selected, in which, size = √n (where n equals to the number of elements selected). Additionally, the program will assign a moving cost value (How costly in terms of number of operations it is to move an element to stack b) to each element of the current chunk. Then it finds and moves the lowest value of chunk to stack b. 
 
-After executing the operations required to move the cheapest value, it will recalculate the cost value for the rest of the remaing elements of the chunk. Once there are no longer elements left in the chunk the algoritm will move to the next lowest index chunk
+After executing the operations required to move the cheapest value, it will recalculate the cost value for the rest of the remaing elements of the chunk. Once there are no longer elements left in the chunk the algoritm will move to the next lowest index chunk.
+
+After executing all operations to move all chunks to stack a, the algorithm will then sort by finding the maximum value in stack b and executing the optimal rotations needed to push it back to stack a.
 
 This reduces the number of operations compared to a pure selection approach, while staying simpler than a full radix-based solution.
 
