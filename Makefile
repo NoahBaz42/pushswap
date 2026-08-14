@@ -19,9 +19,9 @@ LIBS += -L$(PRINTF_DIR) -lftprintf
 #	- revisit makefile rules
 #	  (recommended: see https://codeberg.org/maloryware/push_swap/src/branch/main/Makefile)
 
-MIN = 0
-MAX = 999
-COUNT = 10
+MIN = 1
+MAX = 500
+COUNT = 100
 DEFAULT_ARGS = $(shell shuf -i $(MIN)-$(MAX) -n $(COUNT))
 DEFAULT_FLAGS =
 
@@ -52,7 +52,7 @@ SRCS =	operations_push.c \
 		push_swap.c \
 		free_parsing.c \
 
-vpath %.c push_swap_algorithms push_swap_op utils flags parsing bonus
+vpath %.c push_swap_alg push_swap_op utils flags parsing bonus
 
 OBJS_DIR = objs/
 OBJ = $(SRCS:.c=.o)
@@ -83,7 +83,7 @@ run: $(NAME)
 ifeq ($(USER), charlie)
 check: $(NAME)
 	$(eval ARG := $(ARGS))
-	./$(NAME) $(ARG)
+	./$(NAME) $(FLAGS) $(ARG)
 	@./ps_checker.sh $(ARG)
 else
 check: $(NAME)
