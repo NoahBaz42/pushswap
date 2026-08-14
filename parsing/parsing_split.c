@@ -6,14 +6,14 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 08:21:47 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/09 08:10:21 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "../push_swap.h"
 
 /*------------------------------------*/
-/*----split adapted for pushswap------*/
+/*----split adapted for push_swap------*/
 /*------------------------------------*/
 
 size_t	ft_split_arg(char **array, char *arg, size_t size)

@@ -6,12 +6,12 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/01 21:09:30 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/14 00:12:52 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_pushswap/libft.h"
-#include "pushswap.h"
+#include "libft_push_swap/libft.h"
+#include "push_swap.h"
 
 static int	ft_get_min(t_node *a)
 {

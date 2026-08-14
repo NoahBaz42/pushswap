@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   medium_alg.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noah-baz <noah-baz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 08:24:42 by username         ##+#    #+#             */
-/*   Updated: 2026/08/12 23:09:10 by noah-baz         ###   ########.fr       */
+/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "../push_swap.h"
 
 static void	set_stack_costs(t_stack *a)
 {

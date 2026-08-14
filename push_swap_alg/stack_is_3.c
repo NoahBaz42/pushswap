@@ -6,11 +6,11 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 02:29:57 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/11 06:07:13 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "../push_swap.h"
 #include <strings.h>
 
 t_node	*ft_find_max(t_node *a)

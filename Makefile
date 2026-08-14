@@ -5,7 +5,7 @@ CC = cc -g
 CFLAGS = -Wall -Wextra -Werror -I. -Ichecker
 CDEPS =  -MMD -MP
 
-LIBFT_DIR = libft_pushswap
+LIBFT_DIR = libft_push_swap
 LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF_DIR = ft_printf
 PRINTF = $(PRINTF_DIR)/libftprintf.a
@@ -17,11 +17,11 @@ LIBS += -L$(PRINTF_DIR) -lftprintf
 #	- go over naming conventions
 # 	- restructure directories
 #	- revisit makefile rules
-#	  (recommended: see https://codeberg.org/maloryware/pushswap/src/branch/main/Makefile)
+#	  (recommended: see https://codeberg.org/maloryware/push_swap/src/branch/main/Makefile)
 
 MIN = 0
 MAX = 999
-COUNT = 20
+COUNT = 10
 DEFAULT_ARGS = $(shell shuf -i $(MIN)-$(MAX) -n $(COUNT))
 DEFAULT_FLAGS =
 
@@ -40,7 +40,7 @@ SRCS =	operations_push.c \
 		stack_is_5.c \
 		complex_alg.c \
 		medium_alg.c \
-		pushswap_exit.c \
+		push_swap_exit.c \
 		stack_a.c \
 		parsing.c \
 		parsing_split.c \
@@ -49,10 +49,10 @@ SRCS =	operations_push.c \
 		bench.c \
 		flag_check.c \
 		flag_diff.c \
-		pushswap.c \
+		push_swap.c \
 		free_parsing.c \
 
-vpath %.c pushswap_algorithms pushswap_op utils flags parsing bonus
+vpath %.c push_swap_algorithms push_swap_op utils flags parsing bonus
 
 OBJS_DIR = objs/
 OBJ = $(SRCS:.c=.o)
@@ -92,7 +92,7 @@ check: $(NAME)
 endif
 
 gdb: $(NAME)
-	@gdb --tui --args ./$(NAME) --debug $(FLAGS) $(ARGS)
+	@gdb --tui --args ./$(NAME) $(FLAGS) $(ARGS)
 
 valgrind vg: $(NAME)
 	valgrind ./$(NAME) $(FLAGS) $(ARGS)

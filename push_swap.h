@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   push_swap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,7 +14,7 @@
 # define PUSHSWAP_H
 
 # include "ft_printf/ft_printf.h"
-# include "libft_pushswap/libft.h"
+# include "libft_push_swap/libft.h"
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -201,9 +201,9 @@ int		ft_isoperator(char c);
 
 void	ft_print_lst(t_node *top);
 
-/*----------pushswap----------*/
+/*----------push_swap----------*/
 
-void	pushswap(char **argv);
+void	push_swap(char **argv);
 
 // free
 void	free_op_count(t_op_count *op_count);

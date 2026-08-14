@@ -6,11 +6,11 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:00:56 by bpassos-          #+#    #+#             */
-/*   Updated: 2026/08/13 22:40:07 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "../push_swap.h"
 
 void	rrotate_stack(t_stack *stk, t_op_count *op_count, char stk_name)
 {

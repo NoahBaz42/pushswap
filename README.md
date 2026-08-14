@@ -4,7 +4,7 @@
 
 Pushswap is a program that sorts integers on a stack, with a limited set of instructions.
 
-Using the lowest possible number of actions, pushswap manipulates various types of algorithms and chooses the most appropriate solution (out of many) for
+Using the lowest possible number of actions, push_swap manipulates various types of algorithms and chooses the most appropriate solution (out of many) for
 optimized data sorting.
 
 # Instructions
@@ -20,7 +20,7 @@ make
 ### after that, you can run the program with your desired integers:
 
 ```
-./pushswap 42 67 69 420 911 123 321
+./push_swap 42 67 69 420 911 123 321
 ```
 
 >## Flags
@@ -32,7 +32,7 @@ numbers with min extraction.
 
 example:
 > ```
-> ./pushswap --simple 67 69 42 420 911 123 321
+> ./push_swap --simple 67 69 42 420 911 123 321
 > ```
 ### --medium 
 
@@ -41,7 +41,7 @@ The medium algorithm O(n√n) sorts the integers with chunk-based sorting (divid
 example:
 
 >```
->./pushswap --medium 67 69 420 911 123 321
+>./push_swap --medium 67 69 420 911 123 321
 >```
 ### ---complex 
 
@@ -50,7 +50,7 @@ The complex algorithm O(n log n) sorts the values with radix sort adaptation
 example:
 
 >```
->./pushswap --complex 67 69 420 911 42 123 321
+>./push_swap --complex 67 69 420 911 42 123 321
 >```
 
 >[!NOTE]
@@ -66,7 +66,7 @@ The adaptive strategy selects different internal methods depending on the measur
 example:
 
 >```
->./pushswap --adaptive 67 69 420 911 123 321 42
+>./push_swap --adaptive 67 69 420 911 123 321 42
 >```
 
 ### --bench
@@ -80,7 +80,7 @@ The benchmark mode will display:
 example:
 
 >```
->./pushswap --bench --adaptive 67 42 69 420 911 123 321
+>./push_swap --bench --adaptive 67 42 69 420 911 123 321
 >```
 
 # Algorithm 

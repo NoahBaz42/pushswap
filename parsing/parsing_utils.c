@@ -6,11 +6,11 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 05:45:15 by nbaz-sil          #+#    #+#             */
-/*   Updated: 2026/08/14 00:02:08 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "../push_swap.h"
 
 //----------[counts args, without spaces]---------------------------------//
 
@@ -92,7 +92,9 @@ long int	ft_atol(char *array)
 	while (array[i] >= '0' && array[i] <= '9')
 	{
 		result = (result * 10) + (array[i] - '0');
-		if (result < INT_MIN ||result > INT_MAX)
+		if ((result * sign) < INT_MIN)
+			give_error();
+		else if ((result * sign) > INT_MAX)
 			give_error();
 		i++;
 	}

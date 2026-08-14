@@ -6,11 +6,11 @@
 /*   By: charlie <charlie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/13 07:02:32 by charlie           #+#    #+#             */
-/*   Updated: 2026/08/13 20:31:26 by charlie          ###   ########.fr       */
+/*   Updated: 2026/08/14 02:02:32 by charlie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswap.h"
+#include "../push_swap.h"
 //------[Checks for the flag (--bench) on the 1st and 2nd args]-----------//
 //------[gives error if there´s more then 1 bench flag]-------------------//
 //------------(needs an error dealing revision)---------------------------//
