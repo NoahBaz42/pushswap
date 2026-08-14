@@ -2,7 +2,7 @@
 
 # Description
 
-Pushswap is a program that sorts integers on a stack, with a limited set of instructions.
+Pushswap is a program that sorts integers on a stack, with a limited set of instructions. The program uses the maximum os 2 stacks and an already defined set of operations that can be done to execute the sorting.
 
 Using the lowest possible number of actions, push_swap manipulates various types of algorithms and chooses the most appropriate solution (out of many) for
 optimized data sorting.
@@ -114,13 +114,15 @@ example:
 
 ## Simple algorithm 0(n2)
 
-For small inputs, the program uses a `selection-based` approach. It does so by repeatedly finding the minimum value, rotates the stack to bring it to the top, pushes it to the second stack, and then pushes everything back in order.
+For small inputs (n = 3 or n = 5), the program uses a `selection-based` approach. It does so by repeatedly finding the minimum value, rotates the stack to bring it to the top, pushes it to the second stack, and then pushes everything back in order.
 
 This is simple to implement and works well when the input is small, but it becomes expensive for larger stacks because it may require many rotations.
 
 ## Medium algorithm O(n√n)
 
-The Medium algorithm uses a `chunk-based sorting` mechanism, where the stack is divided into chunks, and values are moved to the second stack chunk by chunk.
+The Medium algorithm uses a `chunk-based sorting` mechanism, where the stack is divided into chunks, and elements are moved to the second stack chunk by chunk. Each size of the chunk is dependent of the number of elements that were selected, in which, size = √n (where n equals to the number of elements selected). Aditionally, the program will assign a moving cost value (How costly in terms of number of operations it is to move an element to stack b) to each element of the current chunk. Then it find and move the lowest value of chunk to stack b. 
+
+After executing the operations required to move the cheapest value, it will recalculate the cost value for the rest of the remaing elements of the chunk. Once there are no longer elements left in the chunk the algoritm will move to the next lowest index chunk
 
 This reduces the number of operations compared to a pure selection approach, while staying simpler than a full radix-based solution.
 
